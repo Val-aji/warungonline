@@ -2,6 +2,9 @@
     <div id="InsertProduk">
         <p class="judulInsert ROBOTO">Tambah Produk</p>
         <form method="POST" enctype="multipart/form-data" @submit.prevent="insertData" ref="formData" class="formInsert">
+
+            <p v-if="errorGambar" :class="{'colorSuccess': colorSuccess}" class="errorGambar HEEBO">{{errorMessage}}</p>
+            
             <div class="container-input namaProduk">
                 <label class="judulInput POPPINS" for="namaProduk">Nama Produk</label>
                 <input type="text" required autocomplete class="inputUser ROBOTO" id="namaProduk" v-model.trim="namaProduk" @input="handleNamaProduk" />
@@ -14,7 +17,7 @@
 
             <div class="container-input deskripsiProduk">
                 <label class="judulInput POPPINS" for="deskripsiProduk">Deskripsi Produk</label>
-                <textarea class="inputUser ROBOTO" required autocomplete id="deskripsiProduk" v-model="deskripsiProduk" @input="handleDeskripsiProduk" />
+                <textarea class="inputUser ROBOTO" required autocomplete id="deskripsiProduk" v-model="deskripsiProduk" @input="handleDeskripsiProduk" min="30" />
             </div>
             
             <div class="container-input diskonProduk">
@@ -35,7 +38,7 @@
 
                 <div class="container-input stokProduk">
                     <label class="judulInput POPPINS" for="stokProduk">Stok Produk</label>
-                    <input type="number" class="inputUser ROBOTO" id="stokProduk" v-model="stokProduk" required autocomplete @input="handleStokProduk" :max="100"  />
+                    <input type="number" class="inputUser ROBOTO" id="stokProduk" v-model="stokProduk" required autocomplete @input="handleStokProduk" :max="10000"  />
                 </div>
             </div>
             
@@ -60,6 +63,7 @@
 <script>
     import "./index.css"
     import { ref } from "vue"
+    
 
     export default {
         name: "InsertProduk",
@@ -71,7 +75,10 @@
                 diskonProduk: 0,
                 stokProduk: 0,
                 ukuranProduk: "",
-                totalHarga: 0
+                totalHarga: 0,
+                errorGambar: true,
+                errorMessage: "",
+                colorSuccess: false
             }
         },
         created() {
@@ -90,10 +97,22 @@
         },
         setup() {
             const allData = ref({})
+            const dataGambar = ref({
+                gambarThumbnail: null,
+                gambar: []
+            })
             function setAttribut(element, properti, value) {
                 element[properti] = value
             }
-            return {allData, setAttribut}
+
+            function setAttributGambar(properti, value) {
+                if(properti === "gambarThumbnail") {
+                    this.dataGambar[properti] = value
+                } else {
+                    this.dataGambar.gambar.push(value)
+                }
+            }
+            return {allData, setAttribut, dataGambar, setAttributGambar}
         },  
         methods: {
             cekTrue() {
@@ -146,7 +165,8 @@
             handleDiskonProduk() {
                 const {diskonProduk} = this
                 if(diskonProduk > 100) {
-                    this.diskonProduk = parseInt(this.diskonProduk.toString().substr(0, 2))
+                    this.diskonProduk = parseInt(diskonProduk.toString().substr(0, 2))
+                    
                     this.setAttribut(this.allData, "diskonProduk", false)
                 } else if(diskonProduk < 0){
                     this.diskonProduk = parseInt(diskonProduk.toString(0, 1))
@@ -169,7 +189,8 @@
                     let filterDiskon = this.allData.hargaProduk * this.allData.diskonProduk / 100
                     filterDiskon = this.allData.hargaProduk - filterDiskon
                     this.totalHarga = filterDiskon.toLocaleString("ID-id")
-                    this.setAttribut(this.allData, ["totalHarga"], this.totalHarga)
+                    const formatTotal = parseInt(this.totalHarga.replace(/[.]/g, ""))
+                    this.setAttribut(this.allData, ["totalHarga"], formatTotal)
                 }
             },
             handleUkuranProduk() {
@@ -181,24 +202,87 @@
             },
             handleStokProduk() {
                 this.setAttribut(this.allData, "stokProduk", this.stokProduk)
-            },  
-            insertData(e) {
+            },
+            async insertData(e) {
                 e.preventDefault()
+                
                 const splitNamaProduk = this.namaProduk.split(" ")
                 const filterNamaProduk = splitNamaProduk.map(value => value.substring(0, 2).toUpperCase())
-
                 const kodeProduk = filterNamaProduk.join("") + this.ukuranProduk.split(" ").join("")
-                console.log(kodeProduk)
+
                 const cek = this.cekTrue()
                 if(cek) {
-                    console.log("Insert Data Berhasil")
+                    const {namaProduk, hargaProduk, deskripsiProduk, diskonProduk, totalHarga, stokProduk} = this.allData
+                    const dataFixed = {
+                        nama_produk: namaProduk,
+                        harga_produk: hargaProduk,
+                        deskripsi_produk: deskripsiProduk,
+                        diskon_produk: diskonProduk,
+                        totalHarga_produk: totalHarga,
+                        stok_produk: stokProduk,
+                        kode_produk: kodeProduk,
+                        gambarSatu: this.dataGambar.gambar[0],
+                        gambarDua: this.dataGambar.gambar[1],
+                        gambarThumbnail: this.dataGambar.gambarThumbnail
+                    }
+                    const formData = new FormData()
+                    console.log(this.dataGambar)
+                    for(let fix in dataFixed) {
+                        const properti = fix.toString()
+                        formData.append(properti, dataFixed[fix])
+                        console.log(formData.get(properti))
+                    }
+                    console.log(dataFixed)
+                    try {
+                        const success = await fetch("http://localhost:3000/produk", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'multipart/form-data',    
+                            },
+                            body: JSON.stringify(dataFixed)
+                            })
+                        console.log(success)
+                        console.log("Insert Data Berhasil")
+                        alert("RegistrasiBerhasil")
+
+                    } catch (error) {
+                        console.error(error)
+                        console.log(error.errorMessage)    
+                    }
+                    
+
                 } else {
                     console.log("gagal")
+                    this.errorMessage = "Registrasi Gagal, Harap Masukkan data dengan benar"
+                    this.errorGambar = true
+                    this.colorSuccess = false
                 }
             },
-            manipulasiGambar() {
-                console.log(new FormData)
-                console.log(this.$refs.formData)
+            manipulasiGambar(e) {
+                const element = e.target.name
+                const file = e.target.files[0]
+                const allowExt = ["png", "jpg", "jpeg"]
+                const ext = file.type.split("/")[1].toLowerCase()
+
+                if(!allowExt.includes(ext)) {
+                    this.errorGambar = true
+                    this.colorSuccess = false
+                    this.errorMessage = "Gambar Tidak Ditemukan"
+                    this.setAttribut(this.allData, "gambar", false)
+                } else if(file.size > 5000000) {
+                    this.errorGambar = true
+                    this.colorSuccess = false
+                    this.errorMessage = "Ukuran gambar maximal 5mb"
+                    this.setAttribut(this.allData, "gambar", false)
+                } else {
+                    this.errorGambar = false
+                    this.setAttribut(this.allData, "gambar", true)
+                    if(element !== "gambarThumbnail") {
+                        this.setAttributGambar(element , file)
+                    } else {
+                        this.setAttributGambar(element, file)
+                    }
+                }
             }
         }
     }

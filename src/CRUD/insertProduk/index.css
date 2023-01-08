@@ -127,3 +127,23 @@
     font-size: .7em;
 }
 
+#InsertProduk > .formInsert > .errorGambar {
+    color: red !important;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+
+
+.colorSuccess {
+    color: green !important;
+}
+
+
+
+
+
+
+
+
