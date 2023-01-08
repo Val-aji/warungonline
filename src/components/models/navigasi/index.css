@@ -1,0 +1,30 @@
+
+
+.navs {
+    width: 100%;
+    bottom: 0;
+    height: 9%;
+    /* border-top: 1px solid #AAA666; */
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    z-index: 100 !important;
+    border-top: 1px solid rgba(26, 26, 26, 0.445);
+    background-color: var(--colorNavigasi);
+}
+
+.nav {
+    padding: 5px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-weight: 200;
+    color: #191919;
+}
+
+.logoNavbar {
+    margin: auto;
+}
+
+

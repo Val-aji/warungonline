@@ -1,0 +1,132 @@
+
+
+#CardsShooping {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+@keyframes scaleCard {
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.04)
+    }
+    100% {
+        transform: scale(2)
+    }
+}
+
+.judulCard {
+    margin: 15px 8px 0 8px;
+    font-size: 1em;
+}
+
+#CardsShooping > .card:hover {
+    background-color: #b7cfee !important;
+    transform: scale(1.09);
+    transition-duration: 0.78s;
+    border: none !important;
+}
+
+
+#CardsShooping > .card {
+    margin: 10px;
+    border-radius: 15px 5px 15px 5px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 2px 1px #cfcdcd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    height: 250px;
+    /* background-color: #ebd3d36b; */
+    background-color: #fdfeffe8;
+    
+}
+
+#CardsShooping > .card > .gambar {
+    height: 45%;
+    border-radius: 15px 5px 0 0;
+}
+
+#CardsShooping > .card > .centerCard {
+    height: 35%;
+    font-size: .7em;
+}
+
+#CardsShooping > .card > .centerCard > .namaCard {
+    margin: 0 4px;
+    color: #222121e1;
+    font-weight: bold;
+    font-size: 1.19em;
+    height: 40%;
+    overflow-y: auto;
+}
+
+#CardsShooping > .card > .centerCard > .deskripsiCard {
+    margin: 0 6px;
+    height: 60%;
+    font-weight: normal;
+    color: black;
+    overflow-y: auto;
+}
+
+#CardsShooping > .card > .footerCard {
+    display: flex;
+    height: 15%;
+    justify-content: space-between;
+    padding: 2px 3px 2px 7px;
+    position: relative;
+    z-index: 3;
+}
+
+#CardsShooping > .card > .footerCard > .hargaCard > .harga {
+    color: #ffd000;
+    font-style: bold;
+}
+
+#CardsShooping > .card > .footerCard > .hargaCard >  .hargaSetelahDiskon {
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    color: #ff0000 !important;
+    /* font-size: 1.08em; */
+}
+
+
+
+#CardsShooping > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
+    color: #ffe70f;
+    font-style: normal;
+    text-decoration: line-through;
+    text-decoration-color: #272729;
+    position: absolute;
+    top: -5px;
+    font-size: .9em;
+}
+
+#CardsShooping > .card > .footerCard > .tombolPesan {
+    border-radius: 5px 5px 10px 5px;
+
+    color: white;
+    font-style: bold;
+    font-size: 1.6em;
+    padding: 0 10px;
+    border: 2px solid white;
+    background-color: #5a5a5ada;
+} 
+
+#CardsShooping > .card > .footerCard > .tombolPesan:hover {
+    color: black;
+    background-color: #686868;
+} 
+
+
+
+
+
+

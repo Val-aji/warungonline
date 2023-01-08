@@ -1,0 +1,60 @@
+@keyframes showFilter {
+    0% {
+        transform: scaleY(.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+
+.alertFilter {
+    padding: 7px 7px 15px 7px;
+    width: 80%;
+    background-color: #e8effc;
+    margin: 10px auto;
+    border-radius: 4px;
+    box-shadow: 1px 1px 6px black;
+    animation: showFilter .7s;
+}
+
+.alertFilter > .judulAlertFilter {
+    font-size: .99em;
+    letter-spacing: 1px;
+    padding: 5px 4px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.alertFilter > .containerAlert {
+    padding: 20px 4px;
+    border-bottom: 2px solid #c7c7c7;
+    
+}
+
+.alertFilter > .containerAlert > .judulAlert {
+    letter-spacing: .012em;
+}
+
+
+.alertFilter > .containerAlert > .containerCheck {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+}
+
+.alertFilter > .containerAlert > .containerCheck > .userChecked {
+    text-align: center;
+    background-color: #adadad;
+    margin: 1%;
+    width: 23%;
+    padding: 6px 3px;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+

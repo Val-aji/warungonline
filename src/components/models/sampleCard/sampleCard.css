@@ -1,0 +1,143 @@
+#sampleCard {
+    width: 100%;
+    position: relative;
+    margin: 0 0 300px 0;
+}
+
+.judulSampleCard {
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 15px 7px 7px 20px;
+}
+
+
+.samplesCard {
+    padding: 4px;
+    position: absolute;
+    width: 96%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.933);
+    background-color: #fafcff;
+    right: 2%;
+    left: 2%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.samplesCard > .containerCard > .card {
+    margin: 5px;
+    border-radius: 15px 5px 15px 5px;
+    border: 1px solid white;
+    box-shadow: 1px 1px 1px 1px #eee7e7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 130px;
+    height: 250px;
+    /* background-color: #ebd3d36b; */
+    background-color: #fdfeffe8;
+    
+}
+
+.samplesCard > .containerCard > .card > .gambar {
+    height: 45%;
+    border-radius: 15px 5px 0 0;
+}
+
+.samplesCard > .containerCard > .card > .centerCard {
+    height: 35%;
+    font-size: .7em;
+}
+
+.samplesCard > .containerCard > .card > .centerCard > .namaCard {
+    margin: 0 4px;
+    color: #222121e1;
+    font-weight: bold;
+    font-size: 1.19em;
+    height: 40%;
+    overflow-y: auto;
+}
+
+.samplesCard > .containerCard > .card > .centerCard > .deskripsiCard {
+    margin: 0 6px;
+    height: 60%;
+    font-weight: normal;
+    color: black;
+    overflow-y: auto;
+}
+
+.samplesCard > .containerCard > .card > .footerCard {
+    display: flex;
+    height: 15%;
+    justify-content: space-between;
+    padding: 2px 3px 2px 7px;
+    position: relative;
+    z-index: 3;
+}
+
+.samplesCard > .containerCard > .card > .footerCard > .hargaCard > .harga {
+    color: #ffd000;
+    font-style: bold;
+}
+
+.hargaSetelahDiskon {
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    color: #ff0000 !important;
+    /* font-size: 1.08em; */
+}
+
+
+
+.samplesCard > .containerCard > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
+    color: #ffe817;
+    font-style: normal;
+    text-decoration: line-through;
+    text-decoration-color: #272729;
+    position: absolute;
+    font-size: .9em;
+    top: -10%;
+}
+
+.samplesCard > .containerCard > .card > .footerCard > .tombolPesan {
+    border-radius: 5px 5px 10px 5px;
+    color: white;
+    font-style: bold;
+    font-size: 1.6em;
+    padding: 0 10px;
+    border: 2px solid white;
+    background-color: #5a5a5ada;
+} 
+
+.samplesCard > .containerCard > .card > .footerCard > .tombolPesan:hover {
+    color: black;
+    background-color: #686868;
+} 
+
+
+.samplesCard > .lihatSemua > p {
+    padding: 0 25px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    display: flex;
+    font-size: .9em;
+    background-color: white;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+

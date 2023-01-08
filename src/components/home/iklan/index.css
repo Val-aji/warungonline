@@ -1,0 +1,16 @@
+
+.iklanShooping {
+    width: 100%;
+    margin: 15px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+.gambarIklanShooping {
+    border-radius: 10px;
+    width: 70%;
+    height: 100px;
+}
+
+

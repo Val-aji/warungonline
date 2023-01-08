@@ -1,0 +1,36 @@
+.KategoriHome {
+    background-color: #f1f1f1;
+    box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.933);
+    width: 90%;
+    margin: 20px auto;
+}
+
+.KategoriHome > .judulKategori {
+    margin: 0 0 10px 0;
+}   
+
+.KategoriHome > .logoKategori {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-between;
+    flex-wrap: wrap;
+}
+
+.KategoriHome > .logoKategori > .containerLogo {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 2px;
+}
+
+.KategoriHome > .logoKategori > .containerLogo > .namaLogo {
+    text-align: center;
+    font-size: .9em;
+    margin: 5px 0;
+}
+
+
+.KategoriHome > .logoKategori svg {
+    width: 100%;
+    height: 40px;
+}

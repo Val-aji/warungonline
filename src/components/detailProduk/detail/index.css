@@ -1,0 +1,107 @@
+
+
+.containerFirst {
+    padding-bottom: 10px;
+    background-color: #e7e7e7;
+    width: 100% !important;
+    position: relative;
+}
+
+
+.componentGambar {
+    width: 400% !important;
+    height: 150px;
+    display: flex;
+    overflow-x: auto;
+}
+
+.componentGambar > .containerGambarDetail  {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.componentGambar > .containerGambarDetail  > .gambarDetail {
+    width: 100%;
+    height: 100%;
+}
+
+.componentGambar > .containerGambarDetail  > .containerTitikDetail {
+    position: absolute;
+    bottom: 57%;
+    
+}
+
+.componentGambar > .containerGambarDetail  > .containerTitikDetail > .titikDetail {
+    color: #cccccc;
+    font-size: 2em;
+    opacity: .8;
+}
+
+.abuAbu {
+    color: black !important;
+}
+
+
+.describeDetail >.headerDescribe {
+    padding: 7px;
+    margin-right: 12px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.describeDetail >.headerDescribe > .namaProduk {
+    width: 70%;
+    font-size: 1.1em;
+    letter-spacing: .8px;
+}
+
+.describeDetail >.headerDescribe > .containerHargaProduk {
+    width: 30%;
+    font-size: .9em;
+    margin: 0 3px;
+    padding: 0 0px 0 0;
+}
+
+.describeDetail >.headerDescribe > .containerHargaProduk > .hargaSebelumDiskon {
+    color: #ffe70f;
+    font-weight: bold;
+    text-decoration: line-through;
+    text-decoration-color: #c5bfbf;
+    font-size: 1.152em;
+}
+
+.describeDetail >.headerDescribe > .containerHargaProduk > .hargaProduk {
+    color: #ffd000;
+    font-size: 1.1em;
+    font-style: bold;
+
+}
+
+.describeDetail >.headerDescribe > .containerHargaProduk > .hargaSetelahDiskon {
+    color: #ff0000 !important;
+}
+
+
+.describeDetail > .deskripsiProduk {
+    margin: 15px 20px 5px 10px;
+    text-align: justify;
+    letter-spacing: .8px;
+    opacity: .86;
+    font-size: .87em !important;
+}
+
+.height100 {
+    height: 100px !important;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+#RegisterClient {
+    background-color: white !important;
+    height: 100% !important;
+}
+
+
+#RegisterClient > .judulRegister {
+    font-size: 1.1em;
+    color: var(--colorTulisanSecond);
+    padding: 20px 15px;
+    letter-spacing: .5px;
+}
+
+#RegisterClient > .formRegister {
+    width: 80%;
+    margin: auto;
+}
+
+#RegisterClient > .formRegister > .container-input {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+#RegisterClient > .formRegister > .container-input > .textWarning {
+    color: red;
+    width: 100%;
+    font-size: .8em;
+    padding: 2px 5px;
+}
+
+#RegisterClient > .formRegister > .container-input >.judulInput {
+    padding: 3px;
+    color: var(--colorJudulInput);
+    letter-spacing: .3px;
+    font-size: .98em !important;
+}
+
+#RegisterClient > .formRegister > .container-input > .inputUser {
+    width: 100%;
+    font-size: 1em;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-size: .9em;
+    letter-spacing: .6px;
+    border: 2px solid black;
+}
+
+
+#RegisterClient > .formRegister > button.tombolRegister {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--colorJudulInput);
+    border: 1px solid var(--colorJudulInput);
+    color: white;
+    margin: 30px 0;
+}
+
+
+#RegisterClient > .formRegister > button.tombolRegister:hover {
+    background-color: #0f96e4;
+}
+
+
+#RegisterClient > .formRegister > .container-input > #alamat {
+    height: 10em;
+}
+
+
+.none {
+    display: none !important;
+}
+
+
+.gagalRegistrasi {
+    color: red;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
