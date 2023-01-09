@@ -63,7 +63,6 @@
 <script>
     import "./index.css"
     import { ref } from "vue"
-    
 
     export default {
         name: "InsertProduk",
@@ -186,8 +185,8 @@
                     this.totalHarga = this.hargaProduk
                     this.setAttribut(this.allData, ["totalHarga"], false)
                 } else {
-                    let filterDiskon = this.allData.hargaProduk * this.allData.diskonProduk / 100
-                    filterDiskon = this.allData.hargaProduk - filterDiskon
+                    let filterDiskon = parseInt(this.allData.hargaProduk * this.allData.diskonProduk / 100)
+                    filterDiskon = parseInt(this.allData.hargaProduk - filterDiskon)
                     this.totalHarga = filterDiskon.toLocaleString("ID-id")
                     const formatTotal = parseInt(this.totalHarga.replace(/[.]/g, ""))
                     this.setAttribut(this.allData, ["totalHarga"], formatTotal)
@@ -206,57 +205,61 @@
             async insertData(e) {
                 e.preventDefault()
                 
-                const splitNamaProduk = this.namaProduk.split(" ")
-                const filterNamaProduk = splitNamaProduk.map(value => value.substring(0, 2).toUpperCase())
-                const kodeProduk = filterNamaProduk.join("") + this.ukuranProduk.split(" ").join("")
-
-                const cek = this.cekTrue()
-                if(cek) {
-                    const {namaProduk, hargaProduk, deskripsiProduk, diskonProduk, totalHarga, stokProduk} = this.allData
-                    const dataFixed = {
-                        nama_produk: namaProduk,
-                        harga_produk: hargaProduk,
-                        deskripsi_produk: deskripsiProduk,
-                        diskon_produk: diskonProduk,
-                        totalHarga_produk: totalHarga,
-                        stok_produk: stokProduk,
-                        kode_produk: kodeProduk,
-                        gambarSatu: this.dataGambar.gambar[0],
-                        gambarDua: this.dataGambar.gambar[1],
-                        gambarThumbnail: this.dataGambar.gambarThumbnail
-                    }
-                    const formData = new FormData()
-                    console.log(this.dataGambar)
-                    for(let fix in dataFixed) {
-                        const properti = fix.toString()
-                        formData.append(properti, dataFixed[fix])
-                        console.log(formData.get(properti))
-                    }
-                    console.log(dataFixed)
+                if(this.cekTrue()) {
                     try {
+                        const {allData} = this
+
+                        //validasi nama produk
+                        const namaProduk = this.namaProduk + " " + allData.ukuranProduk 
+
+                        // validasi kode Produk
+                        const prevKodeProduk = this.namaProduk.split(" ").map(value => value.substr(0, 2).toUpperCase())
+                        const kodeProduk = prevKodeProduk.join("") + this.ukuranProduk.replace(/[\s]/g, "")
+
+                        // mengambil data inputan user yang sudah di handle
+                        const {hargaProduk, deskripsiProduk, diskonProduk, totalHarga, stokProduk} = this.allData
+                        const dataFixed = {
+                            nama_produk: namaProduk,
+                            harga_produk: hargaProduk,
+                            deskripsi_produk: deskripsiProduk,
+                            diskon_produk: diskonProduk,
+                            totalHarga_produk: totalHarga,
+                            stok_produk: stokProduk,
+                            kode_produk: kodeProduk,
+                            gambarSatu: this.dataGambar.gambar[0],
+                            gambarDua: this.dataGambar.gambar[1],
+                            gambarThumbnail: this.dataGambar.gambarThumbnail,
+                        }
+                    
+                        // memasukkan ke FormData
+                        const formData = new FormData(this.$refs.formData)
+                        for(let keys in dataFixed) {
+                            const key = keys.toString()
+                            console.log(key)
+                            formData.append(key, dataFixed[keys])
+                            console.log(formData.get(key))
+                        }
+
+                        //hit API post
                         const success = await fetch("http://localhost:3000/produk", {
                             method: 'POST',
                             headers: {
-                                'Content-Type': 'multipart/form-data',    
+                                'Content-Type': 'multipart/form-data',
+                                'Accept': 'application/json'    
                             },
-                            body: JSON.stringify(dataFixed)
-                            })
+                            body: formData
+                        })
                         console.log(success)
-                        console.log("Insert Data Berhasil")
-                        alert("RegistrasiBerhasil")
-
+                        alert("Menambahkan Data berhasil")
                     } catch (error) {
-                        console.error(error)
-                        console.log(error.errorMessage)    
-                    }
-                    
+                        console.log("gagal")
 
-                } else {
-                    console.log("gagal")
-                    this.errorMessage = "Registrasi Gagal, Harap Masukkan data dengan benar"
-                    this.errorGambar = true
-                    this.colorSuccess = false
+                        this.errorMessage = "Registrasi Gagal, Harap Masukkan data dengan benar"
+                        this.errorGambar = true
+                        this.colorSuccess = false
+                    }
                 }
+                
             },
             manipulasiGambar(e) {
                 const element = e.target.name
