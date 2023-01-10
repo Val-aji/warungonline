@@ -63,6 +63,7 @@
 <script>
     import "./index.css"
     import { ref } from "vue"
+    import axios from "axios"
 
     export default {
         name: "InsertProduk",
@@ -230,30 +231,26 @@
                             gambarDua: this.dataGambar.gambar[1],
                             gambarThumbnail: this.dataGambar.gambarThumbnail,
                         }
-                    
+                        
                         // memasukkan ke FormData
                         const formData = new FormData(this.$refs.formData)
                         for(let keys in dataFixed) {
                             const key = keys.toString()
-                            console.log(key)
                             formData.append(key, dataFixed[keys])
-                            console.log(formData.get(key))
                         }
-
                         //hit API post
-                        const success = await fetch("http://localhost:3000/produk", {
-                            method: 'POST',
+                        
+                        const success = await axios.post("http://localhost:3000/produk", formData, {
                             headers: {
-                                'Content-Type': 'multipart/form-data',
-                                'Accept': 'application/json'    
+                                "Content-type": "multipart/form-data"
                             },
-                            body: formData
-                        })
-                        console.log(success)
-                        alert("Menambahkan Data berhasil")
+                        });
+                        console.log(success.data)
+
+
                     } catch (error) {
                         console.log("gagal")
-
+                        console.log(error)
                         this.errorMessage = "Registrasi Gagal, Harap Masukkan data dengan benar"
                         this.errorGambar = true
                         this.colorSuccess = false
@@ -280,11 +277,8 @@
                 } else {
                     this.errorGambar = false
                     this.setAttribut(this.allData, "gambar", true)
-                    if(element !== "gambarThumbnail") {
-                        this.setAttributGambar(element , file)
-                    } else {
-                        this.setAttributGambar(element, file)
-                    }
+                    this.setAttributGambar(element, file)
+                    
                 }
             }
         }
