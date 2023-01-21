@@ -4,17 +4,18 @@
         <div class="samplesCard ">
             <div class="containerCard" v-for="product in products" :key="product.id">
                 <div class="card" >
-                    <img :src="product.gambar_produk[0]" class="gambar" alt="Rinso Cair" />
+                    <img :src="product.gambar_produk.thumbnail" class="gambar" alt="Rinso Cair" />
 
                     <div class="centerCard">
-                        <p class="namaCard"> {{product.nama_produk}} </p>
+                        <p class="namaCard HEEBO"> {{product.nama_produk}} </p>
                         <p class="deskripsiCard HIND"> {{product.deskripsi_produk}} </p>
                     </div>
 
                     <div class="footerCard">
                         <div class="hargaCard">
-                            <p class="hargaSebelumDiskon" v-if="(product.diskon > 0)" >Rp{{( product.harga_produk)}} </p>
-                            <p class="harga" :class="{hargaSetelahDiskon: product.diskon > 0}">Rp10000</p>
+                            <p class="hargaSebelumDiskon POPPINS" v-if="(product.diskon_produk > 0)" >Rp{{( product.harga_produk.toLocaleString("ID-id"))}} </p>
+
+                            <p class="harga POPPINS" :class="{hargaSetelahDiskon: product.diskon_produk > 0}">Rp{{product.totalHarga_produk.toLocaleString("ID-id")}}</p>
                             
                         </div>
                         <button class="tombolPesan">
@@ -38,12 +39,12 @@
 <script>
     import "./sampleCard.css"
     import {products} from "../../../data.js"
+
     export default {
         name: "SampleCard",
         data() {
             return {
-                array: [1,2,3,4,5,6],
-                gambar: 'https://picsum.photos/id/1005/600/200'
+                products
             }
         },
         methods: {
@@ -51,7 +52,7 @@
                 console.log("redirect")
             }
         },
-        beforeCreate() {
+        beforeMount() {
             this.products = products.slice(0, 10)
         },
         props: {

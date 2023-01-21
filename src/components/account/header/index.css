@@ -1,0 +1,39 @@
+.componentHeader {
+    /* background-color: rgba(255, 0, 0, .9); */
+    background-color: var(--colorTulisanSecond);
+}
+
+.componentHeader > .container {
+    display: flex;
+    padding-bottom: 3vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.componentHeader > .container > img {
+    width: 50%;
+    margin-top: 70px;
+    height: 20vh;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+
+.componentHeader > .container > .namaLengkap {
+    letter-spacing: 1.2px;
+    color: white;
+}
+
+@media screen and (max-width: 250px) {
+    .componentHeader > .container > img {
+        width: 60%;
+        height: 15vh;
+    }
+    .componentHeader > .container > .namaLengkap {
+        font-size: .87em;
+        letter-spacing: 1.4px;
+    }
+    .componentHeader > .container {
+        padding: 10px;
+    }
+}
+

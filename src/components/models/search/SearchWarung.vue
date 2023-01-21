@@ -8,9 +8,10 @@
         
         <div id="search">
             <input type="text"
-             v-model="inputSearch" placeholder="cari kebutuhanmu disini..." 
+             v-model="inputSearch" :placeholder= placeHolder 
              class="inputSearch">
             <button 
+                v-if="!tombolClose"
                 v-html="SEARCH" 
                 class="logoSearch">
             </button>
@@ -38,6 +39,7 @@
     data() {
         return {
             inputSearch: "",
+            placeHolder: "",
             SEARCH,
             FILTER,
             alertFilter: false,
@@ -47,8 +49,16 @@
     },
     props: {
         tombolFilter: Boolean,
-        tombolClose: Boolean
+        tombolClose: Boolean,
+        textPlaceHolder: String,
     },
+    mounted() {
+        if(!this.textPlaceHolder) {
+            this.placeHolder = "cari kebutuhanmu disini..."
+        } else {
+            this.placeHolder = this.textPlaceHolder
+        }
+    },  
     components: { AlertFilter },
     methods: {
         onAlertFilter() {

@@ -5,7 +5,7 @@
     margin: 20px auto;
 }
 
-.KategoriHome > .judulKategori {
+.KategoriHome > .judulKategori {    
     margin: 0 0 10px 0;
 }   
 
@@ -33,4 +33,17 @@
 .KategoriHome > .logoKategori svg {
     width: 100%;
     height: 40px;
+}
+
+
+@media screen and (max-width: 250px) {
+    .KategoriHome > .logoKategori > .containerLogo {
+        width: 40% !important;
+    }
+    .KategoriHome > .logoKategori > .containerLogo > svg{
+        width: 80% !important;
+    }
+    .KategoriHome > .logoKategori > .containerLogo > .namaLogo {
+        display: none !important;
+    }
 }

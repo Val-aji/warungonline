@@ -1,0 +1,11 @@
+#CONTAINER-COMPONENT > .containerSearch {
+    display: flex !important;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#CONTAINER-COMPONENT > .containerSearch > .tombolClose {
+    background-color: var(--colorNavigasi);
+    border: none;
+    padding-right: 1vh;
+}

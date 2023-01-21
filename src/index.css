@@ -1,8 +1,10 @@
 :root {
     --colorTulisanSecond: #353535;
     --colorJudulInput: #227cb8;
-    --colorBody: #f6f6f6;
+    --colorBody: #f4f4f4;
     --colorNavigasi: #f8f8f8 !important;
+    --hargaSebelumDiskon: rgb(236, 240, 14) !important;
+    --hargaSetelahDiskon: #ff0000 !important;
 }
 
 
@@ -13,7 +15,7 @@
     #CONTAINER-COMPONENT {
         width: 576px !important;
         margin: 0 auto;
-        background-color: var(--colorBody);        
+        background-color: var(--colorBody);       
     }
     .navs, #CardsShooping, div.containerSearch, .containerFirst , .componentFooter {
         width: 576px !important;
@@ -35,8 +37,6 @@ font-family: 'Roboto Slab', serif; */
 
 .POPPINS {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.1em !important;
-    letter-spacing: -.7px;
 }
 
 .HIND {
@@ -73,7 +73,7 @@ button {
     cursor: pointer;
 }
 
-#HomeWarung, #ShoopingWarung, #CartWarung, #AccountWarung, #DetailProduk {
+#HomeWarung, #ShoopingWarung, #CartWarung, #DetailProduk, #CheckoutWarung, #TransactionWarung, #InsertProduk{
     overflow-y: auto !important;
     width: 100%;
     padding-top: 90px;
@@ -88,6 +88,7 @@ button {
     background-color: var(--colorNavigasi) !important;
     width: 100% !important;
     z-index: 99;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
 

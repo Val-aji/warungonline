@@ -3,7 +3,7 @@
 #CardsShooping {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
 }
 
@@ -41,7 +41,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    height: 250px;
+    height: 280px;
     /* background-color: #ebd3d36b; */
     background-color: #fdfeffe8;
     
@@ -58,19 +58,20 @@
 }
 
 #CardsShooping > .card > .centerCard > .namaCard {
-    margin: 0 4px;
-    color: #222121e1;
+    margin: 0 4px 5px 2px;
     font-weight: bold;
-    font-size: 1.19em;
+    letter-spacing: .6px;
+    font-size: 1.03em;
     height: 40%;
+    text-align: left;
     overflow-y: auto;
 }
 
 #CardsShooping > .card > .centerCard > .deskripsiCard {
-    margin: 0 6px;
+    margin: 3px 6px 0 3px;
     height: 60%;
-    font-weight: normal;
-    color: black;
+    letter-spacing: .1px;
+    opacity: .7;
     overflow-y: auto;
 }
 
@@ -84,29 +85,30 @@
 }
 
 #CardsShooping > .card > .footerCard > .hargaCard > .harga {
-    color: #ffd000;
-    font-style: bold;
+    color: var(--hargaSebelumDiskon);
+    font-weight: bold;
+    letter-spacing: .5px
 }
 
 #CardsShooping > .card > .footerCard > .hargaCard >  .hargaSetelahDiskon {
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    left: 7px;
-    color: #ff0000 !important;
+    margin-top: 13%;
+    font-size: .9em;
+    color: var(--hargaSetelahDiskon);
     /* font-size: 1.08em; */
 }
 
 
 
 #CardsShooping > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
-    color: #ffe70f;
+
+    color: var(--hargaSebelumDiskon);
     font-style: normal;
     text-decoration: line-through;
-    text-decoration-color: #272729;
+    text-decoration-color: rgba(0, 0, 0, .2);
     position: absolute;
-    top: -5px;
-    font-size: .9em;
+    top: -10%;
+    font-size: 1.04em;
 }
 
 #CardsShooping > .card > .footerCard > .tombolPesan {
@@ -122,6 +124,7 @@
 
 #CardsShooping > .card > .footerCard > .tombolPesan:hover {
     color: black;
+    border-color: black;
     background-color: #686868;
 } 
 
@@ -130,3 +133,87 @@
 
 
 
+
+@media screen and (max-width: 230px){
+    
+    #CardsShooping > .card {
+        width: 90% !important;
+        margin: 20px 0;
+    }
+    
+    #CardsShooping > .card > .centerCard > .namaCard {
+        font-size: .9em !important;
+    }
+    #CardsShooping > .card:hover {
+        transform: scale(1.09);
+    }
+    #CardsShooping > .card > .footerCard > .tombolPesan {
+        background-color: rgba(0, 0, 0, 1) !important;
+    }
+
+}
+
+
+/* 300 px */
+
+
+
+
+@media screen and (max-width: 330px){
+    #CardsShooping > .card > .centerCard > .namaCard {
+        font-size: .8em;
+    }
+    #CardsShooping > .card > .footerCard {
+        display: inline-block;
+        height: 15%;
+        justify-content: space-between;
+        padding: 0;
+        position: relative;
+        z-index: 3;
+    }
+    
+    #CardsShooping > .card > .footerCard > .hargaCard >  .hargaSetelahDiskon {
+        margin-top: 10%;
+        font-size: .7em;
+    }
+    
+    
+    
+    #CardsShooping > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
+        top: -8%;
+        font-size: .8em;
+    }
+    
+    #CardsShooping > .card {
+        height:  300px !important;
+        border-radius: 15px 5px 0 5px;
+        margin-bottom: 18px !important;
+        /* border-radius: 15px 5px 15px 5px; */
+    
+    
+    }
+
+    #CardsShooping > .card > .footerCard > .tombolPesan:hover {
+        border: none;
+        border-radius: 2px;
+        font-size: 1.2em;
+        background-color: inherit;
+        color: white;
+        background-color: black; 
+        width: 100%;
+        /* background-color: black; */
+        padding: 0;
+        /* border-radius: 5px 5px 10px 5px; */
+    }
+    #CardsShooping > .card > .footerCard > .tombolPesan {
+        border: none;
+        border-radius: 2px;
+        font-size: 1.2em;
+        background-color: inherit;
+        color: white;
+        background-color: rgba(0, 0, 0, .7); 
+        width: 100%;
+        padding: 0;
+          
+    }   
+}

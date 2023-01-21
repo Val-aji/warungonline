@@ -1,0 +1,65 @@
+.componentFooter {
+    box-shadow: -2px -1px 10px  black;
+    border-bottom: 1px solid #868686;
+    background-color: #838383;
+    /* background-color: var(--colorNavigasi); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 20px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 95%;
+    z-index: 9999;
+}
+
+@media screen and (max-width: 250px){
+    .hargaProdukFooter {
+        font-size: .9em !important;
+    }
+    
+    .componentFooter {
+        overflow: auto !important;
+    }
+}
+
+.hargaProdukFooter {
+    /* color: var(--hargaSetelahDiskon); */
+    color: rgba(0, 0, 0, 1);
+    /* color: rgba(255, 255, 255, 1); */
+    font-weight: bold;
+    letter-spacing: .3px;
+    font-size: 1.06em;
+}
+
+.componentFooter > .containerButton {
+    display: flex;
+    height: 100%;
+}
+.componentFooter > .containerButton > .tombolPesan {
+    font-size: .8em !important;
+    padding: 1px 12px;
+    color: white;
+    border-color: rgba(0, 0, 0, .3);
+    background-color: var(--hargaSetelahDiskon);
+    box-shadow: -1px 1px 3px rgba(0, 0, 0, .3);
+    width: 100%;
+}
+
+.componentFooter > .containerButton > .tombolTambah {
+    color: white;
+    font-style: bold;
+    font-size: 1.1em;
+    padding: 0 13px;
+    border: none;
+    width: 30%;
+    background-color: #3d3d3d;
+}
+
+
+.top86 {
+    top: 86% !important;
+    bottom: 8% !important;
+}

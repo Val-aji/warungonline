@@ -1,0 +1,169 @@
+.cardList > .cards  {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cardList > .cards > .card {
+    padding: 9px 20px;
+    border-bottom: 1px solid rgba(0 ,0 ,0, .2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardList > .cards > .card > .gambarAndCounter {
+    width: 30%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* GAMBAR DAN COUNTER */
+.cardList > .cards > .card > .gambarAndCounter > .counter {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.cardList > .cards > .card > .gambarAndCounter > .counter > .jumlah {
+    width: 40%;
+    text-align: center;
+    /* background-color: red; */
+}
+
+.cardList > .cards > .card > .gambarAndCounter > .counter > .aritmatika {
+    width: 30%;
+    text-align: center;
+    padding: 2px 0;
+    outline: none;
+    border-color: rgba(0 ,0 ,0, .3);
+    background-color: rgba(0, 0, 0, .9);
+    color: white;
+}
+
+.cardList > .cards > .card > .gambarAndCounter > img {
+    width: 100%;
+    height: 9vh;
+} 
+
+
+
+
+/* NAMA, HARGA DAN PESAN_USER */
+.cardList > .cards > .card > .detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    /* background-color: rebeccapurple; */
+    margin: 0 10px;
+}
+
+
+.cardList > .cards > .card > .detail > .namaProduk {
+    font-weight: bold;
+    letter-spacing: .4px;
+    font-size: .8em;
+    height: 5vh;
+    overflow: auto;
+    text-align: left;
+}
+
+.cardList > .cards > .card > .detail > .hargaProduk {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    overflow: auto;
+}
+
+
+.cardList > .cards > .card > .detail > .hargaProduk > .hargaSebelumDiskon {
+    color: var(--hargaSebelumDiskon);
+    text-decoration: line-through;
+    text-decoration-color: rgba(39, 39, 41, .2);
+    font-size: 1em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.cardList > .cards > .card > .detail > .hargaProduk > .subtotal {
+    font-size: 1.03em !important;    
+    font-weight: bold;
+    letter-spacing: .5px;
+    color: var(--hargaSebelumDiskon);
+}
+
+.hargaDiskon {
+    text-align: end;
+    color: var(--hargaSetelahDiskon) !important;
+}
+
+.cardList > .cards > .card > .detail > .deskripsiProduk {
+    height: 70px;
+    padding: 5px;
+    font-size: .7em;
+
+}
+
+
+.cardList > .cards > .card > .ceklis {
+    display: flex;
+    align-items: center !important;
+    height: 100%;
+    padding-top: 12px;
+    /* background-color: rebeccapurple; */
+}
+
+.cardList > .cards > .card > .ceklis > button {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 280px) {
+    .cardList > .cards > .card {
+        flex-direction: column;
+    }
+    .cardList > .cards > .card > .gambarAndCounter {
+        flex-direction: row;
+        width: 100% !important;
+        justify-content: space-between;
+        align-items: center;
+    }    
+    .cardList > .cards > .card > .gambarAndCounter > img {
+        width: 60%;
+        height: 7vh;
+        border-radius: 5px;
+    }
+    
+    .cardList > .cards > .card > .gambarAndCounter > .counter {
+        /* flex-direction: column; */
+        width: 35% !important;
+    }
+    
+    .cardList > .cards > .card > .detail {
+        width: 95% !important;
+    }
+    .cardList > .cards > .card > .ceklis >  input {
+        display: none !important;
+    }
+    .cardList > .cards > .card > .ceklis > button {
+        width: 95%;
+        padding: .5vh;
+        text-align: center;
+        margin: auto;
+        display: block !important;
+        background-color: #4993FF;
+        border: none;
+        letter-spacing: .6px;
+        color: rgba(255, 255, 255, .9);
+        border-radius: 4px;
+    }
+}

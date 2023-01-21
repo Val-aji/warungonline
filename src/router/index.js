@@ -35,6 +35,11 @@ const router = createRouter({
         component: () => import("../components/account/AccountWarung.vue")
     },
     {
+      path: '/Checkout',
+      name: 'CheckOut',
+      component: () => import("../components/checkout/CheckOut.vue")
+    },
+    {
         path: "/InsertProduk",
         name: "Insert Produk",
         component: () => import("../CRUD/insertProduk/InsertProduk.vue")

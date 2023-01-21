@@ -1,0 +1,69 @@
+
+.alamatCheckout > .judul {
+    padding: 0 3vh;
+    letter-spacing: .2px;
+    
+}
+
+.alamatCheckout > form {
+    margin: 2vh 0;
+    width: 100%;
+}
+
+.alamatCheckout > form > .container {
+    width: 85%;
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.alamatCheckout > form > .container > .judul {
+    font-size: 1em;
+    margin-bottom: 1vh;
+    padding: 0 .4vh;
+    font-weight: bold;
+    letter-spacing: .7px;
+}
+
+.alamatCheckout > form > .container > input {
+    padding: 3px 1vh;
+    font-size: .9em;
+    outline-color: var(--hargaSetelahDiskon);
+    border: 1px solid blue;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+.alamatCheckout > form > .container > select {
+    padding: 4px;
+    letter-spacing: .3px;
+    font-size: .9em;
+    border: 1px solid blue;
+    outline-color: var(--hargaSetelahDiskon);
+    font-weight: 200;
+
+}
+
+.alamatCheckout > form > .container  > textarea {
+    border-color: blue;
+    padding: 5px;
+    letter-spacing: .3px;
+    font-size: 1.02em;
+    outline-color: var(--hargaSetelahDiskon);
+}
+
+
+.alamatCheckout > form > .tombolUbah {
+    width: 85%;
+    display: block;
+    color: white;
+    letter-spacing: .5px;
+    border: 1px solid var(--colorJudulInput);
+    background-color: var(--colorJudulInput);
+    margin: 2vh auto;
+    padding: 1vh;
+}
+
+
+

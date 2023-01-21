@@ -27,4 +27,13 @@
     margin: auto;
 }
 
-
+@media screen and (max-width: 280px) {
+    .fontNavbar {
+        display: none;
+    }
+    .nav {
+        width: 20%;
+        margin: auto;
+        /* background-color: black; */
+    }
+}

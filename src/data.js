@@ -1,127 +1,239 @@
 export const products = [
     {
         id: 1,
-        kode_produk: "PR1",
-        nama_produk: "Product 1",
-        harga_produk: 1000,
-        diskon: 0,
-        deskripsi_produk: "Product 1 dengan harga 1000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/original_untouched/81/202627.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "P00101",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Susu Ulta Milk Cokelat mix Stawbery 250ml",
+        harga_produk: 1290000,
+        diskon_produk: 10,
+        totalHarga_produk: 10872127,
+        stok_produk: 100,
+        kategori_produk: "Minuman"
     },
     {
         id: 2,
-        kode_produk: "PR2",
-        nama_produk: "Product 2",
-        harga_produk: 2000,
-        diskon: 10,
-        deskripsi_produk: "Product 2 dengan harga 2000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/446544.jpg"],
-        jenis_produk: "minuman"
+        kode_produk: "LSD120D",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Poji extrak large keju ENAK BANGET DIJAMIN PUAS 120gr",
+        harga_produk: 17999,
+        diskon_produk: 5,
+        totalHarga_produk: 14766,
+        stok_produk: 50,
+        kategori_produk: "Makanan"
     },
     {
         id: 3,
-        kode_produk: "PR3",
-        nama_produk: "Product 3",
-        harga_produk: 3000,
-        diskon: 0,
-        deskripsi_produk: "Product 3 dengan harga 3000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "JKISKA100ML",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Poji extrak large keju 120gr",
+        harga_produk: 102766,
+        diskon_produk: 13,
+        totalHarga_produk: 98744,
+        stok_produk: 200,
+        kategori_produk: "Snack"
     },
     {
         id: 4,
-        kode_produk: "PR4",
-        nama_produk: "Product 4",
-        harga_produk: 4000,
-        diskon: 0,
-        deskripsi_produk: "Product 4 dengan harga 4000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "LSD120D",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Nasi putih 1/2 liter pulen",
+        harga_produk: 65122,
+        diskon_produk: 0,
+        totalHarga_produk: 65122,
+        stok_produk: 50,
+        kategori_produk: "Makanan"
     },
     {
         id: 5,
-        kode_produk: "PR5",
-        nama_produk: "Product 5",
-        harga_produk: 5000,
-        diskon: 20,
-        deskripsi_produk: "Product 5 dengan harga 5000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/178/446544.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "KISAWD100",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Poji extrak large keju 120gr",
+        harga_produk: 789122,
+        diskon_produk: 30,
+        totalHarga_produk: 588979,
+        stok_produk: 150,
+        kategori_produk: "Pelengkap Makanan"
     },
     {
         id: 6,
-        kode_produk: "PR6",
-        nama_produk: "Product 6",
-        harga_produk: 6000,
-        diskon: 20,
-        deskripsi_produk: "Product 6 dengan harga 6000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/38/95017.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "HYDSAD182M",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 10999,
+        diskon_produk: 0,
+        totalHarga_produk: 10999,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
     },
     {
         id: 7,
-        kode_produk: "PR3",
-        nama_produk: "Product 7",
-        harga_produk: 7000,
-        diskon: 0,
-        deskripsi_produk: "Product 7 dengan harga 7000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "BDHGTSYA100",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "CHIKI BALSS KEJU MIX COKLAT 65GR",
+        harga_produk: 12633,
+        diskon_produk: 3,
+        totalHarga_produk: 10298,
+        stok_produk: 300,
+        kategori_produk: "Biskuit"
     },
     {
         id: 8,
-        kode_produk: "PR8",
-        nama_produk: "Product 8",
-        harga_produk: 8000,
-        diskon: 0,
-        deskripsi_produk: "Product 8 dengan harga 8000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "KMSAHDH12",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 18722,
+        diskon_produk: 0,
+        totalHarga_produk: 18722,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
     },
     {
         id: 9,
-        kode_produk: "PR9",
-        nama_produk: "Product 9",
-        harga_produk: 9000,
-        diskon: 0,
-        deskripsi_produk: "Product 9 dengan harga 9000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg"],
-        jenis_produk: "makanan"
+        kode_produk: "HYDSAD182M",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 10999,
+        diskon_produk: 0,
+        totalHarga_produk: 10999,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
     },
     {
         id: 10,
-        kode_produk: "PR10",
-        nama_produk: "Product 10",
-        harga_produk: 10000,    
-        diskon: 20,
-        deskripsi_produk: "Product 10 dengan harga 10000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/178/446544.jpg"],
-        jenis_produk: "makanan"
-    },
-    {
-        id: 11,
-        kode_produk: "PR11",
-        nama_produk: "Product 11",
-        harga_produk: 11000,
-        diskon: 0,
-        deskripsi_produk: "Product 11 dengan harga 11000",
-        gambar_produk: ["https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
-        jenis_produk: "makanan"
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        }, 
+        kode_produk: "HYDSAD182M",
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 10999,
+        diskon_produk: 0,
+        totalHarga_produk: 10999,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
     },
 
+    
 ]
 
 
 export const sampelProduk = {
-    id: 2,
-    kode_produk: "PR2",
-    nama_produk: "Product 2 sgfjsbfsgfjbs  dg sdgnsd adafsaasdas sdgds",
-    harga_produk: 2000,
-    diskon: 10,
-    deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet volutpat consequat mauris nunc congue. Elit sed vulputate mi sit amet mauris commodo. Sed odio morbi quis commodo odio aenean. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Elit sed vulputate mi sit amet mauris. Nunc mattis enim ut tellus elementum sagittis. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas. Pellentesque habitant morbi tristique senectus et. Tristique senectus et netus et malesuada fames. Bibendum neque egestas congue quisque egestas diam in arcu cursus. Ridiculus mus mauris vitae ultricies leo integer. Vitae et leo duis ut. Eget nulla facilisi etiam dignissim diam. Condimentum mattis pellentesque id nibh tortor id aliquet lectus. Ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim. Ultrices in iaculis nunc sed augue lacus viverra vitae congue. Vel pharetra vel turpis nunc eget lorem dolor sed viverra. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Nullam ac tortor vitae purus.",
-    gambar_produk: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/446544.jpg"],
-    jenis_produk: "minuman"
+        id: 10,
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        }, 
+        kode_produk: "HYDSAD182M",
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr asfiofi wbfib wbubgei shfwihf hfuih fvwfvwfvwjqbfj wbffjbfbqf wbfeb fkjebfj b",
+        harga_produk: 10999999,
+        diskon_produk: 12,
+        totalHarga_produk: 10899999,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
 }
 
 
+export const sampelAccount = {
+    gambar_account: "https://static.tvmaze.com/uploads/images/medium_portrait/178/446544.jpg",
+    namaLengkap_accout: "Nouval Aji Satrio" 
+}
+
+
+
+
+
+export const alamat = {
+    provinsi: "Jawa Barat",
+    kota: "Kota Bekasi",
+    kecamatan: "Bekasi Barat",
+    kelurahan: "Jakasampurna",
+    namaJalan: "Jl. H. Muhasyim RT.11/RW.02 No. 61",
+    patokan: "Mushola Ar-ridwan"
+}
+
+
+export const sampelListProduk = [
+    {
+        id: 7,
+        kode_produk: "BDHGTSYA100",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "CHIKI BALSS KEJU MIX COKLAT 65GR afsifuwfiasfjv fjwvfjhjasfhv jwjfhwhj fvjhasjbf f wjvf ",
+        harga_produk: 12633,
+        diskon_produk: 3,
+        totalHarga_produk: 10298000,
+        stok_produk: 300,
+        kategori_produk: "Biskuit"
+    },
+    {
+        id: 8,
+        kode_produk: "KMSAHDH12",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 18722999,
+        diskon_produk: 0,
+        totalHarga_produk: 18722,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
+    },
+    {
+        id: 9,
+        kode_produk: "HYDSAD182M",
+        gambar_produk: {
+            thumbnail:   "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg",
+            gambar: ["https://static.tvmaze.com/uploads/images/original_untouched/213/534017.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/178/445621.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg"],
+        },
+        deskripsi_produk: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam libero justo laoreet sit amet cursus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Nulla pharetra diam sit amet nisl. Egestas erat imperdiet sed euismod. Risus in hendrerit gravida rutrum quisque non tellus orci. Quis viverra nibh cras pulvinar mattis nunc sed. Aliquam sem et tortor consequat id porta nibh. Bibendum arcu vitae elementum curabitur vitae nunc sed. Enim nulla aliquet porttitor lacus luctus. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Tortor dignissim convallis aenean et tortor at risus. Sapien pellentesque habitant morbi tristique senectus et netus. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Sit amet dictum sit amet justo donec enim diam vulputate. Velit euismod in pellentesque massa placerat duis ultricies lacus. Aliquam purus sit amet luctus venenatis lectus magna fringilla. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. In nisl nisi scelerisque eu ultrices vitae. Morbi enim nunc faucibus a. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ut tortor pretium viverra suspendisse. Sem fringilla ut morbi tincidunt. Nisi est sit amet facilisis magna etiam tempor. Risus feugiat in ante metus dictum at tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat. Senectus et netus et malesuada fames ac. Nunc mattis enim ut tellus elementum sagittis vitae. Libero id faucibus nisl tincidunt eget nullam non nisi est. Et molestie ac feugiat sed. Nullam vehicula ipsum a arcu. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. A lacus vestibulum sed arcu non odio euismod lacinia at. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Odio tempor orci dapibus ultrices in iaculis nunc sed augue.",
+        nama_produk: "Sambal terasi exrak super hot pedas 129gr",
+        harga_produk: 10999,
+        diskon_produk: 0,
+        totalHarga_produk: 10999,
+        stok_produk: 300,
+        kategori_produk: "Pelengkap Makanan"
+    },   
+]

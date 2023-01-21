@@ -2,25 +2,46 @@
     <div class="containerFirst">
         <div :style="{overflowX: 'auto', padding: '5px 0'}">
             <div class="componentGambar">
-                <div class="containerGambarDetail" v-for="(resultGambar,index) in data.gambar_produk"  :key="index">
-                    <img :src="resultGambar" :alt="resultGambar.nama_produk"  class="gambarDetail"  />
+                <div class="containerGambarDetail">
+                    <img 
+                        :src="data.gambar_produk.thumbnail" 
+                        :alt="data.nama_produk"  
+                        class="gambarDetail"  
+                    />
                     
                 </div>
             </div>
         </div>
         <div class="describeDetail">
             <div class="headerDescribe">
-                <p class="namaProduk"> {{data.nama_produk}} </p>
+                <p class="namaProduk HEEBO"> 
+                    {{data.nama_produk}} 
+                </p>
+                
                 <div class="containerHargaProduk">
-                    <p class="hargaSebelumDiskon" v-if="(data.diskon > 0)" >Rp{{( data.harga_produk)}} </p>
-                    <p @click="tes" class="hargaProduk ROBOTO" :class="{hargaSetelahDiskon: data.diskon > 0}">Rp100.0000</p>
+                    <p class="hargaProduk POPPINS" v-if="(data.diskon_produk > 0)">
+                        Rp{{( data.harga_produk.toLocaleString("ID-id"))}} 
+                    </p>
+                    <p 
+                        class="totalHarga POPPINS" :class="{hargaSetelahDiskon: data.diskon_produk > 0}"
+                    >
+                            Rp{{data.totalHarga_produk.toLocaleString("ID-id")}}
+                    </p>
                     
                 </div>    
             </div>
-            <p class="deskripsiProduk POPPINS" :class="{height100}" @click="onHeight" > 
+            <p 
+                class="deskripsiProduk POPPINS" 
+                :class="{height100}" 
+                @click="onHeight" 
+            > 
                  {{data.deskripsi_produk}} 
             </p>
-            <p :style="{textAlign: 'center', marginTop: '30px', color: 'purple'}">--------------------------------------</p >
+            <p 
+                :style="{textAlign: 'center', marginTop: '30px', color: 'purple'}"
+            >
+                --------------------------------------
+            </p>
         </div>
     </div>
     
@@ -39,10 +60,10 @@ import "./index.css";
         props: {
             data: Object
         },
+        mounted() {
+            console.log(this.data.nama_produk.length)
+        },
         methods: {
-            tes(e) {
-                console.log(e.target)
-            },
             onHeight() {
                 this.height100 = !this.height100
             }

@@ -1,62 +1,94 @@
 <template>
-    <div id="InsertProduk">
-        <p class="judulInsert ROBOTO">Tambah Produk</p>
-        <form method="POST" enctype="multipart/form-data" @submit.prevent="insertData" ref="formData" class="formInsert">
-
-            <p v-if="errorGambar" :class="{'colorSuccess': colorSuccess}" class="errorGambar HEEBO">{{errorMessage}}</p>
-            
-            <div class="container-input namaProduk">
-                <label class="judulInput POPPINS" for="namaProduk">Nama Produk</label>
-                <input type="text" required autocomplete class="inputUser ROBOTO" id="namaProduk" v-model.trim="namaProduk" @input="handleNamaProduk" />
-            </div>
-            
-            <div class="container-input hargaProduk">
-                <label class="judulInput POPPINS" for="hargaProduk">Harga Produk</label>
-                <input type="text" required autocomplete class="inputUser ROBOTO" id="hargaProduk" v-model.trim="hargaProduk" @input="handleFormatHarga" />
-            </div>
-
-            <div class="container-input deskripsiProduk">
-                <label class="judulInput POPPINS" for="deskripsiProduk">Deskripsi Produk</label>
-                <textarea class="inputUser ROBOTO" required autocomplete id="deskripsiProduk" v-model="deskripsiProduk" @input="handleDeskripsiProduk" min="30" />
-            </div>
-            
-            <div class="container-input diskonProduk">
-                <label class="judulInput POPPINS" for="diskonProduk">Diskon Produk</label>
-                <input type="number" required autocomplete class="inputUser ROBOTO" id="diskonProduk" v-model="diskonProduk" @input="handleDiskonProduk" :max="100" />
-            </div>
-
-            <div class="container-input totalHarga" >
-                <label class="judulInput POPPINS" for="totalHarga">Total Harga </label>
-                <input type="text" class="inputUser ROBOTO" required autocomplete id="totalHarga" readonly v-model="totalHarga" />
-            </div>
-            
-            <div class="stokAndUkuran">
-                <div class="container-input ukuranProduk">
-                    <label class="judulInput POPPINS" for="ukuranProduk">Ukuran Produk</label>
-                    <input type="text" class="inputUser ROBOTO" id="ukuranProduk" v-model="ukuranProduk" @input="handleUkuranProduk" required autocomplete />
+    
+    <div id="CONTAINER-COMPONENT">
+        <div class="containerSearch">
+            <h3 class="JUDUL">Tambah Produk</h3>
+        </div>
+        
+        <div id="InsertProduk">
+            <p class="error POPPINS" v-if="error">{{ textError }}</p>
+            <form ref="formData" class="form" @submit.prevent="handelInsertData">
+                <div 
+                    class="container" 
+                    v-for="(item,index) in cekAllTrue" 
+                    :key="index"
+                >
+                        <label 
+                            :for="item.name" 
+                            class="judulInput ROBOTO"
+                        >
+                                {{ item.judul }}
+                        </label>
+                        
+                        <textarea 
+                            v-if="item.name === 'DeskripsiProduk'" 
+                            :id="item.nama"
+                            min="10"
+                            max="3000"
+                            class="HEEBO" 
+                            cols="20"
+                            :class="item.name"
+                            rows="7"
+                            v-model.trim="item.text"
+                            @input="item.myFunction"
+                            required autocomplete
+                        >
+                        </textarea>
+                        
+                        
+                        <select  
+                            v-else-if="item.name === 'KategoriProduk'"
+                            :id="item.name"
+                            class="HEEBO"
+                            :class="item.name"
+                            @change="item.myFunction"
+                        >
+                            <option 
+                                v-for="(item1, index1) in item.data" 
+                                :value="item1"
+                                :key="index1"
+                                :selected="index1 === 0"
+                            >
+                                    {{ item1 }}
+                            </option>
+                            
+                        </select>
+                        
+                        <input
+                            v-else-if="item.tipe === 'file'" 
+                            :type="item.tipe" 
+                            class="ROBOTO gambar " 
+                            :class="item.name"
+                            :id="item.name"
+                            :name="item.judul"
+                            required autocomplete
+                            @change="item.myFunction"
+                        />
+                        
+                        <input
+                            v-else 
+                            :type="item.tipe" 
+                            class="ROBOTO" 
+                            :class="item.name"
+                            :id="item.name"
+                            required autocomplete
+                            v-model.trim="item.text"
+                            @input="item.myFunction"
+                            :readonly="item.name === 'SubtotalProduk'"
+                        />
+                        <p v-if="item.error"
+                            class="pesanError POPPINS"
+                        >
+                            {{ item.pesanError }}
+                        </p>
+                        
                 </div>
-
-                <div class="container-input stokProduk">
-                    <label class="judulInput POPPINS" for="stokProduk">Stok Produk</label>
-                    <input type="number" class="inputUser ROBOTO" id="stokProduk" v-model="stokProduk" required autocomplete @input="handleStokProduk" :max="10000"  />
-                </div>
-            </div>
-            
-            <div class="container-gambar gambarThumbnail" >
-                <label class="judulInput POPPINS" for="gambarThumbnail">Gambar Thumbnail : </label>
-                <input type="file" name="gambarThumbnail" class="inputUser ROBOTO" id="gambarThumbnail" ref="gambarThumbnail" @change="manipulasiGambar"  required autocomplete />
-            </div>
-
-            
-            <div v-for="(template, index) in templateGambar" :key="index" class="container-gambar " :class="template.name">
-                <label class="judulInput POPPINS" :for="template.name">{{template.text}} </label>
-                <input type="file" :name="template.name" class="inputUser ROBOTO" :id="template.name" :ref="template.name" required autocomplete @change="manipulasiGambar" />
-            </div>
-
-
-            <button type="submit" class="tombolInsert HEEBO"  >Tambah Data</button> 
-        </form>    
+                
+                <button type="submit ROBOTO">Tambah Produk</button>
+            </form>
+        </div>
     </div>
+    
 </template>
 
 
@@ -64,223 +96,245 @@
     import "./index.css"
     import { ref } from "vue"
     import axios from "axios"
-
-    export default {
-        name: "InsertProduk",
-        data() {
-            return {
-                namaProduk: "",
-                hargaProduk:   "",
-                deskripsiProduk: "",
-                diskonProduk: 0,
-                stokProduk: 0,
-                ukuranProduk: "",
-                totalHarga: 0,
-                errorGambar: true,
-                errorMessage: "",
-                colorSuccess: false
-            }
-        },
-        created() {
-            const templateGambar = [
-                {
-                    name: "gambarSatu",
-                    text: "gambar ke-1 : "
-                },
-                {
-                    name: "gambarDua",
-                    text: "gambar ke-2 : "
-                }
-            ]
-
-            this.templateGambar = templateGambar
-        },
-        setup() {
-            const allData = ref({})
-            const dataGambar = ref({
-                gambarThumbnail: null,
-                gambar: []
-            })
-            function setAttribut(element, properti, value) {
-                element[properti] = value
-            }
-
-            function setAttributGambar(properti, value) {
-                if(properti === "gambarThumbnail") {
-                    this.dataGambar[properti] = value
-                } else {
-                    this.dataGambar.gambar.push(value)
-                }
-            }
-            return {allData, setAttribut, dataGambar, setAttributGambar}
-        },  
-        methods: {
-            cekTrue() {
-                for(let res in this.allData) {
-                    if(!this.allData[res]) {
-                        return false
-                    }
-                    return true
-                }
-            },
-            handleNamaProduk() {
-                const {namaProduk} = this
-                if(namaProduk.length > 200) {
-                    this.namaProduk = namaProduk.substr(0, namaProduk.length - 1)
-                    this.setAttribut(this.allData, ["namaProduk"], false)
-                } else {
-                    this.setAttribut(this.allData, ["namaProduk"], namaProduk)
-                }
-            },
-            handleFormatHarga() {
-                const {hargaProduk} = this
-                const integerHarga = parseInt(hargaProduk)
+export default {
+    name: "InsertProduk",
+    data() {
+        return {
+            error: false,
+            textError: "Register tidak valid!"
+        }
+    },
+    setup() {
+        const cekAllTrue = ref({})
+        const setVariabel = (variabel, properti, value) => {
+            if (!properti) {
+                cekAllTrue.value[variabel] = value    
                 
-                // jika integer harga === NaN maka kosong
-                if (isNaN(integerHarga)) {
-                    this.hargaProduk = ""
-                    this.setAttribut(this.allData, ["hargaProduk"], false)
-                } else  if(isNaN(parseInt(hargaProduk.substr(-1)))) {
-                    // jika user menginputkan string
-                    this.hargaProduk = hargaProduk.substr(0, hargaProduk.length - 1)
-                    this.setAttribut(this.allData, ["hargaProduk"], false)
-                } else {
-                    const filterHarga = parseInt(hargaProduk.replace(/[.]/g, ""))
-                    const formatFilterHarga = filterHarga.toLocaleString("ID-id")
-                    this.hargaProduk = formatFilterHarga
-                    this.handleTotalHarga()
-                    this.setAttribut(this.allData, ["hargaProduk"], filterHarga)
-                }
-                
-            },
-            handleDeskripsiProduk() {
-                const {deskripsiProduk} = this
-                if(deskripsiProduk.length > 1000) {
-                    this.deskripsiProduk = deskripsiProduk
-                    this.setAttribut(this.allData, ["deskripsiProduk"], false)
-                } else {
-                    this.setAttribut(this.allData, ["deskripsiProduk"], deskripsiProduk)
-                }
-            },
-            handleDiskonProduk() {
-                const {diskonProduk} = this
-                if(diskonProduk > 100) {
-                    this.diskonProduk = parseInt(diskonProduk.toString().substr(0, 2))
-                    
-                    this.setAttribut(this.allData, "diskonProduk", false)
-                } else if(diskonProduk < 0){
-                    this.diskonProduk = parseInt(diskonProduk.toString(0, 1))
-                    this.setAttribut(this.allData, "diskonProduk", false)
-                } else {
-                    this.setAttribut(this.allData, "diskonProduk", diskonProduk)
-                    this.handleTotalHarga()
-                }
-
-            },
-            handleTotalHarga() {
-                
-                if(!this.hargaProduk) {
-                    this.totalHarga = 0
-                    this.setAttribut(this.allData, ["totalHarga"], false)
-                } else if(!this.allData.diskonProduk) { 
-                    this.totalHarga = this.hargaProduk
-                    this.setAttribut(this.allData, ["totalHarga"], false)
-                } else {
-                    let filterDiskon = parseInt(this.allData.hargaProduk * this.allData.diskonProduk / 100)
-                    filterDiskon = parseInt(this.allData.hargaProduk - filterDiskon)
-                    this.totalHarga = filterDiskon.toLocaleString("ID-id")
-                    const formatTotal = parseInt(this.totalHarga.replace(/[.]/g, ""))
-                    this.setAttribut(this.allData, ["totalHarga"], formatTotal)
-                }
-            },
-            handleUkuranProduk() {
-                if(!this.ukuranProduk) {
-                    this.setAttribut(this.allData, ["ukuranProduk"], false)
-                } else {
-                    this.setAttribut(this.allData, ["ukuranProduk"], this.ukuranProduk)
-                }
-            },
-            handleStokProduk() {
-                this.setAttribut(this.allData, "stokProduk", this.stokProduk)
-            },
-            async insertData(e) {
-                e.preventDefault()
-                
-                if(this.cekTrue()) {
-                    try {
-                        const {allData} = this
-
-                        //validasi nama produk
-                        const namaProduk = this.namaProduk + " " + allData.ukuranProduk 
-
-                        // validasi kode Produk
-                        const prevKodeProduk = this.namaProduk.split(" ").map(value => value.substr(0, 2).toUpperCase())
-                        const kodeProduk = prevKodeProduk.join("") + this.ukuranProduk.replace(/[\s]/g, "")
-
-                        // mengambil data inputan user yang sudah di handle
-                        const {hargaProduk, deskripsiProduk, diskonProduk, totalHarga, stokProduk} = this.allData
-                        const dataFixed = {
-                            nama_produk: namaProduk,
-                            harga_produk: hargaProduk,
-                            deskripsi_produk: deskripsiProduk,
-                            diskon_produk: diskonProduk,
-                            totalHarga_produk: totalHarga,
-                            stok_produk: stokProduk,
-                            kode_produk: kodeProduk,
-                            gambarSatu: this.dataGambar.gambar[0],
-                            gambarDua: this.dataGambar.gambar[1],
-                            gambarThumbnail: this.dataGambar.gambarThumbnail,
-                        }
-                        
-                        // memasukkan ke FormData
-                        const formData = new FormData(this.$refs.formData)
-                        for(let keys in dataFixed) {
-                            const key = keys.toString()
-                            formData.append(key, dataFixed[keys])
-                        }
-                        //hit API post
-                        
-                        const success = await axios.post("http://localhost:3000/produk", formData, {
-                            headers: {
-                                "Content-type": "multipart/form-data"
-                            },
-                        });
-                        console.log(success.data)
-
-
-                    } catch (error) {
-                        console.log("gagal")
-                        console.log(error)
-                        this.errorMessage = "Registrasi Gagal, Harap Masukkan data dengan benar"
-                        this.errorGambar = true
-                        this.colorSuccess = false
-                    }
-                }
-                
-            },
-            manipulasiGambar(e) {
-                const element = e.target.name
-                const file = e.target.files[0]
-                const allowExt = ["png", "jpg", "jpeg"]
-                const ext = file.type.split("/")[1].toLowerCase()
-
-                if(!allowExt.includes(ext)) {
-                    this.errorGambar = true
-                    this.colorSuccess = false
-                    this.errorMessage = "Gambar Tidak Ditemukan"
-                    this.setAttribut(this.allData, "gambar", false)
-                } else if(file.size > 5000000) {
-                    this.errorGambar = true
-                    this.colorSuccess = false
-                    this.errorMessage = "Ukuran gambar maximal 5mb"
-                    this.setAttribut(this.allData, "gambar", false)
-                } else {
-                    this.errorGambar = false
-                    this.setAttribut(this.allData, "gambar", true)
-                    this.setAttributGambar(element, file)
-                    
-                }
+            } else {
+                cekAllTrue.value[variabel][properti] = value
             }
         }
-    }
+        return {
+            cekAllTrue,
+            setVariabel,
+        }
+    },
+    beforeMount() {
+        const items = ["Nama-Produk", "Kategori-Produk", "Harga-Produk", "Deskripsi-Produk", "Diskon-Produk", "Subtotal-Produk", "Gambar-Thumbnail", "Gambar-Satu", "Gambar-Dua"]
+        
+        for (const item of items) {
+            let tipe = "text"
+            const splitItem = item.split("-")
+            let namaFunction = "handel" + splitItem.join("")
+            
+            if (item === "Stok-Produk" || item === "Diskon-Produk") {
+                tipe = "number"
+            } else if (splitItem[0] === "Gambar") {
+                tipe = "file"   
+                namaFunction = "handel"+splitItem[0]
+            }
+            
+            const obj = {
+                judul: splitItem.join(" "),
+                name: splitItem.join(""),
+                tipe,
+                text: "",
+                error: false,
+                pesanError: "",
+                myFunction: this[namaFunction],
+            }
+            if (item === "Kategori-Produk") {
+                const listKategori = ["--- KATEGORI PRODUK ---","Susu Cair", "Snack", "Logo Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
+                obj["data"] = listKategori
+                obj["error"] = true
+            }
+            this.setVariabel(item, false, obj)   
+        }
+        
+    },
+    methods: {
+        handelNamaProduk() {
+            //setup awal input
+            const namaVar = "Nama-Produk"
+            const namaProduk = this.cekAllTrue[namaVar]
+            const {length} = namaProduk.text 
+            const setLocal = (value = true, properti = "error") => {
+                this.setVariabel(namaVar, properti, value)
+            }
+            if (length < 10) {   
+                setLocal("Nama Produk Minimal 10 Karakter", "pesanError")
+                setLocal()
+            } else if (length > 80) {
+                setLocal()
+                setLocal("Nama Produk Maksimal 80 Karakter", "pesanError")
+            } else {
+                setLocal(false)
+            }   
+        },
+        handelHargaProduk() {
+            //setup awal
+            const namaVar = "Harga-Produk"
+            const hargaProduk = this.cekAllTrue[namaVar]
+            const diskonProduk = this.cekAllTrue["Diskon-Produk"]
+            const {text} = hargaProduk
+            const setLocal = (value = true, properti = "error") => {
+                this.setVariabel(namaVar, properti, value)
+            }
+            const setInput = (variabel, value) => {
+                this.setVariabel(variabel, "text", value)
+            }
+            
+            const angkaInput = text.match(/[\d+]/g)
+            if (!angkaInput) {
+                setLocal()
+                setLocal("Hanya dapat memasukkan angka","pesanError")
+                setLocal("", "text")
+            } else {
+                const formatAngkaInput = parseInt(angkaInput.join(""))
+                const newInput = "Rp"+formatAngkaInput.toLocaleString("id-ID")
+                setLocal(newInput, "text")
+                setLocal(false)
+                
+                if (isNaN(diskonProduk.text)) {
+                    setInput("Subtotal-Produk", "Rp0")    
+                } else {
+                    const aritmatika = formatAngkaInput - (formatAngkaInput * diskonProduk.text / 100)
+                    const newInputSub = "Rp"+aritmatika.toLocaleString("id-ID")
+                    
+                    setInput("Subtotal-Produk", newInputSub)    
+                }
+            }
+        },
+        handelKategoriProduk(e) {
+            const {value} = e.target
+            const namaVar = "Kategori-Produk"
+            const kategoriProduk = this.cekAllTrue[namaVar]
+            const setLocal = (value=true, properti="error") => this.setVariabel(namaVar, properti, value)
+            
+            setLocal(value, "text")
+            if(!kategoriProduk.text) {
+                console.log("Gagal")
+                setLocal("Kategori Produk tidak boleh kosong", "pesanError")
+            } else {
+                setLocal(false)
+            }
+        },
+        handelDiskonProduk() {
+            const namaVar = "Diskon-Produk"
+            const diskonProduk = this.cekAllTrue[namaVar]
+            const hargaProduk = this.cekAllTrue["Harga-Produk"].text
+            const {text} = diskonProduk
+            const setLocal = (value = true, properti = "error") => this.setVariabel(namaVar, properti, value)
+            const setInput = (variabel, value) => this.setVariabel(variabel, "text", value)
+            const setSubtotal = () => {
+                const filterHarga = parseInt(hargaProduk.replace(/[Rp|.]/g, ""))
+                if (isNaN(filterHarga)) {
+                    setInput("Subtotal-Produk", "Rp0")    
+                } else {
+                    const aritmatika = filterHarga - (filterHarga * diskonProduk.text / 100)
+                    const newInput = "Rp"+aritmatika.toLocaleString("id-ID")
+                    
+                    setInput("Subtotal-Produk", newInput)    
+                }
+            }
+            
+            if (text > 100) {
+                setLocal()
+                setLocal("Diskon maksimal 100", "pesanError")
+                const filterDiskon = text.toString().substr(0, 2)
+                setLocal(filterDiskon, "text")
+                setSubtotal()
+                setLocal(false)
+            } else {
+                setLocal(false)
+                setSubtotal()
+                
+            }
+        },
+        handelDeskripsiProduk() {
+            const namaVar = "Deskripsi-Produk"
+            const deksirpsiProduk = this.cekAllTrue[namaVar]
+            const {text} = deksirpsiProduk
+            const {length} = text
+            const setLocal = (value=true, properti="error") => this.setVariabel(namaVar, properti, value)
+            
+            if(length < 10) {
+                setLocal()
+                setLocal("Maksimal 10 karakter!", "pesanError")
+            } else if(length > 300) {
+                setLocal()
+                setLocal("Maksimal 3000 Karakter!", "pesanError")
+                setLocal(text.substr(0, length - 1 ) ,"text")
+            } else {
+                setLocal(false)
+            }
+            
+        },
+        handelSubtotalProduk() {
+            console.log("hello")
+        },
+        handelGambar(e) {
+            const {files, name} = e.target
+            const file = files[0]
+            const namaVar = name.split(" ").join("-")
+            const setLocal = (value=true, properti="error") => this.setVariabel(namaVar, properti, value)
+            
+            // maks 3mb
+            const ukuran = 3000000
+            const allowExt = [".png", ".jpg", ".jpeg"]
+            const extFile = file.name.substr(file.name.search(/\./)).toLowerCase()
+            
+            if(file.size > ukuran) {
+                setLocal()
+                setLocal("Gambar Maksimal 3MB", "pesanError")
+            } else if(!allowExt.includes(extFile)) {
+                setLocal()
+                setLocal("Gambar tidak ditemukan!", "pesanError")
+            } else {
+                setLocal(false)
+                setLocal(file, "text")
+            }
+
+            
+        },
+        handelInsertData(e) {
+            e.preventDefault()
+            const setLocal = (value) => {
+                this.error = true
+                this.textError = "Masukkan " + value + " dengan benar! " 
+            }
+            const {cekAllTrue} = this
+            const formData = new FormData(this.$refs.formData)
+            
+            for (const key in cekAllTrue) {
+                const item = cekAllTrue[key]
+                if(item.error) {
+                    setLocal(item.judul)
+                    alert("Insert Data Gagal")
+                    return false
+                }
+                formData.append(item.name, item.text)
+            }
+            axios.post("http://localhost:3000/produk", formData, {
+                headers: {
+                    "Content-type": "multipart/form-data"
+                }
+            }).then(res => {
+                console.log(res)
+                alert("Insert Data Berhasil")
+            }).catch(err => {
+                console.log(err)
+                console.log(err.message)
+                alert("Insert Gagal")
+            })
+            
+            
+        }
+    },
+}
 </script>
+
+
+
+
+

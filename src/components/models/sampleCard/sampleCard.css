@@ -15,10 +15,10 @@
 .samplesCard {
     padding: 4px;
     position: absolute;
-    width: 96%;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.933);
-    background-color: #fafcff;
+    /* background-color: #fafcff; */
+    background-color: var(--colorNavigasi);
     right: 2%;
     left: 2%;
     display: flex;
@@ -33,10 +33,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 130px;
-    height: 250px;
+    width: 165px;
+    height: 270px;
     /* background-color: #ebd3d36b; */
-    background-color: #fdfeffe8;
+    background-color: var(--colorBody);
     
 }
 
@@ -51,55 +51,59 @@
 }
 
 .samplesCard > .containerCard > .card > .centerCard > .namaCard {
-    margin: 0 4px;
-    color: #222121e1;
+    margin: 0 4px 5px 1px;
     font-weight: bold;
-    font-size: 1.19em;
+    font-size: 1.03em;
     height: 40%;
+    text-align: left;
+    letter-spacing: .6px;
     overflow-y: auto;
 }
 
 .samplesCard > .containerCard > .card > .centerCard > .deskripsiCard {
-    margin: 0 6px;
+    margin: 3px 6px 0 2px;
     height: 60%;
+    letter-spacing: .1px;
     font-weight: normal;
-    color: black;
+    opacity: .8;
     overflow-y: auto;
 }
+
+
+ /* HARGA SAMPEL CARD  */
 
 .samplesCard > .containerCard > .card > .footerCard {
     display: flex;
     height: 15%;
     justify-content: space-between;
-    padding: 2px 3px 2px 7px;
+    padding: 2px 3px 2px 3px;
     position: relative;
     z-index: 3;
 }
 
-.samplesCard > .containerCard > .card > .footerCard > .hargaCard > .harga {
-    color: #ffd000;
-    font-style: bold;
+.samplesCard > .containerCard > .card > .footerCard > .hargaCard > .hargaSetelahDiskon {
+    letter-spacing: .6px;
+    font-size: 1.03em!important;
+    margin-top: 13%;
+    color: var(--hargaSetelahDiskon) !important;
 }
 
-.hargaSetelahDiskon {
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    left: 5%;
-    color: #ff0000 !important;
-    /* font-size: 1.08em; */
+.samplesCard > .containerCard > .card > .footerCard > .hargaCard >  .harga {
+    color: var(--hargaSebelumDiskon);
+    letter-spacing: .4px;
+    font-weight: 600;
 }
-
-
 
 .samplesCard > .containerCard > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
-    color: #ffe817;
+
+    color: var(--hargaSebelumDiskon);
     font-style: normal;
+    letter-spacing: .2px;
     text-decoration: line-through;
-    text-decoration-color: #272729;
+    text-decoration-color: rgba(0, 0, 0, .1);
     position: absolute;
-    font-size: .9em;
-    top: -10%;
+    top: -11%;
+    font-size: .98em;
 }
 
 .samplesCard > .containerCard > .card > .footerCard > .tombolPesan {
@@ -125,7 +129,7 @@
     position: relative;
     display: flex;
     font-size: .9em;
-    background-color: white;
+    background-color: var(--colorBody);
     height: 100%;
     align-items: center;
     cursor: pointer;

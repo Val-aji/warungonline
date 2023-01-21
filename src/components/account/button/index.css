@@ -1,0 +1,48 @@
+.componentButton {
+    width: 100%;
+}
+
+.componentButton > .text {
+    width: 80%;
+    display: block;
+    margin: 25px auto;
+    letter-spacing: 1px !important;
+    background-color: inherit;
+    text-align: center;
+    padding: 5px 0;
+    font-size: .96em;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid var(--hargaSetelahDiskon);    
+    /* border: 1px solid #4993A1; */
+
+}
+
+.componentButton > .text:hover {
+    background-color: rgba(73, 147, 161, 1);
+    border-color: black;
+    color: white;
+    animation: scaleButton 2s;
+}
+
+
+@keyframes scaleButton {
+    0% {
+        transform: scale(.9);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    100% {
+        transform: scale(1.03);
+    }
+}
+
+@media  screen and (max-width: 250px) {
+    .componentButton > .text {
+        font-size: .86em;
+        padding: .5vh;
+        overflow: auto;
+    }
+}
+

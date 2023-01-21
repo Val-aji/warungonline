@@ -1,0 +1,151 @@
+.listProduk > .judul {
+    padding: 0 3vh;
+    letter-spacing: .2px;
+    
+}
+
+
+.listProduk > .cards {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.listProduk > .cards > .card {
+    display: flex;
+    padding: 10px 1vh 10px 1vh;
+    margin: 1vh 0 3vh 0;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, .4);
+}
+
+.listProduk > .cards > .card >  img {
+    width: 25%;
+    height: 12.5vh;
+}
+
+.listProduk > .cards > .card > .detail {
+    width: 72%;
+}
+
+
+.listProduk > .cards > .card > .detail > .namaProduk {
+    letter-spacing: .5px;
+    margin: 0 0 1vh 0;
+    padding-right: 1vh;
+    font-size: .9em;
+    line-height: 1.2em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+}
+
+.listProduk > .cards > .card > .detail > div {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+}
+
+.listProduk > .cards > .card > .detail > div > .HDTJ {
+    width: 30%;   
+}
+
+.listProduk > .cards > .card > .detail > div >  .titikDua {
+    width: 5%;
+}
+
+.listProduk > .cards > .card > .detail > div >  span {
+    width: 65%;
+    text-align: end;
+}
+
+
+.listProduk > .cards > .card > .detail > .subTotal {
+    margin-top: 10px;
+}
+
+.listProduk > .cards > .card > .detail > .subTotal > p {
+    font-size: 1em;
+    color: black;
+    font-weight: 600;
+}
+
+.listProduk > .cards > .card > .detail > .subTotal > span {
+    /* color: var(--hargaSetelahDiskon); */
+    font-weight: 600;
+    color: rgba(0, 0, 0, .9);
+    letter-spacing: 1px;
+    font-size: 1.03em;
+    text-align: end;
+    width: 100%;
+}
+
+
+
+.listProduk > .cards > .card > .detail > .hargaProduk > span {
+    color: var(--hargaSebelumDiskon);
+    font-weight: bold;
+}
+
+.listProduk > .cards > .card > .detail > .diskonProduk > span {
+    font-weight: bold !important;
+    
+    /* border-bottom: 1px dashed rgba(0, 0, 0, .3); */
+}
+
+
+.listProduk > .cards > .card > .detail > .totalHarga > span {
+    color: var(--hargaSetelahDiskon);
+    font-weight: 600;
+}
+
+.listProduk > .cards > .card > .detail > .jumlah > span {
+    font-weight: bold;
+    font-size: 1.02em;
+    /* border-bottom: 1px dashed rgba(0, 0, 0, .8); */
+}
+
+
+
+.listProduk > .cards > .card > .detail > .jumlah {
+    padding-bottom: 1vh;
+    border-bottom: 1px dashed rgba(0, 0, 0, .9);
+}
+
+
+
+
+
+@media screen and (max-width: 330px) {
+    .listProduk > .cards > .card {
+        flex-direction: column;;
+    }
+    
+    .listProduk > .cards > .card > img {
+        width: 100%;
+    }
+    
+    .listProduk > .cards > .card > .detail {
+        width: 100%;
+    }    
+    
+    .listProduk > .cards > .card > .detail > .namaProduk {
+        letter-spacing: 1px;
+        height: 6vh;
+        margin: 1vh 0;
+        overflow-y: auto;
+    }
+    
+    .listProduk > .cards > .card > .detail > div > .titikDua {
+        display: none !important;
+    }
+    
+    .listProduk > .cards > .card > .detail > div > p {
+        font-size: .8em;
+    }
+    
+    .listProduk > .cards > .card > .detail > .subTotal > p {
+        display: none;
+    }    
+}
+
+
+

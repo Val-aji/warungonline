@@ -1,0 +1,29 @@
+.componentPengiriman {
+    padding: 1vh 0;
+}
+
+.componentPengiriman > .judul { 
+    padding: 0 3vh;
+    letter-spacing: .2px;
+    
+}
+
+.componentPengiriman > .pengiriman {
+    width: 100%;
+    margin: 1.5vh auto;
+}
+
+.componentPengiriman > .pengiriman > select {
+    padding: 5px;
+    width: 85%;
+    display: block;
+    margin: 0 auto;
+    letter-spacing: .3px;
+    font-size: .9em;
+    border-color: blue;
+    outline-color: var(--hargaSetelahDiskon);
+    font-weight: 200;
+
+}
+
+

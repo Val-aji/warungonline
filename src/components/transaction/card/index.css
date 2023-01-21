@@ -1,0 +1,129 @@
+.cardTransaksi > .card  {
+    padding: 0 1vh;
+    margin-bottom: 3vh;
+}
+
+
+
+.cardTransaksi > .card > .produk {
+    padding: 1vh;
+    border: 1px solid rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardTransaksi > .card > .produk > img {
+    width: 25%;
+    height: 10vh;
+}
+
+.cardTransaksi > .card > .produk > .detail {
+    width: 70%;
+        
+}
+
+.cardTransaksi > .card > .produk > .detail > .namaProduk {
+    height: 6vh;
+    overflow: auto;
+    margin:0 0 1vh 0;
+}
+
+.cardTransaksi > .card > .produk > .detail > .harga {
+    display: flex;
+    overflow: auto;
+}
+
+
+.cardTransaksi > .card > .produk > .detail > .harga > .hargaProduk{
+    color: var(--hargaSebelumDiskon);
+    margin-right: 1.5vh;
+    font-weight: bold;
+    font-size: .9em;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, .2);
+}
+
+.cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
+    color: var(--hargaSetelahDiskon);
+    font-weight: bold;
+    letter-spacing: .8px;
+    font-size: .9em;
+}
+
+
+
+/* FOOTER  */
+
+.cardTransaksi > .card > .footer {
+    display: flex;
+    padding: .7vh;
+    border: 2px dashed rgba(0, 0, 0, .4);
+    background-color: #eeeeee;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+}
+
+.cardTransaksi > .card > .footer > p {
+    font-weight: bold;
+    color: rgba(0, 0, 0, .7);
+    letter-spacing: .4px;
+    width: 45%;
+} 
+    
+.cardTransaksi > .card > .footer > .kanan {
+    display: flex;
+    align-items: center;
+}
+
+.cardTransaksi > .card > .footer > .kanan > .subtotal {
+    width: 85%;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    margin-left: 1vh;
+    font-weight: 600;
+    color: var(--hargaSetelahDiskon);
+}
+
+
+@media screen and (max-width: 320px) {
+    .cardTransaksi > .card > .produk {
+        flex-direction: column;
+    }
+    
+    .cardTransaksi > .card > .produk > * {
+        width: 100% !important;
+    }
+    
+    .cardTransaksi > .card > .produk > .detail > .harga {
+        flex-direction: column;
+    }
+    
+    .cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
+        text-align: end;
+    }
+    
+    .cardTransaksi > .card > .footer {
+        flex-direction: column;
+        overflow: auto;
+        font-size: .96em;
+    }
+    
+    .cardTransaksi > .card > .footer > .kanan {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+    
+    .cardTransaksi > .card > .footer > .kanan > .subtotal {
+        width: max-content;
+    }
+    
+    .cardTransaksi > .card > .footer > .kanan > .jumlah {
+        width: max-content;
+    }
+    
+}
+
