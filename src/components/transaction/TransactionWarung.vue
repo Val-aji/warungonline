@@ -3,10 +3,11 @@
     <div id="CONTAINER-COMPONENT">
         <NavigasiBar />
         <div class="containerSearch">
-            <h3 class="JUDUL">Transaksi</h3>
+            <h3 class="JUDUL">Transaksi</h3>    
         </div>
         <div id="TransactionWarung">
             <CardTransaksi />
+            <TotalKeselurahan />
         </div>
     </div>
 
@@ -16,12 +17,14 @@
     import NavigasiBar from '../models/navigasi/NavigasiBar.vue';
     import "./index.css"
     import CardTransaksi from './card/CardTransaksi.vue';
+    import TotalKeselurahan from '../models/total/TotalKeselurahan.vue';
     
     export default {
         name: "TransactionWarung",
         components: {
             NavigasiBar,
-            CardTransaksi
+            CardTransaksi,
+            TotalKeselurahan
         }
     }
 

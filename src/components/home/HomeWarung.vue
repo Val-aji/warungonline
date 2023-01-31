@@ -3,7 +3,11 @@
         <NavigasiBar />
         <div class="containerSearch">
             <h3 id="judul" class="JUDUL">Warungonline</h3>
-            <SearchWarung :tombolFilter="tombolFilter" />
+            <div class="secondContainer">
+                <SearchWarung :tombolFilter="tombolFilter" />
+                <DarkMode />
+            </div>
+            
         </div>
         <div id="HomeWarung">
             <IklanWarung />
@@ -22,7 +26,7 @@
     import IklanWarung from "./iklan/IklanHome.vue";
     import KategoriWarung from "./kategori/KategoriHome.vue"
     import SampleCard from '../models/sampleCard/SampleCard.vue';
-
+    import DarkMode from "../models/darkMode/DarkMode.vue"
     export default {
         name: "HomeWarung",
         data() {
@@ -35,7 +39,8 @@
             SearchWarung,
             IklanWarung ,
             KategoriWarung,
-            SampleCard
+            SampleCard,
+            DarkMode
         }
 
     }

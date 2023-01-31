@@ -3,7 +3,11 @@
         <NavigasiBar />
         <div class="containerSearch">
             <h3 id="judul" class="JUDUL">Keranjang Belanjamu</h3>
-            <SearchWarung textPlaceHolder="cari list belanjamu disini ..." />
+            <div class="secondContainer">
+                <SearchWarung textPlaceHolder="cari list belanjamu disini ..." />
+                <DarkMode />
+            </div>
+            
             <ComponentFooter :data="sampelProduk" :cartWarung="true" />
         </div>
         <div id="CartWarung">
@@ -20,6 +24,8 @@
     import CardList from './service/CardList.vue';
     import ComponentFooter from "../models/footer/ComponentFooter.vue"
     import "./index.css"
+    import DarkMode from "../models/darkMode/DarkMode.vue"
+
     export default {
         name: "CartWarung",
         data() {
@@ -31,7 +37,8 @@
             NavigasiBar,
             SearchWarung,
             CardList,
-            ComponentFooter
+            ComponentFooter,
+            DarkMode
         }
     }
 

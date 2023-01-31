@@ -1,13 +1,14 @@
 <template>
     
     <div id="CONTAINER-COMPONENT">
+        <NavigasiBar />
         <div class="containerSearch">
             <h3 class="JUDUL">Tambah Produk</h3>
         </div>
         
         <div id="InsertProduk">
             <p class="error POPPINS" v-if="error">{{ textError }}</p>
-            <form ref="formData" class="form" @submit.prevent="handelInsertData">
+            <form ref="formData" class="form" @submit.prevent="handleInsertData">
                 <div 
                     class="container" 
                     v-for="(item,index) in cekAllTrue" 
@@ -28,7 +29,7 @@
                             class="HEEBO" 
                             cols="20"
                             :class="item.name"
-                            rows="7"
+                            rows="5"
                             v-model.trim="item.text"
                             @input="item.myFunction"
                             required autocomplete
@@ -94,6 +95,7 @@
 
 <script>
     import "./index.css"
+    import NavigasiBar from "../../components/models/navigasi/NavigasiBar.vue"
     import { ref } from "vue"
     import axios from "axios"
 export default {
@@ -103,6 +105,9 @@ export default {
             error: false,
             textError: "Register tidak valid!"
         }
+    },
+    components: {
+        NavigasiBar
     },
     setup() {
         const cekAllTrue = ref({})
@@ -125,13 +130,13 @@ export default {
         for (const item of items) {
             let tipe = "text"
             const splitItem = item.split("-")
-            let namaFunction = "handel" + splitItem.join("")
+            let namaFunction = "handle" + splitItem.join("")
             
             if (item === "Stok-Produk" || item === "Diskon-Produk") {
                 tipe = "number"
             } else if (splitItem[0] === "Gambar") {
                 tipe = "file"   
-                namaFunction = "handel"+splitItem[0]
+                namaFunction = "handle"+splitItem[0]
             }
             
             const obj = {
@@ -153,7 +158,7 @@ export default {
         
     },
     methods: {
-        handelNamaProduk() {
+        handleNamaProduk() {
             //setup awal input
             const namaVar = "Nama-Produk"
             const namaProduk = this.cekAllTrue[namaVar]
@@ -171,7 +176,7 @@ export default {
                 setLocal(false)
             }   
         },
-        handelHargaProduk() {
+        handleHargaProduk() {
             //setup awal
             const namaVar = "Harga-Produk"
             const hargaProduk = this.cekAllTrue[namaVar]
@@ -205,7 +210,7 @@ export default {
                 }
             }
         },
-        handelKategoriProduk(e) {
+        handleKategoriProduk(e) {
             const {value} = e.target
             const namaVar = "Kategori-Produk"
             const kategoriProduk = this.cekAllTrue[namaVar]
@@ -219,7 +224,7 @@ export default {
                 setLocal(false)
             }
         },
-        handelDiskonProduk() {
+        handleDiskonProduk() {
             const namaVar = "Diskon-Produk"
             const diskonProduk = this.cekAllTrue[namaVar]
             const hargaProduk = this.cekAllTrue["Harga-Produk"].text
@@ -251,7 +256,7 @@ export default {
                 
             }
         },
-        handelDeskripsiProduk() {
+        handleDeskripsiProduk() {
             const namaVar = "Deskripsi-Produk"
             const deksirpsiProduk = this.cekAllTrue[namaVar]
             const {text} = deksirpsiProduk
@@ -270,10 +275,10 @@ export default {
             }
             
         },
-        handelSubtotalProduk() {
+        handleSubtotalProduk() {
             console.log("hello")
         },
-        handelGambar(e) {
+        handleGambar(e) {
             const {files, name} = e.target
             const file = files[0]
             const namaVar = name.split(" ").join("-")
@@ -297,7 +302,7 @@ export default {
 
             
         },
-        handelInsertData(e) {
+        handleInsertData(e) {
             e.preventDefault()
             const setLocal = (value) => {
                 this.error = true

@@ -1,16 +1,18 @@
-
+:root {
+    --bgNavigasi: white;
+}
 
 .navs {
     width: 100%;
     bottom: 0;
-    height: 8%;
+    height: 10vh;
     /* border-top: 1px solid #AAA666; */
     position: fixed;
     display: flex;
     justify-content: space-around;
     z-index: 100 !important;
     border-top: 1px solid rgba(26, 26, 26, 0.445);
-    background-color: var(--colorNavigasi);
+    background-color: var(--bgNavigasi);
 }
 
 .nav {
@@ -22,6 +24,7 @@
     font-weight: 200;
     color: #191919;
 }
+
 
 .logoNavbar {
     margin: auto;

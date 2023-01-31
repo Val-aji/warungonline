@@ -1,5 +1,13 @@
+html[data-theme="light"] {
+    --colorKategori: #f1f1f1;
+}
+
+html[data-theme="dark"] {
+    --colorKategori: #505050;
+}
+
 .KategoriHome {
-    background-color: #f1f1f1;
+    background-color: var(--colorKategori);
     box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.933);
     width: 90%;
     margin: 20px auto;
@@ -7,6 +15,7 @@
 
 .KategoriHome > .judulKategori {    
     margin: 0 0 10px 0;
+    color: var(--color);
 }   
 
 .KategoriHome > .logoKategori {
@@ -27,6 +36,7 @@
     text-align: center;
     font-size: .9em;
     margin: 5px 0;
+    color: var(--color);;
 }
 
 

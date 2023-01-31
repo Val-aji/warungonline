@@ -1,3 +1,11 @@
+html[data-theme="light"] {
+    --colorLocal: rgba(0, 0, 0, .2);
+}
+
+html[data-theme="dark"] {
+    --colorLocal: rgba(255, 255, 255, .2);
+}
+
 .cardList > .cards  {
     display: flex;
     flex-direction: column;
@@ -5,8 +13,9 @@
 }
 
 .cardList > .cards > .card {
+    color: var(--color);
     padding: 9px 20px;
-    border-bottom: 1px solid rgba(0 ,0 ,0, .2);
+    border-bottom: 1px solid var(--colorLocal);
     display: flex;
     justify-content: space-between;
 }
@@ -38,13 +47,13 @@
     padding: 2px 0;
     outline: none;
     border-color: rgba(0 ,0 ,0, .3);
-    background-color: rgba(0, 0, 0, .9);
-    color: white;
+    background-color: var(--color);
+    color: var(--colorNormal);
 }
 
 .cardList > .cards > .card > .gambarAndCounter > img {
     width: 100%;
-    height: 9vh;
+    height: 10vh;
 } 
 
 
@@ -58,6 +67,7 @@
     width: 50%;
     /* background-color: rebeccapurple; */
     margin: 0 10px;
+    
 }
 
 
@@ -81,7 +91,7 @@
 .cardList > .cards > .card > .detail > .hargaProduk > .hargaSebelumDiskon {
     color: var(--hargaSebelumDiskon);
     text-decoration: line-through;
-    text-decoration-color: rgba(39, 39, 41, .2);
+    text-decoration-color: var(--colorStyle);
     font-size: 1em;
     font-weight: bold;
     margin-right: 10px;
@@ -104,7 +114,8 @@
     height: 70px;
     padding: 5px;
     font-size: .7em;
-
+    color: var(--color);    
+    opacity: .7;
 }
 
 
@@ -139,7 +150,6 @@
     }    
     .cardList > .cards > .card > .gambarAndCounter > img {
         width: 60%;
-        height: 7vh;
         border-radius: 5px;
     }
     

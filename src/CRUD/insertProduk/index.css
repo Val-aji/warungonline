@@ -70,11 +70,7 @@
 
 
 
-@media screen and (max-width: 240px) {
-    #InsertProduk > form > .container > .gambar {
-        font-size: .6em;
-    }
-}
+
 #InsertProduk > form > .container > .NamaProduk {
 
     letter-spacing: 1px !important;
@@ -98,160 +94,12 @@
 
 
 
-
-
-/*
-
-#InsertProduk > .judulInsert {
-    font-size: 1.1em;
-    color: var(--colorTulisanSecond);
-    padding: 20px 15px;
-
-}
-
-#InsertProduk > .formInsert {
-    width: 80%;
-    margin: auto;
-}
-
-#InsertProduk > .formInsert > .container-input {
-    display: flex;
-    margin-bottom: 15px;
-    flex-direction: column;
-}
-
-#InsertProduk > .formInsert > .container-input >.judulInput {
-    padding: 3px;
-    color: var(--colorJudulInput);
-    letter-spacing: .3px;
-    font-size: .98em !important;
-}
-
-#InsertProduk > .formInsert > .container-input > .inputUser {
-    width: 100%;
-    font-size: 1em;
-    padding: 6px 8px;
-    border-radius: 5px;
-    font-size: .9em;
-    border: 2px solid black;
-}
-
-#InsertProduk > .formInsert > .container-input > #deskripsiProduk {
-    height: 10em;
-}
-
-#InsertProduk > .formInsert > .container-input > #totalHarga {
-    background-color: #adadad;
-    border: 1px solid #aeaeae;
-}
-
-#InsertProduk > .formInsert > .container-input > .inputUser:focus {
-    outline:  2px solid var(--colorJudulInput);
-    border: 2px solid var(--colorTulisanSecond);
-}
-
-
-
-#InsertProduk > .formInsert > button.tombolInsert {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--colorJudulInput);
-    border: 1px solid var(--colorJudulInput);
-    color: white;
-    margin: 30px 0;
-}
-
-
-#InsertProduk > .formInsert > button.tombolInsert:hover {
-    background-color: #0f96e4;
-}
-
-
-
-/* STOK AND UKURAN PRODUK */
-
-
-/* 
-#InsertProduk > .formInsert > .stokAndUkuran {
-    display: flex;
-    width: 100%;
-}
-
-#InsertProduk > .formInsert > .stokAndUkuran > .container-input {
-    width: 40%;
-    display: flex;
-    margin-right: 20%;
-    flex-direction: column;
-}
-
-
-#InsertProduk > .formInsert > .stokAndUkuran > .container-input  > .inputUser {
-    font-size: 1em;
-    padding: 6px 8px;
-    border-radius: 5px;
-    font-size: .9em;
-    border: 2px solid black;
-}
-
-#InsertProduk > .formInsert > .stokAndUkuran > .container-input > .inputUser:focus {
-    outline:  2px solid var(--colorJudulInput);
-    border: 2px solid var(--colorTulisanSecond);    
-}
-
-#InsertProduk > .formInsert > .stokAndUkuran > .container-input >.judulInput {
-    padding: 3px;
-    color: var(--colorJudulInput);
-    letter-spacing: .3px;
-    font-size: .98em !important;
-}
-
-#InsertProduk > .formInsert > .container-gambar {
-    width: 100%;
-    padding-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-#InsertProduk > .formInsert > .container-gambar > .judulInput {
-    margin-right: 5px;
-    padding: 3px;
-    color: var(--colorJudulInput);
-    letter-spacing: .1  px;
-    font-size: 1em !important;
-}
-
-#InsertProduk > .formInsert > .container-gambar > input {
-    text-align: end;
-    font-size: .7em;
-}
-
-#InsertProduk > .formInsert > .errorGambar {
-    color: red !important;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 30px;
-}
-
-
-
-.colorSuccess {
-    color: green !important;
-}
-
-
-@media screen and (max-width: 400px) {
-    #InsertProduk > .formInsert > .container-gambar > .judulInput {
-        font-size: .8em !important;
+@media screen and (max-width: 240px) {
+    #InsertProduk  {
+        font-size: 14px !important;
     }
-    #InsertProduk > .formInsert > .stokAndUkuran > .container-input >.judulInput {
-        width: 50%;
-        
+    #InsertProduk > form > .container > .gambar {
+        font-size: .7em;
     }
 }
 
-
-
-
- */

@@ -1,39 +1,13 @@
-:root {
-    --colorTulisanSecond: #353535;
-    --colorJudulInput: #227cb8;
-    --colorBody: #f4f4f4;
-    --colorNavigasi: #f8f8f8 !important;
-    --hargaSebelumDiskon: rgb(236, 240, 14) !important;
-    --hargaSetelahDiskon: #ff0000 !important;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-
-@media screen and (min-width: 577px) {
-    #CONTAINER-APP {
-        background-color: #2b2b2bef;
-    }
-    #CONTAINER-COMPONENT {
-        width: 576px !important;
-        margin: 0 auto;
-        background-color: var(--colorBody);       
-    }
-    .navs, #CardsShooping, div.containerSearch, .containerFirst , .componentFooter {
-        width: 576px !important;
-        margin: 0 auto;
-    }
-}
-
 
 /* font */
 @import url('https://fonts.googleapis.com/css2?family=Heebo&family=Hind&family=Poppins:wght@300&family=Roboto+Slab:wght@200&display=swap'); 
 /* font-family: 'Hind', sans-serif;
 font-family: 'Roboto Slab', serif; */
-
-.JUDUL {
-    font-family: 'Roboto Slab', serif;
-    color: #4993A1 !important;
-    padding: 10px;
-}
 
 .POPPINS {
     font-family: 'Poppins', sans-serif;
@@ -54,45 +28,100 @@ font-family: 'Roboto Slab', serif; */
     font-family: 'Heebo', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.JUDUL {
+    font-family: 'Roboto Slab', serif;
+    color: var(--colorJUDUL);
+    padding: 10px;
 }
 
-body, html {
-    overflow-x: hidden;
-    background-color: #2b2b2bef;
+
+@media screen and (min-width: 577px) {
+    #CONTAINER-APP {
+        background-color: black;
+        /* background-color: #5a5a5a; */
+        /* background-color: #2b2b2bef; */
+    }
+    #CONTAINER-COMPONENT {
+        width: 576px !important;
+        margin: 0 auto;
+        background-color: var(--colorBody);       
+    }
+    .navs, #CardsShooping, div.containerSearch, .containerFirst , .componentFooter {
+        width: 576px !important;
+        margin: 0 auto;
+    }
 }
+
+
+
+:root {
+    --hargaSebelumDiskon: rgb(236, 240, 14) !important;
+    --hargaSetelahDiskon: #ff0000 !important;
+}
+html[data-theme='light'] {
+    --color: black;
+    --bold: normal;
+    --colorJUDUL: #4993A1;
+    --colorTulisanSecond: #353535;
+    --colorJudulInput: #227cb8;
+    --colorBody: #f4f4f4;
+    --colorNavigasi: #f8f8f8 !important;
+    --colorNormal: white;
+    --colorStyle: rgba(0, 0, 0, .2);
+}
+
+html[data-theme='dark'] {
+    --color: white;
+    --bold: bold;
+    --colorJUDUL: #52b5c9;
+    --colorTulisanSecond: #353535;
+    --colorJudulInput: #227cb8;
+    --colorBody: #201e1e;
+    --colorNormal: black;
+    --colorNavigasi: #292828 !important;
+    --colorStyle: rgba(255, 255, 255, .8);
+}
+
+body {
+    overflow-x: hidden;
+    color: black;
+    background-color: black;
+}
+
+#HomeWarung, #ShoopingWarung, #CartWarung, #DetailProduk, #CheckoutWarung, #TransactionWarung, #InsertProduk,  #LoginClient {
+    overflow-y: auto !important;
+    width: 100%;
+    padding-top: 17vh;
+    background-color: var(--colorBody);
+    height: 90vh;
+    padding-bottom: 11vh;
+}
+
 
 li {
     list-style-type: none;
 }
 
 button {
-    cursor: pointer;
-}
-
-#HomeWarung, #ShoopingWarung, #CartWarung, #DetailProduk, #CheckoutWarung, #TransactionWarung, #InsertProduk{
-    overflow-y: auto !important;
-    width: 100%;
-    padding-top: 90px;
-    background-color: var(--colorBody);
-    padding-bottom: 100px;
+    cursor: pointer !important;
 }
 
 
 
 .containerSearch {
     position: fixed;
+    z-index: 9;
     background-color: var(--colorNavigasi) !important;
     width: 100% !important;
-    z-index: 99;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
+.containerSearch > .secondContainer {
+    display: flex;
+    padding-right: 3vh;
+    align-items: start;
 
-
+}
 
 
 

@@ -1,4 +1,12 @@
 
+html[data-theme="light"] {
+    --bgCard: #fdfeffe8;
+}
+
+html[data-theme="darkt"] {
+    --bgCard: rgba(2, 1, 0, 0.91);
+    
+}
 
 #CardsShooping {
     display: flex;
@@ -15,18 +23,19 @@
         transform: scale(1.04)
     }
     100% {
-        transform: scale(2)
+        transform: scale(1.5)
     }
 }
 
 .judulCard {
     margin: 15px 8px 0 8px;
     font-size: 1em;
+    color: var(--color);
 }
 
 #CardsShooping > .card:hover {
     background-color: #b7cfee !important;
-    transform: scale(1.09);
+    transform: scale(1.06);
     transition-duration: 0.78s;
     border: none !important;
 }
@@ -43,7 +52,7 @@
     width: 40%;
     height: 280px;
     /* background-color: #ebd3d36b; */
-    background-color: #fdfeffe8;
+    background-color: var(--bgCard);
     
 }
 
@@ -55,6 +64,7 @@
 #CardsShooping > .card > .centerCard {
     height: 35%;
     font-size: .7em;
+    color: var(--color);
 }
 
 #CardsShooping > .card > .centerCard > .namaCard {
@@ -92,8 +102,8 @@
 
 #CardsShooping > .card > .footerCard > .hargaCard >  .hargaSetelahDiskon {
     font-weight: bold;
-    margin-top: 13%;
-    font-size: .9em;
+    margin-top: 2.3vh;
+    font-size: 1em;
     color: var(--hargaSetelahDiskon);
     /* font-size: 1.08em; */
 }
@@ -105,16 +115,17 @@
     color: var(--hargaSebelumDiskon);
     font-style: normal;
     text-decoration: line-through;
-    text-decoration-color: rgba(0, 0, 0, .2);
+    text-decoration-color: var(--colorStyle);
     position: absolute;
     top: -10%;
+    font-weight: bold !important; 
     font-size: 1.04em;
 }
 
 #CardsShooping > .card > .footerCard > .tombolPesan {
     border-radius: 5px 5px 10px 5px;
 
-    color: white;
+    color: var(--color);
     font-style: bold;
     font-size: 1.6em;
     padding: 0 10px;
@@ -145,7 +156,18 @@
         font-size: .9em !important;
     }
     #CardsShooping > .card:hover {
-        transform: scale(1.09);
+        transform: scale(1.03);
+    }
+    #CardsShooping > .card > .footerCard > .hargaCard > .hargaSebelumDiskon {
+        width: 100%;
+
+        font-size: 1em !important;
+        text-align: start;
+    }
+
+    #CardsShooping > .card > .footerCard > .hargaCard > .hargaSetelahDiskon {
+        text-align: end;
+        font-size: 1em !important;
     }
     #CardsShooping > .card > .footerCard > .tombolPesan {
         background-color: rgba(0, 0, 0, 1) !important;

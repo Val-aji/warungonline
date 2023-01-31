@@ -1,3 +1,11 @@
+html[data-theme="light"] {
+    --colorBorderSample: white;
+}
+
+html[data-theme="dark"] {
+    --colorBorderSample: black;
+}
+
 #sampleCard {
     width: 100%;
     position: relative;
@@ -5,6 +13,7 @@
 }
 
 .judulSampleCard {
+    color: var(--color);
     font-size: 1.1em;
     font-weight: bold;
     letter-spacing: 1px;
@@ -28,14 +37,13 @@
 .samplesCard > .containerCard > .card {
     margin: 5px;
     border-radius: 15px 5px 15px 5px;
-    border: 1px solid white;
+    border: 1px solid var(--colorBorderSample);
     box-shadow: 1px 1px 1px 1px #eee7e7;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 165px;
     height: 270px;
-    /* background-color: #ebd3d36b; */
     background-color: var(--colorBody);
     
 }
@@ -51,6 +59,7 @@
 }
 
 .samplesCard > .containerCard > .card > .centerCard > .namaCard {
+    color: var(--color);
     margin: 0 4px 5px 1px;
     font-weight: bold;
     font-size: 1.03em;
@@ -67,6 +76,7 @@
     font-weight: normal;
     opacity: .8;
     overflow-y: auto;
+    color: var(--color);
 }
 
 
@@ -100,7 +110,7 @@
     font-style: normal;
     letter-spacing: .2px;
     text-decoration: line-through;
-    text-decoration-color: rgba(0, 0, 0, .1);
+    text-decoration-color: var(--colorStyle);
     position: absolute;
     top: -11%;
     font-size: .98em;
@@ -108,11 +118,12 @@
 
 .samplesCard > .containerCard > .card > .footerCard > .tombolPesan {
     border-radius: 5px 5px 10px 5px;
+    /* color: var(--colorBorderSample); */
     color: white;
     font-style: bold;
     font-size: 1.6em;
     padding: 0 10px;
-    border: 2px solid white;
+    border: 2px solid var(--colorBody);
     background-color: #5a5a5ada;
 } 
 
@@ -128,6 +139,7 @@
     text-align: center;
     position: relative;
     display: flex;
+    color: var(--color);
     font-size: .9em;
     background-color: var(--colorBody);
     height: 100%;

@@ -8,7 +8,7 @@
 <script>
 import { RouterView } from "vue-router";
 import "./index.css"
-
+console.log(document.documentElement.getAttribute("data-theme"))
 
 export default {
   components: {
@@ -16,6 +16,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

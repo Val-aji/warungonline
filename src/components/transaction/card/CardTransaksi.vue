@@ -37,12 +37,8 @@
                     
             </div>
         
-            
-            <TotalKeselurahan />
-        
         </div>
-        
-        
+                
     </div>
 </template>
 
@@ -51,7 +47,7 @@
     import "./index.css"
     import { sampelProduk } from "../../../data"
     import HeaderCard from "./header/HeaderCard.vue"
-    import TotalKeselurahan from "../../models/total/TotalKeselurahan.vue"
+   
     export default {   
         name: "CardTransaksi",
         data() {
@@ -74,7 +70,7 @@
         },
         components: {
             HeaderCard,
-            TotalKeselurahan
+            
         }
     }
 </script>

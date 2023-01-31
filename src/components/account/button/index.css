@@ -1,5 +1,6 @@
 .componentButton {
     width: 100%;
+    
 }
 
 .componentButton > .text {
@@ -11,7 +12,7 @@
     text-align: center;
     padding: 5px 0;
     font-size: .96em;
-    color: black;
+    color: var(--color);
     border-radius: 10px;
     border: 1px solid var(--hargaSetelahDiskon);    
     /* border: 1px solid #4993A1; */

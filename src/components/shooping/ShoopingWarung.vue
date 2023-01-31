@@ -3,7 +3,12 @@
         <NavigasiBar />
         <div class="containerSearch">
             <h3 class="JUDUL">Shooping</h3>
-            <SearchWarung :tombolFilter="tombolFilter" />
+            <div class="secondContainer">
+                <SearchWarung :tombolFilter="tombolFilter" />
+                <DarkMode />    
+            </div>
+            
+            
         </div>
         <div id="ShoopingWarung">
             
@@ -21,7 +26,7 @@
     import SearchWarung from "../models/search/SearchWarung.vue"
     import {products} from "../../data.js"
     import CardShooping from '../models/cardShooping/CardShooping.vue';
-
+    import DarkMode from "../models/darkMode/DarkMode.vue"
     export default {
         name: "ShoopipngWarung", 
         data() {
@@ -32,7 +37,8 @@
         components: {
             NavigasiBar,
             SearchWarung,
-            CardShooping
+            CardShooping,
+            DarkMode
         },
         beforeMount() {
             this.produk = products

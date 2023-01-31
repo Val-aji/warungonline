@@ -1,0 +1,21 @@
+#LoginClient {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#LoginClient > button {
+    width: 80%;
+    margin-bottom: 2vh;
+    padding: 1vh 0;
+    background-color: var(--hargaSetelahDiskon);
+    color: white;
+    font-size: 1.07em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid blue;
+}

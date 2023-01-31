@@ -6,9 +6,10 @@
         </div>
         <div id="DetailProduk">
             <ComponentDetail :data="sampelProduk"/>
-            <ComponentFooter :data="sampelProduk" />
             <CardShooping :data="products" />
         </div>
+        <ComponentFooter :data="sampelProduk" />
+
     </div>
 
 </template>
@@ -37,7 +38,7 @@
             SearchWarung
         },
         mounted() {
-            console.log(sampelProduk)
+            
         }
 
     }

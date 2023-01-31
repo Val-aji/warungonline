@@ -1,4 +1,5 @@
 import {createRouter, createWebHistory} from "vue-router"
+import { backendRouter } from "./backendRouter.js"
 
 
 const router = createRouter({
@@ -39,16 +40,7 @@ const router = createRouter({
       name: 'CheckOut',
       component: () => import("../components/checkout/CheckOut.vue")
     },
-    {
-        path: "/InsertProduk",
-        name: "Insert Produk",
-        component: () => import("../CRUD/insertProduk/InsertProduk.vue")
-    },
-    {
-      path: "/RegisterClient",
-      name: "RegisterClient",
-      component: () => import("../CRUD/registerClient/RegisterClient.vue")
-  }
+    ...backendRouter
   ]
 })
 

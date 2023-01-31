@@ -1,6 +1,7 @@
 .cardTransaksi > .card {
     border-top: 1px solid rgba(0, 0, 0, .4);
     border-bottom: 1px solid rgba(0, 0, 0, .4);
+    color: var(--color);
 }
 
 .cardTransaksi > .card > .header {
@@ -44,11 +45,11 @@
 }
 
 .cardTransaksi > .card > .header > div >  .alamat {
-    height: 5vh;
+    height: 7vh;
     overflow: auto;
     margin: 1vh 0;
     font-size: .9em;
-    opacity: .8;
+    font-weight: 500;
     /* background-color: red; */
 }
 

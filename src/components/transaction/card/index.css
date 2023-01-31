@@ -1,5 +1,17 @@
+html[data-theme="light"] {
+    --colorStyleLocal: rgba(0, 0, 0, .4);
+}
+
+html[data-theme="dark"] {
+    --colorStyleLocal: rgba(255, 255, 255, .8);
+}
+
+.cardTransaksi {
+    background-color: var(--colorBody) !important;
+}
+
 .cardTransaksi > .card  {
-    padding: 0 1vh;
+    padding: 4vh 1vh;
     margin-bottom: 3vh;
 }
 
@@ -7,7 +19,7 @@
 
 .cardTransaksi > .card > .produk {
     padding: 1vh;
-    border: 1px solid rgba(0, 0, 0, .4);
+    border: 1px solid var(--colorStyleLocal);
     display: flex;
     justify-content: space-between;
 }
@@ -43,7 +55,7 @@
 
 .lineThrough {
     text-decoration: line-through;
-    text-decoration-color: rgba(0, 0, 0, .2);
+    text-decoration-color: var(--colorStyle)
 }
 
 .cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
