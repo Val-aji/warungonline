@@ -65,7 +65,6 @@ html[data-theme="dark"] {
     flex-direction: column;
     justify-content: space-around;
     width: 50%;
-    /* background-color: rebeccapurple; */
     margin: 0 10px;
     
 }
@@ -115,7 +114,8 @@ html[data-theme="dark"] {
     padding: 5px;
     font-size: .7em;
     color: var(--color);    
-    opacity: .7;
+    opacity: .8;
+    background-color: var(--colorNormal);
 }
 
 

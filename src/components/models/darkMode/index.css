@@ -1,0 +1,16 @@
+.darkMode {
+    color: var(--color);
+    width: 15vh;
+}
+.darkMode > svg {
+    width: 100%;
+    margin: auto;
+}
+.darkMode > p {
+    font-size: .6em;
+    width: 100% !important;
+    margin: 0 auto;
+}
+.none {
+    display: none !important;
+}

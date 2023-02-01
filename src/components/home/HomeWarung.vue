@@ -14,6 +14,7 @@
             <KategoriWarung />
             <SampleCard judulSample="Produk Promo" />
             <SampleCard judulSample="Produk Terlaris" />
+            
         </div>
     </div>
     
@@ -31,7 +32,7 @@
         name: "HomeWarung",
         data() {
             return {
-                tombolFilter: false
+                tombolFilter: false,
             }
         },
         components: {
@@ -45,3 +46,10 @@
 
     }
 </script>
+
+<style>
+    #testingLogo > svg {
+        color: blue;
+        background-color: green;
+    }
+</style>

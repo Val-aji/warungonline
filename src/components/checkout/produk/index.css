@@ -1,13 +1,13 @@
 .listProduk > .judul {
     padding: 0 3vh;
     letter-spacing: .2px;
-    
 }
 
 
 .listProduk > .cards {
     width: 85%;
     margin: 0 auto;
+    background-color: var(--colorNormal);
 }
 
 .listProduk > .cards > .card {

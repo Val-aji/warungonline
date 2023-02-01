@@ -95,6 +95,7 @@ body {
     background-color: var(--colorBody);
     height: 90vh;
     padding-bottom: 11vh;
+    color: var(--color);
 }
 
 
@@ -125,3 +126,6 @@ button {
 
 
 
+svg {
+    color: var(--color);
+}

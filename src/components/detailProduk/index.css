@@ -1,0 +1,12 @@
+.containerSearch > .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.containerSearch > .container > button {
+    background-color: inherit;
+    border: none;
+    padding-right: 3vh;
+    color: var(--color)
+}

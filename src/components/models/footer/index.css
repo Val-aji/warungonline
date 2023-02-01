@@ -15,12 +15,13 @@
 
 @media screen and (max-width: 260px){
     .hargaProdukFooter {
+        padding: 0;
         font-size: .85em !important;
     }
     
     .componentFooter {
         overflow: auto !important;
-         
+         padding: 0 0 0 1vh;
     }
 
     .componentFooter > .containerButton > .tombolPesan {

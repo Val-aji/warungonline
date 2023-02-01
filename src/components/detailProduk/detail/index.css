@@ -1,10 +1,17 @@
+html[data-theme="light"] {
+    --bgLocal: #e7e7e7;
+}
 
+html[data-theme="dark"] {
+    --bgLocal: #414141;
+}
 
 .containerFirst {
     padding-bottom: 10px;
-    background-color: #e7e7e7;
+    background-color: var(--bgLocal);
     width: 100% !important;
     position: relative;
+    color: var(--color);
 }
 
 .containerFirst > div >  .componentGambar {

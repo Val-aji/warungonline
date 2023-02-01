@@ -1,5 +1,6 @@
 .componentPengiriman {
     padding: 1vh 0;
+    color: var(--colorNormal);
 }
 
 .componentPengiriman > .judul { 
@@ -21,8 +22,9 @@
     letter-spacing: .3px;
     font-size: .9em;
     border-color: blue;
-    outline-color: var(--hargaSetelahDiskon);
     font-weight: 200;
+    background-color: var(--color);
+    color: var(--colorNormal);
 
 }
 

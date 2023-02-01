@@ -25,7 +25,9 @@
     color: #191919;
 }
 
-
+#NavigasiBar > .navs > .nav > span > svg {
+    color: black !important;
+}
 .logoNavbar {
     margin: auto;
 }

@@ -150,6 +150,7 @@ html[data-theme="darkt"] {
     #CardsShooping > .card {
         width: 90% !important;
         margin: 20px 0;
+        padding-bottom: 5vh !important; 
     }
     
     #CardsShooping > .card > .centerCard > .namaCard {
@@ -170,7 +171,9 @@ html[data-theme="darkt"] {
         font-size: 1em !important;
     }
     #CardsShooping > .card > .footerCard > .tombolPesan {
-        background-color: rgba(0, 0, 0, 1) !important;
+        color: var(--colorNormal);
+        background-color: var(--color);
+        
     }
 
 }
@@ -211,8 +214,11 @@ html[data-theme="darkt"] {
         border-radius: 15px 5px 0 5px;
         margin-bottom: 18px !important;
         /* border-radius: 15px 5px 15px 5px; */
+        padding-bottom: 7vh;
     
-    
+    }
+    #CardsShooping > .card > .gambar {
+        height: 25vh;
     }
 
     #CardsShooping > .card > .footerCard > .tombolPesan:hover {
@@ -229,11 +235,10 @@ html[data-theme="darkt"] {
     }
     #CardsShooping > .card > .footerCard > .tombolPesan {
         border: none;
-        border-radius: 2px;
+        border-radius: 0 0 0 5px;
         font-size: 1.2em;
-        background-color: inherit;
-        color: white;
-        background-color: rgba(0, 0, 0, .7); 
+
+        /* background-color: rgba(0, 0, 0, .7);  */
         width: 100%;
         padding: 0;
           

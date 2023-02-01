@@ -1,3 +1,6 @@
+.alamatCheckout  {
+    color: var(--colorNormal);
+}
 
 .alamatCheckout > .judul {
     padding: 0 3vh;
@@ -21,36 +24,42 @@
 .alamatCheckout > form > .container > .judul {
     font-size: 1em;
     margin-bottom: 1vh;
+    color: var(--colorNormal) !important;
     padding: 0 .4vh;
     font-weight: bold;
     letter-spacing: .7px;
 }
 
 .alamatCheckout > form > .container > input {
-    padding: 3px 1vh;
+    padding: 1vh    ;
     font-size: .9em;
-    outline-color: var(--hargaSetelahDiskon);
+    /* outline-color: var(--hargaSetelahDiskon); */
     border: 1px solid blue;
     font-weight: 400;
+    background-color: var(--color);
+    color: var(--colorNormal);
     letter-spacing: .5px;
 }
 
 .alamatCheckout > form > .container > select {
     padding: 4px;
+    background-color: var(--color);
     letter-spacing: .3px;
     font-size: .9em;
     border: 1px solid blue;
-    outline-color: var(--hargaSetelahDiskon);
+    color: var(--colorNormal);
     font-weight: 200;
 
 }
 
 .alamatCheckout > form > .container  > textarea {
-    border-color: blue;
+    border: 1px solid blue;
     padding: 5px;
+    background-color: var(--color);
+    color: var(--colorNormal);
     letter-spacing: .3px;
     font-size: 1.02em;
-    outline-color: var(--hargaSetelahDiskon);
+    
 }
 
 

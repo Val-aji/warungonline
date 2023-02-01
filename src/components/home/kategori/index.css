@@ -1,8 +1,10 @@
 html[data-theme="light"] {
     --colorKategori: #f1f1f1;
+    --colorLocal: black;
 }
 
 html[data-theme="dark"] {
+    --colorLocal: #ecfdf9;
     --colorKategori: #505050;
 }
 
@@ -43,7 +45,10 @@ html[data-theme="dark"] {
 .KategoriHome > .logoKategori svg {
     width: 100%;
     height: 40px;
+    color: var(--colorLocal);
+
 }
+
 
 
 @media screen and (max-width: 250px) {
