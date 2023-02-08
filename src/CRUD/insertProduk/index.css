@@ -1,6 +1,25 @@
+ @media screen and (min-width: 577px) {
+    #InsertProduk > form {
+        padding: 5vh 0;
+    }   
+
+    #InsertProduk > form > .container {
+        margin-bottom: 4vh !important;
+    }
+    #InsertProduk > form > button {
+        
+        border-color: var(--colorNavigasi) !important;
+    }
+
+    #InsertProduk > form > .container > .gambar {
+        color: var(--color);
+    }
+ }
+ 
  #InsertProduk > form {
     width: 85%;
     margin: auto;
+        
 }
 
 #InsertProduk >.error {
@@ -20,7 +39,7 @@
 }
 
  #InsertProduk > form > .container > label {
-    color: var(--);
+    color: var(--color);
     font-size: 1em;
     font-weight: bold;
     margin-bottom: 1vh;

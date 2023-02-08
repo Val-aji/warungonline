@@ -4,7 +4,7 @@
             <h3 class="JUDUL">Checkout</h3>
             <button class="tombolClose" v-html="CLOSE"></button>
         </div>
-        <div id="CheckoutWarung">
+        <div id="COMPONENT-BODY">
             <AlamatCheckout />
             <ComponentPengiriman />
             <ListProduk />

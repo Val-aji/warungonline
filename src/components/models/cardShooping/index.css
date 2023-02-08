@@ -12,7 +12,8 @@ html[data-theme="darkt"] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 100%;
+   
+    
 }
 
 @keyframes scaleCard {
@@ -34,11 +35,13 @@ html[data-theme="darkt"] {
 }
 
 #CardsShooping > .card:hover {
-    background-color: #b7cfee !important;
+    background-color: #6b6b6b !important;
     transform: scale(1.06);
     transition-duration: 0.78s;
     border: none !important;
+    
 }
+
 
 
 #CardsShooping > .card {
@@ -244,3 +247,25 @@ html[data-theme="darkt"] {
           
     }   
 }
+
+@media screen and (min-width: 577px) {
+    #CardsShooping {
+        width: 80vw !important;
+    }
+    #CardsShooping > .card {
+        width: 35%;
+        
+    }
+}
+
+@media screen and (min-width: 850px) {
+    #CardsShooping {
+        width: 80vw !important;
+        justify-content: center;
+    }
+
+    #CardsShooping > .card {
+        width: 25%;
+        margin: 3vh;
+    }
+}  

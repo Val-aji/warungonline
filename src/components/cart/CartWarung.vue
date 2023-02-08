@@ -7,10 +7,26 @@
                 <SearchWarung textPlaceHolder="cari list belanjamu disini ..." />
                 <DarkMode />
             </div>
+            <div class="headerDesktop">
+                <div class="header">
+                    <IklanWarung />
+                    <div class="footerHeader">
+                        <KategoriWarung />
+                        <div class="bottomFooter">
+                            <SearchWarung />
+                            <DarkMode />
+                        </div>  
+                    </div>
+                </div>
+            </div>
             
             <ComponentFooter :data="sampelProduk" :cartWarung="true" />
         </div>
-        <div id="CartWarung">
+        <div class="COMPONENT-BODY P25">
+            <CardList />            
+        </div>
+
+        <div class="COMPONENT-BODY-DESKTOP">
             <CardList />            
         </div>
     </div>
@@ -24,6 +40,8 @@
     import CardList from './service/CardList.vue';
     import ComponentFooter from "../models/footer/ComponentFooter.vue"
     import "./index.css"
+    import KategoriWarung from "../home/kategori/KategoriHome.vue";
+    import IklanWarung from "../home/iklan/IklanHome.vue";
     import DarkMode from "../models/darkMode/DarkMode.vue"
 
     export default {
@@ -38,7 +56,9 @@
             SearchWarung,
             CardList,
             ComponentFooter,
-            DarkMode
+            DarkMode,
+            IklanWarung,
+            KategoriWarung
         }
     }
 

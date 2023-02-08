@@ -2,6 +2,28 @@
     --bgNavigasi: white;
 }
 
+@media screen and (min-width: 577px) {
+    .navs {
+        width: 20vw !important;
+        height: 75vh !important;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, .5);
+    }
+    .nav {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        align-items: center;
+        font-weight: bold !important;
+    }
+
+    
+    .logoNavbar {
+        margin: 0 !important;
+    }
+}
+
 .navs {
     width: 100%;
     bottom: 0;

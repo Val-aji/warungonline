@@ -2,16 +2,35 @@
     <div id="CONTAINER-COMPONENT">
         <NavigasiBar />
         <div class="containerSearch">
-            <h3 id="judul" class="JUDUL">Warungonline</h3>
+            <h3 class="JUDUL">Warungonline</h3>
             <div class="secondContainer">
                 <SearchWarung :tombolFilter="tombolFilter" />
                 <DarkMode />
             </div>
+
+            <div class="headerDesktop">
+                <div class="header">
+                    <IklanWarung />
+                    <div class="footerHeader">
+                        <KategoriWarung />
+                        <div class="bottomFooter">
+                            <SearchWarung />
+                            <DarkMode />
+                        </div>  
+                    </div>
+                </div>
+            </div>
             
         </div>
-        <div id="HomeWarung">
+        <div class="COMPONENT-BODY">
             <IklanWarung />
             <KategoriWarung />
+            <SampleCard judulSample="Produk Promo" />
+            <SampleCard judulSample="Produk Terlaris" />
+            
+        </div>
+
+        <div class="COMPONENT-BODY-DESKTOP">
             <SampleCard judulSample="Produk Promo" />
             <SampleCard judulSample="Produk Terlaris" />
             
@@ -28,6 +47,7 @@
     import KategoriWarung from "./kategori/KategoriHome.vue"
     import SampleCard from '../models/sampleCard/SampleCard.vue';
     import DarkMode from "../models/darkMode/DarkMode.vue"
+    
     export default {
         name: "HomeWarung",
         data() {
@@ -47,9 +67,3 @@
     }
 </script>
 
-<style>
-    #testingLogo > svg {
-        color: blue;
-        background-color: green;
-    }
-</style>

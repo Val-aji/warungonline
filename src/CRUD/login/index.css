@@ -12,8 +12,8 @@
     width: 80%;
     margin-bottom: 2vh;
     padding: 1vh 0;
-    background-color: var(--hargaSetelahDiskon);
-    color: white;
+    background-color: #d30707;
+    color: var(--colorNormal);
     font-size: 1.07em;
     font-weight: 600;
     letter-spacing: 1px;

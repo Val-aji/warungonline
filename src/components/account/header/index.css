@@ -1,6 +1,7 @@
 .componentHeader {
     /* background-color: rgba(255, 0, 0, .9); */
     background-color: var(--colorTulisanSecond);
+    
 }
 
 .componentHeader > .container {
@@ -37,3 +38,21 @@
     }
 }
 
+
+@media screen and (min-width: 420px) {
+    .componentHeader > .container > img {
+        height: 25vh !important;
+        width: 40%;
+
+    }
+}
+
+
+
+@media screen and (min-width: 800px) {
+    .componentHeader > .container > img {
+        height: 30vh !important;
+        /* width: 40%; */
+
+    }
+}

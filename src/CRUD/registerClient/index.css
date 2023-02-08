@@ -1,14 +1,9 @@
-#RegisterClient {
-    background-color: white !important;
-    height: 100% !important;
-}
 
 
-#RegisterClient > .judulRegister {
-    font-size: 1.1em;
-    color: var(--colorTulisanSecond);
-    padding: 20px 15px;
-    letter-spacing: .5px;
+@media screen and (min-width: 577px) {
+    #RegisterClient {
+        padding-top: 5vh;
+    }
 }
 
 #RegisterClient > .formRegister {

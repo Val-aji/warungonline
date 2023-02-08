@@ -34,22 +34,95 @@ font-family: 'Roboto Slab', serif; */
     padding: 10px;
 }
 
+li {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer !important;
+}
+
 
 @media screen and (min-width: 577px) {
+    /* Header Layar Desktop */
     #CONTAINER-APP {
-        background-color: black;
-        /* background-color: #5a5a5a; */
-        /* background-color: #2b2b2bef; */
+        overflow: hidden !important;
     }
-    #CONTAINER-COMPONENT {
-        width: 576px !important;
-        margin: 0 auto;
-        background-color: var(--colorBody);       
+    .containerSearch {
+        background-color: red !important;
+        height: 25vh;
+        display: flex;
+        align-items: center;
+        background-color: var(--colorNavigasi);
     }
-    .navs, #CardsShooping, div.containerSearch, .containerFirst , .componentFooter {
-        width: 576px !important;
-        margin: 0 auto;
+
+    .containerSearch > .secondContainer {
+        display: none !important;
     }
+
+    .JUDUL {
+        width: 20vw !important;
+    }
+    .containerSearch > .headerDesktop {
+        display: flex !important;
+        flex-direction: column;
+        width: 75% !important;
+        margin: 0;
+        padding: 0;
+        ;
+        
+    }
+    
+    .containerSearch > .headerDesktop > .header {
+        display: flex;
+        width: 100%;
+        
+    }
+    .containerSearch > .headerDesktop > .header > .footerHeader > .bottomFooter {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    .containerSearch > .headerDesktop > .header > .footerHeader > .bottomFooter > #header {
+        width: 70%;
+        
+    }
+
+    .containerSearch > .headerDesktop > .header > .footerHeader > .bottomFooter > .darkMode {
+        width: 20%;
+    }
+    .containerSearch > .headerDesktop > .header > .footerHeader {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    .containerSearch > .headerDesktop > .header > .KategoriHome > .judulKategori {
+        display: none;
+    
+    }
+
+    /* END HEADER DESKTOP */
+    .COMPONENT-BODY {
+        display: none;
+    }
+    .COMPONENT-BODY-DESKTOP.P15 {
+        padding-top: 15vh !important;
+    }
+    .COMPONENT-BODY-DESKTOP {
+        display: block !important;
+        width: 80vw !important;
+        margin-left: 20vw;
+        padding-top: 25vh;
+        padding-bottom: 10vh !important;
+        background-color: var(--colorBody);
+        
+    }
+
+     
+    
 }
 
 
@@ -85,26 +158,30 @@ html[data-theme='dark'] {
 body {
     overflow-x: hidden;
     color: black;
-    background-color: black;
+
 }
 
-#HomeWarung, #ShoopingWarung, #CartWarung, #DetailProduk, #CheckoutWarung, #TransactionWarung, #InsertProduk,  #LoginClient {
+.COMPONENT-BODY-DESKTOP {
+    display: none;
+}
+.COMPONENT-BODY.P25 {
+    padding-bottom: 25vh !important;
+    
+}
+.COMPONENT-BODY,   #LoginClient {
     overflow-y: auto !important;
     width: 100%;
     padding-top: 17vh;
     background-color: var(--colorBody);
-    height: 90vh;
-    padding-bottom: 11vh;
+    height: 100vh;
+
+    padding-bottom: 11vh !important;
     color: var(--color);
+    
 }
 
-
-li {
-    list-style-type: none;
-}
-
-button {
-    cursor: pointer !important;
+.containerSearch > .headerDesktop {
+    display: none;
 }
 
 
@@ -115,6 +192,7 @@ button {
     background-color: var(--colorNavigasi) !important;
     width: 100% !important;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
+    
 }
 
 .containerSearch > .secondContainer {
