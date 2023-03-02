@@ -57,8 +57,9 @@
 }
 
 
-#RegisterClient > .formRegister > .container-input > #alamat {
+#RegisterClient > .formRegister > .container-input > .alamat {
     height: 10em;
+    
 }
 
 

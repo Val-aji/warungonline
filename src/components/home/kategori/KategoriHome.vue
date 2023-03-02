@@ -11,9 +11,11 @@
             <LogoPencuciPiring />
             <LogoPerawatanDiri />
             <LogoSnack />
-        </div>
-    
+        </div>    
     </div>  
+
+
+    
 
 </template>
 
@@ -27,6 +29,7 @@
     import LogoPencuciPiring from '../logo/LogoPencuciPiring.vue';
     import LogoPerawatanDiri from '../logo/LogoPerawatanDiri.vue';
     import "./index.css";
+    
     export default {
         name: "KategoriHome",
          data() {

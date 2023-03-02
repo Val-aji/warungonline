@@ -1,11 +1,15 @@
 <template>
-    <div class="containerFirst">
-        <div :style="{overflowX: 'auto', padding: '5px 0'}">
+    <div v-if="data" class="containerFirst">
+        <div 
+            :style="{overflowX: 'auto', padding: '5px 0'}"
+        >
             <div class="componentGambar">
-                <div class="containerGambarDetail">
+                <div    
+                    class="containerGambarDetail"
+                >
                     <img 
-                        :src="data.gambar_produk.thumbnail" 
-                        :alt="data.nama_produk"  
+                        :src="data.gambarProduk.thumbnail" 
+                        :alt="data.namaProduk"  
                         class="gambarDetail"  
                     />
                     
@@ -15,17 +19,22 @@
         <div class="describeDetail">
             <div class="headerDescribe">
                 <p class="namaProduk HEEBO"> 
-                    {{data.nama_produk}} 
+                    {{data.namaProduk}} 
                 </p>
                 
-                <div class="containerHargaProduk">
-                    <p class="hargaProduk POPPINS" v-if="(data.diskon_produk > 0)">
-                        Rp{{( data.harga_produk.toLocaleString("ID-id"))}} 
+                <div
+                    class="containerHargaProduk"
+                >
+                    <p 
+                        class="hargaProduk POPPINS" 
+                        v-if="(data.diskonProduk > 0)"
+                    >
+                        Rp{{( data.hargaProduk.toLocaleString("ID-id"))}} 
                     </p>
                     <p 
-                        class="totalHarga POPPINS" :class="{hargaSetelahDiskon: data.diskon_produk > 0}"
+                        class="totalHarga POPPINS" :class="{hargaSetelahDiskon: data.diskonProduk > 0}"
                     >
-                            Rp{{data.totalHarga_produk.toLocaleString("ID-id")}}
+                            Rp{{data.subtotalProduk.toLocaleString("ID-id")}}
                     </p>
                     
                 </div>    
@@ -35,7 +44,7 @@
                 :class="{height100}" 
                 @click="onHeight" 
             > 
-                 {{data.deskripsi_produk}} 
+                 {{data.deskripsiProduk}} 
             </p>
             <p 
                 :style="{textAlign: 'center', marginTop: '30px', color: 'purple'}"
@@ -59,9 +68,6 @@ import "./index.css";
         },
         props: {
             data: Object
-        },
-        mounted() {
-            console.log(this.data.nama_produk.length)
         },
         methods: {
             onHeight() {

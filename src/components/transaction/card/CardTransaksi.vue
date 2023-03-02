@@ -5,22 +5,28 @@
             <HeaderCard :data="data"/>            
            
             <div class="produk">
-                <img :src="sampelProduk.gambar_produk.thumbnail" class="gambarProduk" alt="">
+                <img 
+                    :src="sampelProduk.gambarProduk.thumbnail" 
+                    class="gambarProduk" 
+                    alt="gambar Produk"
+                >
                 <div class="detail">
-                    <p class="namaProduk"> {{ sampelProduk.nama_produk   }}</p>
+                    <p class="namaProduk"> 
+                            {{ sampelProduk.namaProduk   }}
+                    </p>
                     <div class="harga">
                         <p 
                             class="hargaProduk POPPINS" 
-                            :class="{'lineThrough': sampelProduk.diskon_produk > 0}" 
+                            :class="{'lineThrough': sampelProduk.diskonProduk > 0}" 
                         >
-                                Rp{{ sampelProduk.harga_produk.toLocaleString("ID-id") }} 
+                                Rp{{ sampelProduk.hargaProduk.toLocaleString("ID-id") }} 
                         </p>
                         
                         <p 
                             class="subtotalProduk POPPINS" 
-                            v-if="sampelProduk.diskon_produk > 0"
+                            v-if="sampelProduk.diskonProduk > 0"
                         >
-                                Rp{{ sampelProduk.totalHarga_produk.toLocaleString("ID-id") }}
+                                Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
                         </p>
                     </div>
                     
@@ -29,10 +35,13 @@
             </div>
             
             <div class="footer">
-                    <p class="POPPINS">@Rp{{ sampelProduk.totalHarga_produk.toLocaleString("ID-id") }}</p>
+                    <p class="POPPINS">
+                            @Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
+                    </p>
                     <div class="kanan">
                         <p class="jumlah">2x</p>
-                        <p class="POPPINS subtotal">Rp{{ sampelProduk.totalHarga_produk.toLocaleString("ID-id") }}</p>    
+                        <p class="POPPINS subtotal">Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
+                        </p>    
                     </div>
                     
             </div>

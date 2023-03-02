@@ -22,7 +22,7 @@
             </div>
             
         </div>
-        <div class="COMPONENT-BODY">
+        <div class="COMPONENT-BODY pt-17">
             <IklanWarung />
             <KategoriWarung />
             <SampleCard judulSample="Produk Promo" />

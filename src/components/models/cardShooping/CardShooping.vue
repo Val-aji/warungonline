@@ -5,11 +5,11 @@
             v-for="product in data" 
             :key="product.id" 
             value="tes" 
-            @click="()=> {cardShooping(product.kode_produk);}"  
+            @click="() => cardShooping(product)"  
         >
                 
             <img 
-                :src="product.gambar_produk.thumbnail" 
+                :src="product.gambarProduk.thumbnail" 
                 class="gambar" 
                 alt="Rinso Cair" 
             />
@@ -17,10 +17,10 @@
             <div 
                 class="centerCard">
                     <p class="namaCard HIND"> 
-                        {{product.nama_produk}} 
+                        {{product.namaProduk}} 
                     </p>
                     <p class="deskripsiCard HIND"> 
-                        {{product.deskripsi_produk}} 
+                        {{product.deskripsiProduk}} 
                     </p>
             </div>
 
@@ -28,47 +28,57 @@
                 <div class="hargaCard">
                     <p 
                         class="hargaSebelumDiskon POPPINS" 
-                        v-if="(product.diskon_produk > 0)" 
+                        v-if="(product.diskonProduk > 0)" 
                     >   
-                        Rp{{( product.harga_produk.toLocaleString("ID-id"))}} 
+                        Rp{{( product.hargaProduk.toLocaleString("ID-id"))}} 
                     </p>
                     
                     <p 
                         class="harga POPPINS" 
-                        :class="{hargaSetelahDiskon: product.diskon_produk > 0}"
+                        :class="{hargaSetelahDiskon: product.diskonProduk > 0}"
                     >
-                            Rp{{product.totalHarga_produk.toLocaleString("ID-id")}}
+                            Rp{{product.subtotalProduk.toLocaleString("ID-id")}}
                     </p>
                     
                 </div>
-                <button class="tombolPesan">
-                    +
-                </button>
+                
+                <TombolTambah :data="product" />
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    
     import "./index.css";
+    import TombolTambah from "../tombolTambah/TombolTambah.vue";
 
     export default {
         name: "CardShooping",
         data() {
             return {
-                cardHover: false
+                cardHover: false,
             }
         },
         props: {
             data: Object
         },
-        methods: {
-            cardShooping(kode_produk) {
-                console.log(kode_produk)
-            }
+        components: {
+            TombolTambah
         },
-        mounted() {
-            // console.log(this.products)
-        }
+        methods: {
+            cardShooping(result) {
+                console.log("Tes")
+                if(this.$route.path === "/detailProduk") {
+                    this.$router.push("/Shooping")        
+                }
+                setTimeout(() => {
+                    this.$router.push({
+                    path: "/detailProduk",
+                    query: {state: JSON.stringify(result)}
+                })
+                }, 100);
+            },
+        },
     }
 </script>

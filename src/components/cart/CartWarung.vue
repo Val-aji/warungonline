@@ -20,14 +20,14 @@
                 </div>
             </div>
             
-            <ComponentFooter :data="sampelProduk" :cartWarung="true" />
+            <ComponentFooter :data="sampelProduk" :cartWarung="true" @handlePesan="handlePesan" :subtotal="subtotal" />
         </div>
-        <div class="COMPONENT-BODY P25">
-            <CardList />            
+        <div class="COMPONENT-BODY pt-17">
+            <CardList @setData="setData" @setSubtotal="setSubtotal"  />            
         </div>
 
         <div class="COMPONENT-BODY-DESKTOP">
-            <CardList />            
+            <CardList @setData="setData" @setSubtotal="setSubtotal"  />            
         </div>
     </div>
 </template>
@@ -43,6 +43,8 @@
     import KategoriWarung from "../home/kategori/KategoriHome.vue";
     import IklanWarung from "../home/iklan/IklanHome.vue";
     import DarkMode from "../models/darkMode/DarkMode.vue"
+    import {cekLogin} from "../../../config/logic.js"
+    import {ref} from "vue"
 
     export default {
         name: "CartWarung",
@@ -51,6 +53,31 @@
                 sampelProduk
             }
         },
+        setup() {
+            const data = ref(null)
+            const subtotal = ref(0)
+            const setSubtotal = () => {
+                if(!data.value) {
+                    return false
+                } else {
+                    let total = 0
+                    data.value.map(i => {
+                        total += i.subtotalProduk
+                    })
+                    subtotal.value = total
+                }
+            }
+            const setData = (result) => {
+                data.value = result
+            }
+            
+            return {data, setData, subtotal, setSubtotal}
+        },  
+        // watch: {
+        //     subtotal(old) {
+        //         console.log(old)
+        //     }
+        // },
         components: {
             NavigasiBar,
             SearchWarung,
@@ -59,6 +86,29 @@
             DarkMode,
             IklanWarung,
             KategoriWarung
+        },
+        beforeMount() {
+            cekLogin(this.$router, this.$router.path)
+        },
+        methods: {
+            handlePesan() {
+                const {data} = this
+                if(!data || data.length <= 0) {
+                    alert("harus memilih produk terlebih dahulu")
+                    return false
+                }
+                this.$router.push({
+                    path: "/Checkout",
+                    query: {state: JSON.stringify({
+                        data: this.data,
+                        subtotal: {
+                            subtotal: this.subtotal,
+                            jumlahProduk: data.length
+                        }
+                    })},
+                    
+                })
+            }
         }
     }
 

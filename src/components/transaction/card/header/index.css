@@ -58,6 +58,11 @@
     letter-spacing: .6px;
 }
 
+@media screen and (max-width: 775px) and (min-width: 577px) {
+    .cardTransaksi > .card > .header > div > p:first-child {
+        font-size: .7em;
+    }
+}
 
 @media screen and (max-width: 320px) {
     .cardTransaksi > .card > .header {

@@ -1,6 +1,7 @@
 .listProduk > .judul {
     padding: 0 3vh;
     letter-spacing: .2px;
+    color: var(--color);
 }
 
 
@@ -8,6 +9,7 @@
     width: 85%;
     margin: 0 auto;
     background-color: var(--colorNormal);
+    color: var(--color);
 }
 
 .listProduk > .cards > .card {
@@ -15,7 +17,7 @@
     padding: 10px 1vh 10px 1vh;
     margin: 1vh 0 3vh 0;
     justify-content: space-between;
-    border: 1px solid rgba(0, 0, 0, .4);
+    border: 1px solid var(--color)
 }
 
 .listProduk > .cards > .card >  img {
@@ -35,13 +37,14 @@
     font-size: .9em;
     line-height: 1.2em;
     font-weight: bold;
-    color: rgba(0, 0, 0, 1);
+    color: var(--color);
 }
 
 .listProduk > .cards > .card > .detail > div {
     display: flex;
     justify-content: space-between;
     width: 97%;
+    color: var(--color);
 }
 
 .listProduk > .cards > .card > .detail > div > .HDTJ {
@@ -64,14 +67,14 @@
 
 .listProduk > .cards > .card > .detail > .subTotal > p {
     font-size: 1em;
-    color: black;
+    color: var(--color);
     font-weight: 600;
 }
 
 .listProduk > .cards > .card > .detail > .subTotal > span {
     /* color: var(--hargaSetelahDiskon); */
     font-weight: 600;
-    color: rgba(0, 0, 0, .9);
+    color: var(--color);
     letter-spacing: 1px;
     font-size: 1.03em;
     text-align: end;

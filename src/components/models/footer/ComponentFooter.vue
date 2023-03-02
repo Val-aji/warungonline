@@ -1,10 +1,12 @@
 <template>
-        <div class="componentFooter" :class="{'top86': cartWarung}" >
-            <p class="hargaProdukFooter POPPINS">Rp{{"999.999.999".toLocaleString("ID-id")}}</p>
+        <div v-if="data" class="componentFooter" :class="{'top86': cartWarung}" >
+            <p class="hargaProdukFooter POPPINS">
+                Rp{{ !cartWarung ? data.subtotalProduk.toLocaleString() : subtotal.toLocaleString()}}
+            </p>
 
             <div class="containerButton">
-                <button class="tombolTambah" v-if="cartWarung" > + </button>
-                <button class="ROBOTO tombolPesan">Pesan <br />Sekarang</button>
+                <TombolTambah v-if="!cartWarung" :data="data" />
+                <button @click="$emit('handlePesan')" class="ROBOTO tombolPesan">Pesan <br />Sekarang</button>
                 
             </div> 
             
@@ -13,17 +15,17 @@
 
 <script>
     import "./index.css";
+    import TombolTambah from "../tombolTambah/TombolTambah.vue";
 
     export default {
         name: "ComponentFooter",
-        data() {
-            return {
-
-            }
-        },
         props: {
             data: Object,
-            cartWarung: Boolean   
+            cartWarung: Boolean,
+            subtotal: Number
+        },
+        components: {
+            TombolTambah
         }
     }
 </script>

@@ -1,14 +1,48 @@
-#LoginClient {
+@media screen and (min-width: 577px) {
+    #Layout {
+        height: 65vh !important;
+    }
+    .loginClient {
+        margin: 20vh auto !important;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .loginClient > .pesanError {
+        font-size: .7em !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .loginClient> .pesanError {
+        font-size: .62em !important;
+        letter-spacing: .1px !important;
+        margin: 4vh 3vw 0;
+    }
+}
+@media screen and (max-width: 280px) {
+    .loginClient > .pesanError {
+        font-size: .7em !important;
+        margin: 4vh 3vw 0;
+    }
+    .loginClient > .container > label {
+        font-size: .6em !important ;
+    }
+}
+
+
+
+#Layout {
     display: flex;
     width: 100%;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
 
 
-#LoginClient > button {
+#Layout > button {
     width: 80%;
     margin-bottom: 2vh;
     padding: 1vh 0;
@@ -18,4 +52,71 @@
     font-weight: 600;
     letter-spacing: 1px;
     border: 1px solid blue;
+}
+
+.none {
+    display: none;
+}
+
+
+.loginClient {
+    width: 80%;
+    margin: 30vh auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 10px;
+    padding: 1vh 0 4vh;
+    position: relative;
+    z-index: 1;
+}
+.loginClient > .tombolClose {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+
+.loginClient > .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2vh 0;
+    align-items: center;
+}
+.loginClient > .pesanError {
+    color: var(--color);
+    letter-spacing: .6px;
+    font-weight: bold;
+}
+.loginClient > .container > label {
+    color: var(--colorNormal);
+    width: 90%;
+    font-size: .9em;
+    text-align: start;
+}
+
+.loginClient > .container > input {
+    width: 90%;
+    letter-spacing: .3px;
+    color: var(--color);
+    background-color: var(--colorNormal);
+    font-weight: bold;
+    padding: .7vh 1vw;
+    outline: none;
+    border: 1px solid var(--color);
+}
+
+.loginClient > button {
+    width: 80%;
+    padding: .5vh 0;
+    margin-top: 2vh;
+    border: 1px solid var(--colorNormal);
+    box-shadow: 1px 1px 5px 3px var(--colorNormal);
+    background-color: var(--color);
+    color: var(--colorNormal);
+
 }

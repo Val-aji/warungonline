@@ -1,3 +1,5 @@
+export const urlAPI = "http://localhost:3000"
+
 export const KATEGORIS = {
     type: "kategori",
     data: [

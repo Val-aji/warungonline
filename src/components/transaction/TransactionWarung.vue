@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="COMPONENT-BODY ">
+        <div class="COMPONENT-BODY pt-8">
             <CardTransaksi />
             <TotalKeselurahan />
 
@@ -39,8 +39,8 @@
     import IklanWarung from "../home/iklan/IklanHome.vue";
     import DarkMode from "../models/darkMode/DarkMode.vue"
     import SearchWarung from "../models/search/SearchWarung.vue"
-
-
+    import { cekLogin } from '../../../config/logic.js';
+    
     export default {
         name: "TransactionWarung",
         components: {
@@ -51,6 +51,9 @@
             DarkMode,
             IklanWarung,
             SearchWarung
+        },
+        beforeMount() {
+            cekLogin(this.$router, this.$router.path)
         }
     }
 

@@ -1,6 +1,6 @@
 <template>
     <div class="componentButton">
-        <button class="text ROBOTO"> {{text}} </button>
+        <button @click="$emit('myFunction')" class="text ROBOTO"> {{text}} </button>
     </div>
 </template>
 

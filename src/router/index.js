@@ -38,7 +38,8 @@ const router = createRouter({
     {
       path: '/Checkout',
       name: 'CheckOut',
-      component: () => import("../components/checkout/CheckOut.vue")
+      component: () => import("../components/checkout/CheckOut.vue"),
+      alias: "/checkout"
     },
     ...backendRouter
   ]

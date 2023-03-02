@@ -39,8 +39,9 @@
 }
 
  #InsertProduk > form > .container > label {
-    color: var(--color);
+    color: var(--colorInput);
     font-size: 1em;
+
     font-weight: bold;
     margin-bottom: 1vh;
     padding: 0 .4vh;
@@ -53,21 +54,25 @@
     padding: 5px 7px;
     letter-spacing: .7px;
     font-size: 1em;
+    margin-bottom: 1vh;
     border-color: blue;
     outline: 1px solid lightblue;
-    
+    background-color: var(--colorNormal);
+    color: var(--color);
 }
 
-#InsertProduk > form > .container > .DeskripsiProduk {
+#InsertProduk > form > .container > .deskripsiProduk {
     border: 1px solid blue;
     padding: 1vh;
+    background-color: var(--colorNormal);
+    color: var(--colorInput);
     letter-spacing: .7px;
     font-weight: 100 !important;
     font-size: .8em;
     outline: 1px solid blue;
 }
 
-#InsertProduk > form > .container > .KategoriProduk {
+#InsertProduk > form > .container > .kategoriProduk {
     letter-spacing: .8px;
     opacity: .8;
     padding: 2px 3px;
@@ -85,22 +90,23 @@
     color: white;
     letter-spacing: .5px;
     border-color: white;
+    margin-bottom: 5vh;
 }
 
 
 
 
-#InsertProduk > form > .container > .NamaProduk {
+#InsertProduk > form > .container > .namaProduk {
 
     letter-spacing: 1px !important;
     font-size: .9em !important;
 }
 
-#InsertProduk > form > .container > .HargaProduk { 
+#InsertProduk > form > .container > .hargaProduk { 
     font-family: "Poppins", sans-serif !important;
 }
-#InsertProduk > form > .container > .SubtotalProduk {
-    background-color: #e6e6e6;
+#InsertProduk > form > .container > .subtotalProduk {
+
     font-family: "Poppins", sans-serif !important;
 }
 
@@ -108,6 +114,7 @@
     color: red;
     font-size: .85em;
     padding: 2px;
+    /* font-family: bold; */
     letter-spacing: 1px;
 }
 

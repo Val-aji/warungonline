@@ -1,8 +1,8 @@
 <template>
-    <div class="listProduk">
+    <div v-if="!products" class="listProduk">
         <h3 class="judul POPPINS">3. List Produk</h3>
         <div class="cards">
-            <div class="card" v-for="product in sampelListProduk" :key="product.id">
+            <div class="card" v-for="product in products" :key="product.id">
                 <img :src="product.gambar_produk.thumbnail" :alt="product.nama_produk" />
                 <div class="detail">
                     <p class="namaProduk HEEBO"> {{product.nama_produk}} </p>
@@ -48,14 +48,18 @@
 
 <script>
     import "./index.css"
-    import {sampelListProduk} from "../../../data"
-
+    
     export default {
         name: "ListProduk",
         data() {
             return {
-                sampelListProduk
             }
+        },
+        props: {
+            products: Object
+        },
+        beforeMount() {
+            console.log(this.products)
         }
     }
 

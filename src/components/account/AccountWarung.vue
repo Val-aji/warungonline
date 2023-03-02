@@ -17,14 +17,14 @@
                 </div>
             </div>
         </div>
-        <div class="COMPONENT-BODY P0">
+        <div class="COMPONENT-BODY">
             <ComponentHeader />
             <ComponentButton v-for="(button, index) in buttons " :text="button.name" :key="index" />
         </div>
 
         <div class="COMPONENT-BODY-DESKTOP ">
             <ComponentHeader />
-            <ComponentButton v-for="(button, index) in buttons " :text="button.name" :key="index" />
+            <ComponentButton v-for="(button, index) in buttons" :text="button.name" :key="index" @myFunction="button.myFunction" />
         </div>
 
     </div>
@@ -40,6 +40,8 @@
     import IklanWarung from "../home/iklan/IklanHome.vue";
     import DarkMode from "../models/darkMode/DarkMode.vue"
     import SearchWarung from '../models/search/SearchWarung.vue';
+    import {handleLogout, handleTesting} from "./logic.js"
+    import { cekLogin } from "../../../config/logic.js";
 
     export default {
         name: "AccountWarung",
@@ -50,22 +52,29 @@
             SearchWarung,
             KategoriWarung,
             DarkMode,
-            IklanWarung
+            IklanWarung,
+            
 
         },
         setup() {
+            const email = localStorage.getItem("emailWarungonline")
+            
             const buttons = ref([
-                {name: "Edit Profile"},
-                {name: "Keranjang Belanja"},
-                {name: "Hsitory Belanja"},
-                {name: "Kelola Produk"},
-                {name: "Pertanyaan sering muncul"},
-                {name: "Ketentuan & Persyaratan"},
-                {name: "Logout"}
+                {name: "Edit Profile", myFunction: handleTesting},
+                {name: "Keranjang Belanja", myFunction: handleTesting},
+                {name: "Hsitory Belanja", myFunction: handleTesting},
+                {name: "Kelola Produk", myFunction: handleTesting},
+                {name: "Pertanyaan sering muncul", myFunction: handleTesting},
+                {name: "Ketentuan & Persyaratan", myFunction: handleTesting},
+                {name: "Logout", myFunction: () => handleLogout(email)}
             ])
+            
             return {buttons}
+        },
+        beforeMount() {
+            cekLogin(this.$router, this.$route.path)
+            
         }
-        
     }
 
 

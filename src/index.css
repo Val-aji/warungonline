@@ -141,6 +141,7 @@ html[data-theme='light'] {
     --colorNavigasi: #f8f8f8 !important;
     --colorNormal: white;
     --colorStyle: rgba(0, 0, 0, .2);
+    --colorInput: #000;
 }
 
 html[data-theme='dark'] {
@@ -153,6 +154,7 @@ html[data-theme='dark'] {
     --colorNormal: black;
     --colorNavigasi: #292828 !important;
     --colorStyle: rgba(255, 255, 255, .8);
+    --colorInput: #e4e7e7ec;
 }
 
 body {
@@ -164,14 +166,16 @@ body {
 .COMPONENT-BODY-DESKTOP {
     display: none;
 }
-.COMPONENT-BODY.P25 {
-    padding-bottom: 25vh !important;
-    
+.pt-8 {
+    padding-top: 8vh;
+}
+.pt-17 {
+    padding-top: 17vh;
 }
 .COMPONENT-BODY,   #LoginClient {
     overflow-y: auto !important;
     width: 100%;
-    padding-top: 17vh;
+    /* padding-top: 17vh; */
     background-color: var(--colorBody);
     height: 100vh;
 

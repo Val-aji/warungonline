@@ -1,6 +1,6 @@
 .componentPengiriman {
     padding: 1vh 0;
-    color: var(--colorNormal);
+    color: var(--color);
 }
 
 .componentPengiriman > .judul { 
@@ -23,8 +23,8 @@
     font-size: .9em;
     border-color: blue;
     font-weight: 200;
-    background-color: var(--color);
-    color: var(--colorNormal);
+    background-color: var(--colorNormal);
+    color: var(--color);
 
 }
 

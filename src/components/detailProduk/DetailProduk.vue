@@ -4,7 +4,7 @@
         <div class="containerSearch">
             <div class="container">
                 <h3 id="judul" class="JUDUL">Detail Produk</h3>
-                <button v-html="CLOSE"></button>
+                <button v-html="CLOSE" @click="handleSilang"></button>
             </div>
             
             <div class="secondContainer">
@@ -27,15 +27,15 @@
             </div>
             
         </div>
-        <div class="COMPONENT-BODY">
-            <ComponentDetail :data="sampelProduk"/>
+        <div class="COMPONENT-BODY pt-17">
+            <ComponentDetail :data="getData()"  />
             <CardShooping :data="products" />
         </div>
         <div class="COMPONENT-BODY-DESKTOP">
-            <ComponentDetail :data="sampelProduk"/>
+            <ComponentDetail :data="getData()" />
             <CardShooping :data="products" />
         </div>
-        <ComponentFooter :data="sampelProduk" />
+        <ComponentFooter :data="getData()" />
 
     </div>
 
@@ -44,7 +44,6 @@
 
 <script>
 
-    import {sampelProduk} from "../../data.js";
     import { CLOSE } from "../icons/config";
     import ComponentDetail from "./detail/ComponentDetail.vue";
     import ComponentFooter from "../models/footer/ComponentFooter.vue";
@@ -63,7 +62,7 @@
         name: "DetailProduk",
         data() {
             return {
-                sampelProduk,
+                data: null,
                 CLOSE,
                 products
             }
@@ -78,8 +77,29 @@
             IklanWarung,
             NavigasiBar
         },
-        mounted() {
-            
+        beforeMount() {
+            try {
+                const {state} = this.$route.query
+                this.$router.replace("/detailProduk")
+                if(!state) {
+                    this.$router.push("/Shooping")
+                    return false
+                }
+                const data = JSON.parse(state)
+                this.data = data
+            } catch (error) {
+                this.$router.push("/Shooping")
+                console.log({error})
+            }
+                
+        },
+        methods: {
+            getData() {
+                return this.data
+            },
+            handleSilang() {
+                this.$router.push("/Shooping")
+            }
         }
 
     }

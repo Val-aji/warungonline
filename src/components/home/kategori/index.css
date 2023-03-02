@@ -73,12 +73,12 @@ html[data-theme="dark"] {
         height: 15vh;
         padding: 0 !important;
         margin: 0 !important;
-        width: 100vw;
+        width: 90vw !important;
     }   
     
     .KategoriHome > .logoKategori  {
         flex-wrap: nowrap;
-        width: 45vw;
+        width: 40vw;
 
     }
     .KategoriHome > .judulKategori {

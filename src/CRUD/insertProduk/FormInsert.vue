@@ -15,8 +15,8 @@
                         </label>
                         
                         <textarea 
-                            v-if="item.name === 'DeskripsiProduk'" 
-                            :id="item.nama"
+                            v-if="item.name === 'deskripsiProduk'" 
+                            :id="item.name"
                             min="10"
                             max="3000"
                             class="HEEBO" 
@@ -31,7 +31,7 @@
                         
                         
                         <select  
-                            v-else-if="item.name === 'KategoriProduk'"
+                            v-else-if="item.name === 'kategoriProduk'"
                             :id="item.name"
                             class="HEEBO"
                             :class="item.name"
@@ -54,7 +54,7 @@
                             class="ROBOTO gambar " 
                             :class="item.name"
                             :id="item.name"
-                            :name="item.judul"
+                            :name="item.name"
                             required autocomplete
                             @change="item.myFunction"
                         />
@@ -68,7 +68,7 @@
                             required autocomplete
                             v-model.trim="item.text"
                             @input="item.myFunction"
-                            :readonly="item.name === 'SubtotalProduk'"
+                            :readonly="item.name === 'subtotalProduk'"
                         />
                         <p v-if="item.error"
                             class="pesanError POPPINS"
@@ -78,7 +78,7 @@
                         
                 </div>
                 
-                <button type="submit ROBOTO">Tambah Produk</button>
+                <button type="submit" className="ROBOTO">Tambah Produk</button>
             </form>
         </div>
 
@@ -90,6 +90,7 @@
     import "./index.css"    
     import { ref } from "vue"
     import axios from "axios"
+    import {cekLogin, instance} from "../../../config/logic.js"
 
 export default {
     name: "FormInsert",
@@ -104,7 +105,7 @@ export default {
         const setVariabel = (variabel, properti, value) => {
             if (!properti) {
                 cekAllTrue.value[variabel] = value    
-                
+                // untuk setup awal di beforeMount
             } else {
                 cekAllTrue.value[variabel][properti] = value
             }
@@ -115,24 +116,29 @@ export default {
         }
     },
     beforeMount() {
+        cekLogin(this.$router, "/Account")
+    },  
+    mounted() {
         const items = ["Nama-Produk", "Kategori-Produk", "Harga-Produk", "Deskripsi-Produk", "Diskon-Produk", "Subtotal-Produk", "Gambar-Thumbnail", "Gambar-Satu", "Gambar-Dua"]
         
         for (const item of items) {
-            let tipe = "text"
-            const splitItem = item.split("-")
-            let namaFunction = "handle" + splitItem.join("")
+            let tipe = "text" // default tipenya text
+            const splitItem = item.split("-") // Nama-Produk menjadi NamaProduk
+            let namaFunction = "handle" + splitItem.join("") // NamaProduk jadi handleNamaProduk
+            let name = splitItem[0]
+            name = name.substr(0,1).toLowerCase() + name.substr(1, name.length) + splitItem[1]
             
             if (item === "Stok-Produk" || item === "Diskon-Produk") {
-                tipe = "number"
+                tipe = "number" // jika Stok atau diskon maka number
             } else if (splitItem[0] === "Gambar") {
-                tipe = "file"   
+                tipe = "file" // jika nama pertamanya Gambar-Thumbnail = gambar maka file
                 namaFunction = "handle"+splitItem[0]
             }
             
             const obj = {
-                judul: splitItem.join(" "),
-                name: splitItem.join(""),
-                tipe,
+                judul: splitItem.join(" "), //[Nama, Produk] = Nama Produk
+                name, //[Nama, Produk] = namaProduk 
+                tipe, 
                 text: "",
                 error: false,
                 pesanError: "",
@@ -148,7 +154,7 @@ export default {
         
     },
     methods: {
-        handleNamaProduk() {
+        async handleNamaProduk() {
             //setup awal input
             const namaVar = "Nama-Produk"
             const namaProduk = this.cekAllTrue[namaVar]
@@ -184,7 +190,13 @@ export default {
                 setLocal()
                 setLocal("Hanya dapat memasukkan angka","pesanError")
                 setLocal("", "text")
-            } else {
+                return false
+            } else if(parseInt(angkaInput.join("")) > 1000000000) {
+                setLocal()
+                setLocal("Maksimum harga yaitu Rp1.000.000.000 (satu miliar rupiah)", "pesanError")
+                return false                
+            } 
+            else {
                 const formatAngkaInput = parseInt(angkaInput.join(""))
                 const newInput = "Rp"+formatAngkaInput.toLocaleString("id-ID")
                 setLocal(newInput, "text")
@@ -264,15 +276,22 @@ export default {
                 setLocal(false)
             }
             
-        },
-        handleSubtotalProduk() {
-            console.log("hello")
+            
         },
         handleGambar(e) {
-            const {files, name} = e.target
-            const file = files[0]
-            const namaVar = name.split(" ").join("-")
+            
+            const {name} = e.target
+            const namaVar = "Gambar-" + name.split("gambar")[1]
             const setLocal = (value=true, properti="error") => this.setVariabel(namaVar, properti, value)
+            
+            const {files} = e.target
+            if(files.length === 0) {
+                setLocal()
+                setLocal("Gambar tidak boleh kosong", "pesanError")
+                return false
+            }
+            const file = files[0]
+            
             
             // maks 3mb
             const ukuran = 3000000
@@ -289,11 +308,9 @@ export default {
                 setLocal(false)
                 setLocal(file, "text")
             }
-
             
         },
-        handleInsertData(e) {
-            e.preventDefault()
+        async handleInsertData() {
             const setLocal = (value) => {
                 this.error = true
                 this.textError = "Masukkan " + value + " dengan benar! " 
@@ -303,13 +320,33 @@ export default {
             
             for (const key in cekAllTrue) {
                 const item = cekAllTrue[key]
+                let value = item.text
+
+                if(key === "Nama-Produk" ) {
+                    const result = await instance().post("/produk/kodeProduk")
+
+                    const kodeProduk = value.split(" ").map((item, index) => { 
+                            return value.length == index + 1 ? item : item.substr(0, 2).toUpperCase() 
+                        }).join("")
+                    const data = result.data.data.filter(i => i.namaProduk.toLowerCase() === value.toLowerCase() || i.kodeProduk === kodeProduk)
+                    if(data.length > 0) {
+                        console.log("gagal")
+                        this.error = true
+                        this.textError = "Nama Produk atau kode produk sudah ada!"
+                        alert("insert data gagal")
+                        return false
+                    }
+                }
+
                 if(item.error) {
                     setLocal(item.judul)
                     alert("Insert Data Gagal")
                     return false
-                }
-                formData.append(item.name, item.text)
+                } 
+                this.error = false
+                formData.append(item.name, value)
             }
+
             axios.post("http://localhost:3000/produk", formData, {
                 headers: {
                     "Content-type": "multipart/form-data"
@@ -321,9 +358,7 @@ export default {
                 console.log(err)
                 console.log(err.message)
                 alert("Insert Gagal")
-            })
-            
-            
+            })  
         }
     },
 }

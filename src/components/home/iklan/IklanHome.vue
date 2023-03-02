@@ -1,6 +1,6 @@
 <template>
     <div class="iklanShooping">
-        <img :src="posisiIklan" alt="IklanShooping" class="gambarIklanShooping" @touchstart="posisiAwal" @touchend="swipeIklan" />
+        <img :src="posisiIklan" alt="IklanShooping" class="gambarIklanShooping" @touchstart.passive="posisiAwal" @touchend="swipeIklan" />
     </div>
 </template>
 

@@ -5,7 +5,7 @@
 .alamatCheckout > .judul {
     padding: 0 3vh;
     letter-spacing: .2px;
-    
+    color: var(--color)    
 }
 
 .alamatCheckout > form {
@@ -24,7 +24,7 @@
 .alamatCheckout > form > .container > .judul {
     font-size: 1em;
     margin-bottom: 1vh;
-    color: var(--colorNormal) !important;
+    color: var(--color) !important;
     padding: 0 .4vh;
     font-weight: bold;
     letter-spacing: .7px;
@@ -36,18 +36,19 @@
     /* outline-color: var(--hargaSetelahDiskon); */
     border: 1px solid blue;
     font-weight: 400;
-    background-color: var(--color);
-    color: var(--colorNormal);
+    background-color: var(--colorNormal);
+    color: var(--color);
     letter-spacing: .5px;
 }
 
 .alamatCheckout > form > .container > select {
     padding: 4px;
-    background-color: var(--color);
+    background-color: var(--colorNormal);
     letter-spacing: .3px;
     font-size: .9em;
     border: 1px solid blue;
-    color: var(--colorNormal);
+
+    color: var(--color);
     font-weight: 200;
 
 }
@@ -55,8 +56,8 @@
 .alamatCheckout > form > .container  > textarea {
     border: 1px solid blue;
     padding: 5px;
-    background-color: var(--color);
-    color: var(--colorNormal);
+    background-color: var(--colorNormal);
+    color: var(--color);
     letter-spacing: .3px;
     font-size: 1.02em;
     
