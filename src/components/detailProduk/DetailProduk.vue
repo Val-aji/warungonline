@@ -44,7 +44,7 @@
 
 <script>
 
-    import { CLOSE } from "../icons/config";
+    import { CLOSE } from "../icons/config.js";
     import ComponentDetail from "./detail/ComponentDetail.vue";
     import ComponentFooter from "../models/footer/ComponentFooter.vue";
     import CardShooping from "../models/cardShooping/CardShooping.vue";

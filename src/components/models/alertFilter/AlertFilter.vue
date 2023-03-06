@@ -1,7 +1,10 @@
 <template>
     <div class="alertFilter">
-        <p class="judulAlertFilter ROBOTO">Filter</p>
-
+        <div class="containerHeaderAlert">
+            <p class="judulAlertFilter ROBOTO">Filter</p>
+            <button class="tombolCloseAlert" v-html="CLOSE" @click="$emit('offAlert')"></button>
+        </div>
+        
         <ComponentAlert :datas="KATEGORIS" judul="Kategori" :methodsUser="userChecked" />
         <ComponentAlert :datas="HARGA" judul="Harga" :methodsUser="userChecked" />
     </div>
@@ -11,11 +14,12 @@
     import "./alertFilter.css"
     import {KATEGORIS, HARGA} from "../../config"
     import ComponentAlert from "./ComponentFilter.vue"
-
+    import {CLOSE} from "../../icons/config.js"
     export default {
         name: "AlertFilter",
         data() {
             return {
+                CLOSE,
                 KATEGORIS,
                 HARGA,
                 checkedUser: {

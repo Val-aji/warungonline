@@ -20,13 +20,14 @@
             v-if="tombolFilter === true" 
             v-html="FILTER" 
             class="logoFilter"
-            @click="onAlertFilter">
+            @click="onAlertFilter"
+             >
             
         </button>
 
         
     </div>
-    <AlertFilter v-if="alertFilter"/>
+    <AlertFilter v-if="alertFilter" @offAlert="onAlertFilter"/>
 </template>
 
 <script>

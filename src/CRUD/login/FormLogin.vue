@@ -66,7 +66,8 @@
                     }})
 
                     const {data} = result
-                    if(data.status === 404 || data.status === 401) {
+                    
+                    if(data.status === 404 || data.status === 401 || !data) {
                         this.isError = false
                         this.pesanError = data.message
                         setTimeout(() => {
@@ -95,7 +96,15 @@
                         
                     }
                 } catch (error) {
-                  this.error = true  
+                    setTimeout(() => {
+                        this.isError = true  
+                    }, 300)
+                    const {status} = error.response
+                    if(status == 401) {
+                        this.pesanError = "Password salah!"
+                    } else if(status == 404) {
+                        this.pesanError = "Email tidak ditemukan"
+                    }
                 }
 
             }

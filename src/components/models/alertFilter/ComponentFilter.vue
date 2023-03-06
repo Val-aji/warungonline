@@ -1,4 +1,5 @@
 <template>
+    
     <div class="containerAlert">
         <p class="judulAlert HEEBO"> {{judul}} </p>
         <div class="containerCheck">
@@ -15,15 +16,14 @@
 </template>
 
 <script>
-
     export default {
         name: "ComponentAlert",
         data() {
             return {
                 checked: {
                     kategori: [],
-                    harga: []
-                }
+                    harga: [],
+                },
             }
         },
         props: {

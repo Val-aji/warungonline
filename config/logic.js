@@ -32,7 +32,7 @@ export const cekLogin = async(router, path) => {
             router.push("/login")
         }
     } catch (error) {
-        console.log(error)        
+        console.log("error logic",error)
     }
     
 }

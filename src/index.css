@@ -192,11 +192,10 @@ body {
 
 .containerSearch {
     position: fixed;
-    z-index: 9;
+    z-index: 99;
     background-color: var(--colorNavigasi) !important;
     width: 100% !important;
     border-bottom: 1px solid rgba(0, 0, 0, .12);
-    
 }
 
 .containerSearch > .secondContainer {
