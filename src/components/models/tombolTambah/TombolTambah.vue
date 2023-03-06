@@ -13,15 +13,22 @@
         },
         methods: {
             async insertKeranjang() {
-                const email = localStorage.getItem("emailWarungonline")
-                const formData = new FormData()
+                
 
-                formData.append("tanggal", new Date().toLocaleString("id-ID", {timezone: "asia/jakarta"}))
-                formData.append("kodeProduk", this.data.kodeProduk),
-                formData.append("email", email)
+                try {
+                    const email = localStorage.getItem("emailWarungonline")
+                    const formData = new FormData()    
+                    formData.append("tanggal", new Date().toLocaleString("id-ID", {timezone: "asia/jakarta"}))
+                    formData.append("kodeProduk", this.data.kodeProduk),
+                    formData.append("email", email)
 
-                instance().put("/clientProduk/keranjang", formData)
-                console.log("tambah keranjang sukses")
+                    instance().put("/clientProduk/keranjang", formData)
+                    console.log("tambah keranjang sukses")
+                } catch (error) {
+                    console.log({error})
+                    
+                }
+                
             }
         },
     }
