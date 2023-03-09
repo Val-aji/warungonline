@@ -19,7 +19,8 @@
         </div>
         <div class="COMPONENT-BODY">
             <ComponentHeader />
-            <ComponentButton v-for="(button, index) in buttons " :text="button.name" :key="index" />
+            <ComponentButton v-for="(button, index) in buttons " :text="button.name" :key="index" 
+            @myFunction="button.myFunction" />
         </div>
 
         <div class="COMPONENT-BODY-DESKTOP ">
@@ -45,6 +46,7 @@
 
     export default {
         name: "AccountWarung",
+        
         components: {
             NavigasiBar,
             ComponentHeader,
@@ -58,7 +60,9 @@
         },
         setup() {
             const email = localStorage.getItem("emailWarungonline")
-            
+            // const handleLogout = () => {
+            //     console.log("tess")
+            // }
             const buttons = ref([
                 {name: "Edit Profile", myFunction: handleTesting},
                 {name: "Keranjang Belanja", myFunction: handleTesting},

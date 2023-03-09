@@ -107,7 +107,7 @@
                     subtotalProduk: item.subtotalProduk
                 }
                 listHargaProduk.push(objHarga)
-                return {...item, status, jumlah: 1}
+                return {...item, status, jumlah: 1, subtotalAwal: item.subtotalProduk}
             })
             const newProduk = ref(cekProduk)
 

@@ -6,7 +6,10 @@
 
             <div class="containerButton">
                 <TombolTambah v-if="!cartWarung" :data="data" />
-                <button @click="$emit('handlePesan')" class="ROBOTO tombolPesan">Pesan <br />Sekarang</button>
+                <button @click="$emit('handlePesan')" 
+                class="ROBOTO tombolPesan"
+                
+                >Pesan <br />Sekarang</button>
                 
             </div> 
             
@@ -22,7 +25,8 @@
         props: {
             data: Object,
             cartWarung: Boolean,
-            subtotal: Number
+            subtotal: Number,
+
         },
         components: {
             TombolTambah

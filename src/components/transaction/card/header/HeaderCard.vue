@@ -1,14 +1,6 @@
 <template>
      <div class="header">
-                <!-- kiri: 
-                    -tanggal,
-                    -nama,
-                    -nomorHp,
-                kanan: 
-                    -kode pesanan,
-                    -alamat
-                    -namaa penjual -->
-                    
+
         <div class="kiri">
            <p class="POPPINS tanggal">{{data.tanggal_pesanan }}</p>
             <p class="POPPINS nama">{{ data.nama_penerima }}</p>

@@ -1,13 +1,17 @@
 <template>
-    <div v-if="data" class="totalKeseluruhan">
+    <div v-if="jumlahProduk || subtotal" class="totalKeseluruhan">
+        <div class="container kodePesanan">
+            <p class="judul HIND">Kode Pesanan</p>
+            <span class="ROBOTO"> {{ kodePesanan }}</span>
+        </div>
         <div class="container subtotalJumlah">
             <p class="judul HIND">Subtotal Jumlah</p>
-            <span class="POPPINS"> {{data.jumlahProduk}} </span>
+            <span class="POPPINS"> {{jumlahProduk}} </span>
         </div>
         
         <div class="container subtotalProduk">
             <p class="judul HIND">Subtotal Produk</p>
-            <span class="POPPINS"> Rp{{data.subtotal.toLocaleString()}} </span>
+            <span class="POPPINS"> Rp{{subtotal.toLocaleString("ID-id")}} </span>
         </div>
         
         <div class="container ongkir">
@@ -30,22 +34,21 @@
         name: "TotalKeseluruhan",
         data() {
             return {
-                totalKeselurahan: null,
-                ongkir: 0
+                totalKeselurahan: 0,
+                ongkir: 0,
+
             }
         },
         props: {
-            data: Object
+            jumlahProduk: Number,
+            subtotal: Number,
+            kodePesanan: String
         },
         beforeMount() {
-            try {
-                if(!this.data.subtotal || !this.data.jumlahProduk) {
-                    this.$router.push("/Cart")    
-                } else {
-                    const total = this.ongkir + this.data.subtotal
-                    this.totalKeselurahan = total     
-                }
-                
+            try { 
+                const total = this.ongkir + this.subtotal
+                this.totalKeselurahan = total     
+                // console.log(total)
             } catch (error) {
                 this.$router.push("/Cart")
             }

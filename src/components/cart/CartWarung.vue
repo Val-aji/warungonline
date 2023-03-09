@@ -72,12 +72,7 @@
             }
             
             return {data, setData, subtotal, setSubtotal}
-        },  
-        // watch: {
-        //     subtotal(old) {
-        //         console.log(old)
-        //     }
-        // },
+        }, 
         components: {
             NavigasiBar,
             SearchWarung,
@@ -101,10 +96,8 @@
                     path: "/Checkout",
                     query: {state: JSON.stringify({
                         data: this.data,
-                        subtotal: {
-                            subtotal: this.subtotal,
-                            jumlahProduk: data.length
-                        }
+                        subtotal: this.subtotal,
+                        jumlahProduk: this.data.length
                     })},
                     
                 })

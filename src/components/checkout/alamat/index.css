@@ -75,5 +75,10 @@
     padding: 1vh;
 }
 
+.bg-ubah {
+    background-color: #868181 !important;
+    color: var(--color) !important;
+    border: 1px solid black !important;
+}
 
 
