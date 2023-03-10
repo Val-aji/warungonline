@@ -44,7 +44,7 @@
     import DarkMode from "../models/darkMode/DarkMode.vue"
     import KategoriHome from "../home/kategori/KategoriHome.vue"
     import IklanWarung from "../home/iklan/IklanHome.vue"
-    import {instance} from "../../../config/logic.js
+    import {instance} from "../../../config/logic.js";
     export default {
         name: "ShoopipngWarung", 
         data() {
