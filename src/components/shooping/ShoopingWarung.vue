@@ -93,8 +93,10 @@
         },
         beforeMount() {
             
-            //console.log("before value", this.products.value)
-            //console.log("value", this.products)
+            console.log("Products .value", this.products.value)
+            console.log("value Products", this.products)
+
+
             this.produk = this.products.slice()
             console.log("produk", this.produk)
             const {kategori} = this.$route.query
