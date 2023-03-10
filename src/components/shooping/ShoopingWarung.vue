@@ -39,7 +39,7 @@
 <script>
     import NavigasiBar from '../models/navigasi/NavigasiBar.vue';
     import SearchWarung from "../models/search/SearchWarung.vue"
-    //import {products} from "../../data.js"
+    import {products} from "../../data.js"
     import CardShooping from '../models/cardShooping/CardShooping.vue';
     import DarkMode from "../models/darkMode/DarkMode.vue"
     import KategoriHome from "../home/kategori/KategoriHome.vue"
@@ -51,14 +51,14 @@
             return {
                 tombolFilter: true,
                 filterKategori: [],
-                products: []
+             
             }
         },
         watch: {
             filterKategori(resNew) {
                 const newProduk = []
                 resNew.map(item => {
-                    this.products.slice().filter(itemProducts => {
+                    products.slice().filter(itemProducts => {
                         
                         if(itemProducts.kategoriProduk.match(item)) {
                             newProduk.push(itemProducts)
@@ -81,12 +81,13 @@
         beforeMount() {
             instance().get("/produk")
                .then(res => {
-                  this.products = res.data.data
+                  console.log({res})
+                  console.log("data", res.data)
                }.catch(err => {
                   console.log(err)
                }
              
-            this.produk = this.products.slice()
+            this.produk = products.slice()
             const {kategori} = this.$route.query
             if(!kategori) {
                 return false
