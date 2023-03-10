@@ -14,7 +14,7 @@
         name: "LihatSemua",
         data() {
             return {
-                nama: " "
+                nama: ""
             }
         }
     }
