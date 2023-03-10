@@ -44,8 +44,7 @@
     import DarkMode from "../models/darkMode/DarkMode.vue"
     import KategoriHome from "../home/kategori/KategoriHome.vue"
     import IklanWarung from "../home/iklan/IklanHome.vue"
-    import {instance} from "../../../config/logic.js";
-    import {ref} from "vue";
+    import {instance} from "../../../config/logic.js"
 
     export default {
         name: "ShoopingWarung", 
@@ -85,16 +84,15 @@
           try {
             const resultData = await instance().get("/produk")
              console.log("result", resultData)
-          this.products = resultData.data.data
-          console.log("Products", this.products)
+             this.products = resultData.data.data
+             console.log("Products", this.products)
           } catch (error) {
             console.log({error})
           }
           
         },
         beforeMount() {
-            
-            this.produk = this.products.slice()
+            this.produk = this.products
             console.log("produk", this.produk)
             const {kategori} = this.$route.query
             if(!kategori) {
