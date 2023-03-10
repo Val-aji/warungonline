@@ -71,7 +71,7 @@
             filterKategori(resNew) {
                 const newProduk = []
                 resNew.map(item => {
-                    this.products.value.slice().filter(itemProducts => {
+                    this.products.slice().filter(itemProducts => {
                         
                         if(itemProducts.kategoriProduk.match(item)) {
                             newProduk.push(itemProducts)
@@ -93,9 +93,10 @@
         },
         beforeMount() {
             
-            console.log("before value", this.products.value)
-            console.log("value", this.products)
-            this.produk = this.products.value.slice()
+            //console.log("before value", this.products.value)
+            //console.log("value", this.products)
+            this.produk = this.products.slice()
+            console.log("produk", this.produk)
             const {kategori} = this.$route.query
             if(!kategori) {
                 return false
