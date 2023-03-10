@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <div class="COMPONENT-BODY pt-8">
+        <div class="COMPONENT-BODY pt-10 pb-8">
             <AlamatCheckout :dataAlamat="alamat"  @setDataAlamat="setDataAlamat" @setIsValid="setIsValid"/>
             <ComponentPengiriman />
             <ListProduk :products="data" />
@@ -92,6 +92,7 @@ export default {
         cekLogin(this.$router, this.$router.path)
         try {
             const {data, subtotal, jumlahProduk} = JSON.parse(this.$route.query.state)
+            console.log("checkout", JSON.parse(this.$route.query.state))
             if(!data || !subtotal) {
                 this.$router.push("/Cart")
                 return false
@@ -103,8 +104,9 @@ export default {
             this.jumlahProduk = jumlahProduk
             
         } catch (error) {
-            console.log({error})
+            
             this.$router.push("/Cart")
+            console.log({error})
         }
     },  
 

@@ -22,7 +22,7 @@
             
             <ComponentFooter :data="sampelProduk" :cartWarung="true" @handlePesan="handlePesan" :subtotal="subtotal" />
         </div>
-        <div class="COMPONENT-BODY pt-17">
+        <div class="COMPONENT-BODY pt-17 containerCart">
             <CardList @setData="setData" @setSubtotal="setSubtotal"  />            
         </div>
 

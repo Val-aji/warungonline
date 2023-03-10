@@ -1,5 +1,6 @@
 #CheckoutWarung {
     background-color: var(--coloBody);
+    background-color: red !important;
 }
 
 #CONTAINER-COMPONENT > .containerSearch {

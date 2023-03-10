@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="COMPONENT-BODY">
+        <div class="COMPONENT-BODY pt-17">
             <FormInsert />
         </div>
         

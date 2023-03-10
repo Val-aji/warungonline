@@ -89,7 +89,7 @@
 <script>
     import "./index.css"    
     import { ref } from "vue"
-    import axios from "axios"
+    
     import {cekLogin, instance} from "../../../config/logic.js"
 
 export default {
@@ -145,7 +145,7 @@ export default {
                 myFunction: this[namaFunction],
             }
             if (item === "Kategori-Produk") {
-                const listKategori = ["--- KATEGORI PRODUK ---","Susu Cair", "Snack", "Logo Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
+                const listKategori = ["--- KATEGORI PRODUK ---","Susu Cair", "Snack", "Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
                 obj["data"] = listKategori
                 obj["error"] = true
             }
@@ -345,20 +345,18 @@ export default {
                 } 
                 this.error = false
                 formData.append(item.name, value)
+                console.log(value)
             }
 
-            axios.post("http://localhost:3000/produk", formData, {
-                headers: {
-                    "Content-type": "multipart/form-data"
-                }
-            }).then(res => {
-                console.log(res)
-                alert("Insert Data Berhasil")
-            }).catch(err => {
-                console.log(err)
-                console.log(err.message)
-                alert("Insert Gagal")
-            })  
+            try {
+                const result = await instance().post("/produk", formData)   
+                console.log(result) 
+            } catch (error) {
+                console.log("error insert", error)
+            }
+            
+
+            
         }
     },
 }

@@ -1,9 +1,10 @@
 
 .totalKeseluruhan {
     width: 85%;
-    margin: 0  auto 5vh;
+    margin: 0  auto 12vh;
     border: 1px double rgba(0, 0, 0, .6);
     background-color: #e9e9e9;
+
 }
 
 .totalKeseluruhan > .container {

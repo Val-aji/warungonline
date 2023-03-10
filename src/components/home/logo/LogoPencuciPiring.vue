@@ -1,5 +1,5 @@
 <template>
-    <div class="containerLogo">
+    <div class="containerLogo" @click="$emit('handleLogo', nama)">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="32" height="32" viewBox="0 0 59 59" style="enable-background:new 0 0 59 59;" xml:space="preserve" fill="currentColor">
             <g> 
                 <path d="M56.5,0h-54c-0.553,0-1,0.447-1,1v10v47c0,0.553,0.447,1,1,1h54c0.553,0,1-0.447,1-1V11V1C57.5,0.447,57.053,0,56.5,0z    M3.5,2h52v8h-52V2z M3.5,57V12h52v45H3.5z"/>
@@ -15,7 +15,12 @@
 
 <script>
     export default {
-        name: "LogoPencuciPiring"
+        name: "LogoPencuciPiring",
+        data() {
+            return {
+                nama: "Pencuci Piring"
+            }
+        }
     }
 
 </script>

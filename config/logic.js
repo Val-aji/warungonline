@@ -5,11 +5,13 @@ import { urlAPI } from "../src/components/config/index.js";
 export const cekLogin = async(router, path) => {
     const token = Cookies.get("tokenWarungonline")
     const email = localStorage.getItem("emailWarungonline")
-    if(!token || !email) {
+    if(!token || !email || email === undefined || token === undefined) {
         localStorage.setItem("urlWarungonline", path)
         router.push("/login")
         return false
+        
     }
+
 
     const formData = new FormData()
     formData.append("email", email)
@@ -30,7 +32,7 @@ export const cekLogin = async(router, path) => {
             }
             
             router.push("/login")
-        }
+        } 
     } catch (error) {
         console.log("error logic",error)
     }

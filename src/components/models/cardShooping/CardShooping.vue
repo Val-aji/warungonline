@@ -5,7 +5,7 @@
             v-for="product in data" 
             :key="product.id" 
             value="tes" 
-            @click="() => cardShooping(product)"  
+            @click="(e) => cardShooping(e, product)"  
         >
                 
             <img 
@@ -61,14 +61,17 @@
             }
         },
         props: {
-            data: Object
+            data: Object,
+            kategori: String || Boolean
         },
         components: {
             TombolTambah
         },
         methods: {
-            cardShooping(result) {
-                console.log("Tes")
+            cardShooping(e, result) {
+                if(e.target.className === "tombolTambah") {
+                    return false
+                }
                 if(this.$route.path === "/detailProduk") {
                     this.$router.push("/Shooping")        
                 }

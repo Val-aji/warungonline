@@ -11,3 +11,10 @@
     color: var(--color)
 
 }
+
+
+@media screen  and (max-width: 577px) {
+    .DETAIL-PRODUK > #NavigasiBar > .navs{
+        display: none;
+    }
+}

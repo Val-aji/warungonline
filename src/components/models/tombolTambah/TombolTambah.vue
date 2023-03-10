@@ -5,7 +5,8 @@
 </template>
 
 <script>
-    import { instance } from "../../../../config/logic.js"
+    import { instance, cekLogin } from "../../../../config/logic.js"
+
     export default {
         name: "TombolTambah",
         props: {
@@ -13,9 +14,12 @@
         },
         methods: {
             async insertKeranjang() {
-                
-
-                try {
+                try {        
+                    const cek = await cekLogin(this.$router, this.$route)
+                    if(!cek) {
+                        return false
+                    }
+                    
                     const email = localStorage.getItem("emailWarungonline")
                     const formData = new FormData()    
                     formData.append("tanggal", new Date().toLocaleString("id-ID", {timezone: "asia/jakarta"}))
@@ -26,7 +30,7 @@
                     console.log("tambah keranjang sukses")
                 } catch (error) {
                     console.log({error})
-                    
+                    console.log("hei")
                 }
                 
             }

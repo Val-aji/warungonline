@@ -3,13 +3,14 @@
     <div class="KategoriHome">
         <p class="judulKategori ROBOTO">Kategori</p>
         <div class="logoKategori">
-            <LogoSusu />
-            <LogoSnack />
-            <LogoBiskuit />
-            <LogoBumbu />
-            <LogoIndomie />
-            <LogoPencuciPiring />
-            <LogoPerawatanDiri />
+
+            <LogoSusu @handleLogo="handleLogo" />
+            <LogoSnack @handleLogo="handleLogo" />
+            <LogoBiskuit @handleLogo="handleLogo" />
+            <LogoBumbu @handleLogo="handleLogo" />
+            <LogoIndomie @handleLogo="handleLogo" />
+            <LogoPencuciPiring @handleLogo="handleLogo" />
+            <LogoPerawatanDiri @handleLogo="handleLogo" />
             <LogoSnack />
         </div>    
     </div>  
@@ -32,12 +33,15 @@
     
     export default {
         name: "KategoriHome",
-         data() {
-            return {
-
+        methods: {
+            handleLogo(res) {
+                this.$router.push({
+                    path: "/Shooping",
+                    query: {kategori: res}
+                })
             }
-         },
-         components: {
+        },
+        components: {
             LogoSusu,
             LogoSnack,
             LogoBiskuit,

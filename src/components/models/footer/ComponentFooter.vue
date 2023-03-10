@@ -30,7 +30,8 @@
         },
         components: {
             TombolTambah
-        }
+        },
+        
     }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <div id="CONTAINER-COMPONENT">
+    <div id="CONTAINER-COMPONENT" class="DETAIL-PRODUK">
         <NavigasiBar />
         <div class="containerSearch">
             <div class="container">
@@ -25,17 +25,21 @@
                     </div>
                 </div>
             </div>
-            
+            <ComponentFooter @handlePesan="handlePesan"
+            :cartWarung="false" 
+            :data="getData()" />    
         </div>
         <div class="COMPONENT-BODY pt-17">
             <ComponentDetail :data="getData()"  />
             <CardShooping :data="products" />
+            
         </div>
         <div class="COMPONENT-BODY-DESKTOP">
             <ComponentDetail :data="getData()" />
             <CardShooping :data="products" />
+            
         </div>
-        <ComponentFooter :data="getData()" />
+        
 
     </div>
 
@@ -99,6 +103,21 @@
             },
             handleSilang() {
                 this.$router.push("/Shooping")
+            },
+            async handlePesan() {
+                const resData = {
+                    ...this.data,
+                    subtotalAwal: this.data.subtotalProduk
+                }
+                this.$router.push({
+                    path: "/Checkout",
+                    query: {state: JSON.stringify({
+                        data: [resData],
+                        subtotal: this.data.subtotalProduk,
+                        jumlahProduk: 1
+                    })}
+                })
+                
             }
         }
 

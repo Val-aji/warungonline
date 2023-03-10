@@ -6,7 +6,6 @@
                 <img :src="product.gambarProduk.thumbnail" :alt="product.namaProduk " />
                 <div class="detail">
                     <p class="namaProduk HEEBO"> {{product.namaProduk}} </p>
-                    
                     <div class="hargaProduk">
                         <p class="HIND HDTJ"> Harga </p>
                         <p class="titikDua"> : </p>
@@ -25,7 +24,6 @@
                         <p class="titikDua">  </p>
                         <span class="POPPINS"> Rp{{ product.subtotalAwal.toLocaleString("ID-id") }}</span>
                     </div>
-                    
                     <div class="jumlah">
                         <p class="HIND HDTJ"> Jumlah </p>
                         <p class="titikDua"> : </p>
@@ -51,13 +49,13 @@
     
     export default {
         name: "ListProduk",
-        data() {
-            return {
-            }
-        },
+        
         props: {
             products: Object
         },
+        beforeMount() {
+            
+        }
     }
 
 

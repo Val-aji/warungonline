@@ -22,11 +22,11 @@
             
         </div>
         <div class="COMPONENT-BODY pt-17">
-            <CardShooping :data="produk" />
+            <CardShooping :data="produk" :kategori="filterKategori" />
         </div>
 
         <div class="COMPONENT-BODY-DESKTOP">
-            <CardShooping :data="produk" />
+            <CardShooping :data="produk" :kategori="filterKategori" />
             
         </div>
 
@@ -49,7 +49,8 @@
         name: "ShoopipngWarung", 
         data() {
             return {
-                tombolFilter: true
+                tombolFilter: true,
+                filterKategori: null
             }
         },
         components: {
@@ -61,7 +62,15 @@
             DarkMode
         },
         beforeMount() {
-            this.produk = products
-        }
+            this.produk = products.slice()
+            const {kategori} = this.$route.query
+            if(!kategori) {
+                return false
+            } else {
+                console.log(kategori)
+                this.filterKategori = kategori
+                this.produk = products.slice().filter(i => i.kategoriProduk === kategori)
+            }
+        },
 }
 </script>
