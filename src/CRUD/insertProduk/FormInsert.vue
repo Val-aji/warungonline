@@ -349,8 +349,11 @@ export default {
             }
 
             try {
-                const result = await instance().post("/produk", formData)   
+                const result = await instance().post("/produk", formData) 
+                alert("insert data berhasil")
+                  
                 console.log(result) 
+                location.reload()
             } catch (error) {
                 console.log("error insert", error)
             }
