@@ -11,7 +11,7 @@
             <LogoIndomie @handleLogo="handleLogo" />
             <LogoPencuciPiring @handleLogo="handleLogo" />
             <LogoPerawatanDiri @handleLogo="handleLogo" />
-            <LogoSnack />
+            <LihatSemua @handleLogo="handleLogo" />
         </div>    
     </div>  
 
@@ -29,6 +29,7 @@
     import LogoIndomie from "../logo/LogoIndomie.vue";
     import LogoPencuciPiring from '../logo/LogoPencuciPiring.vue';
     import LogoPerawatanDiri from '../logo/LogoPerawatanDiri.vue';
+    import LihatSemua from "../logo/LihatSemua.vue";
     import "./index.css";
     
     export default {
@@ -52,7 +53,8 @@
             LogoBumbu,
             LogoIndomie,
             LogoPencuciPiring,
-            LogoPerawatanDiri
+            LogoPerawatanDiri,
+            LihatSemua
          }
     }
 </script>
