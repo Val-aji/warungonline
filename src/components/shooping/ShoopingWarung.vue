@@ -59,7 +59,7 @@
                 resNew.map(item => {
                     products.slice().filter(itemProducts => {
                         
-                        if(itemProducts.kategoriProduk === item) {
+                        if(itemProducts.kategoriProduk.match(item)) {
                             newProduk.push(itemProducts)
                         }
                     })
