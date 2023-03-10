@@ -63,6 +63,10 @@
             // const handleLogout = () => {
             //     console.log("tess")
             // }
+            const redirectInsert = () => {
+               console.log("redirect")
+               this.$router.push("/insertProduk")
+            }
             const buttons = ref([
                 {name: "Tambah Produk", myFunction: () => redirectInsert()},
                 {name: "Edit Profile", myFunction: handleTesting},
