@@ -59,15 +59,17 @@
 
         },
         setup() {
-            const email = localStorage.getItem("emailWarungonline")
-            // const handleLogout = () => {
-            //     console.log("tess")
-            // }
-            const redirectInsert = () => {
-               console.log("redirect")
-               this.$router.push("/insertProduk")
+            // const email = localStorage.getItem("emailWarungonline")
+            const buttons = ref([])
+            
+            const setButtons = (res) => {
+               buttons.value = res
             }
-            const buttons = ref([
+            return {buttons, setButtons}
+        },
+        beforeMount() {
+            cekLogin(this.$router, this.$route.path)
+            const newButton = [
                 {name: "Tambah Produk", myFunction: () => redirectInsert()},
                 {name: "Edit Profile", myFunction: handleTesting},
                 {name: "Keranjang Belanja", myFunction: handleTesting},
@@ -76,13 +78,8 @@
                 {name: "Pertanyaan sering muncul", myFunction: handleTesting},
                 {name: "Ketentuan & Persyaratan", myFunction: handleTesting},
                 {name: "Logout", myFunction: () => handleLogout(email)}
-            ])
-            
-            return {buttons}
-        },
-        beforeMount() {
-            cekLogin(this.$router, this.$route.path)
-            
+            ]
+            this.setButtons(newButton)
         },
         methods: {
             redirectInsert() {
