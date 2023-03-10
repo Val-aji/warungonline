@@ -97,7 +97,7 @@
             console.log("value Products", this.products)
 
 
-            this.produk = this.products.slice()
+            this.produk = this.products
             console.log("produk", this.produk)
             const {kategori} = this.$route.query
             if(!kategori) {
