@@ -35,6 +35,10 @@
         name: "KategoriHome",
         methods: {
             handleLogo(res) {
+                const {path} = this.$route
+                if(path === "/Shooping") {
+                    this.$emit("setFilterKategori", res)
+                }
                 this.$router.push({
                     path: "/Shooping",
                     query: {kategori: res}

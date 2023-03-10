@@ -62,7 +62,7 @@
         },
         props: {
             data: Object,
-            kategori: String || Boolean
+            kategori: Object
         },
         components: {
             TombolTambah

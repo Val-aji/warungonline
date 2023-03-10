@@ -162,6 +162,8 @@ export default {
             try {
                 const result = await instance().put("/clientProduk/transaksi", formData)    
                 console.log(result)
+                alert("Pesanan berhasil di proses")
+                this.$router.push("/Account")
             } catch (error) {
                 console.log({error})
             }

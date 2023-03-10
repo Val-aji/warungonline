@@ -29,7 +29,7 @@
         name: "LogoIndomie",
         data() {
             return {
-                nama: "makananInstant"
+                nama: "Makanan Instant"
             }
         }
     }

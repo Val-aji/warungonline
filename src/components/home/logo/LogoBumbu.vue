@@ -25,7 +25,7 @@
         name: "LogoBumbu",
         data() {
             return {
-                nama: "bumbu"
+                nama: "Bumbu"
             }
         }
     }

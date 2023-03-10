@@ -1,10 +1,10 @@
-export const urlAPI = "https://backend-warungonline-production.up.railway.app"
+// export const urlAPI = "https://backend-warungonline-production.up.railway.app"
 
-// export const urlAPI = "http://localhost:3000"
+export const urlAPI = "http://localhost:3000"
 
 export const KATEGORIS = {
     type: "kategori",
-    data: [
+    data: [ 
     "Susu Cair", "Snack", "Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
 }
 

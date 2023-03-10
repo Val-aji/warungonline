@@ -11,7 +11,7 @@
                 <div class="header">
                     <IklanWarung />
                     <div class="footerHeader">
-                        <KategoriHome />
+                        <KategoriHome @setFilterKategori="setFilterKategori" />
                         <div class="bottomFooter">
                             <SearchWarung />
                             <DarkMode />
@@ -50,7 +50,23 @@
         data() {
             return {
                 tombolFilter: true,
-                filterKategori: null
+                filterKategori: []
+            }
+        },
+        watch: {
+            filterKategori(resNew) {
+                const newProduk = []
+                resNew.map(item => {
+                    products.slice().filter(itemProducts => {
+                        
+                        if(itemProducts.kategoriProduk === item) {
+                            newProduk.push(itemProducts)
+                        }
+                    })
+                })
+                this.produk = newProduk 
+                this.$router.replace("/Shooping")
+                
             }
         },
         components: {
@@ -67,10 +83,14 @@
             if(!kategori) {
                 return false
             } else {
-                console.log(kategori)
-                this.filterKategori = kategori
-                this.produk = products.slice().filter(i => i.kategoriProduk === kategori)
+                console.log({kategori})
+                this.filterKategori = [kategori]
             }
         },
+        methods: {
+            setFilterKategori(res) {
+                this.filterKategori = [res]   
+            }
+        }
 }
 </script>

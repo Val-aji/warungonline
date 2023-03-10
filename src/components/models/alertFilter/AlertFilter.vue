@@ -36,6 +36,7 @@
         },
         methods: {
             userChecked(type, result) {
+            
                 this.checkedUser[type] = [...this.checkedUser[type], result]
                 console.log(result)
                 console.log(this.checkedUser)
