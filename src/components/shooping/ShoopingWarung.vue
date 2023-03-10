@@ -53,6 +53,7 @@
             return {
                 tombolFilter: true,
                 filterKategori: [],
+                produk: []
             }
         },
         setup() {
