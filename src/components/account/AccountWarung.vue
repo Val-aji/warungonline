@@ -64,6 +64,7 @@
             //     console.log("tess")
             // }
             const buttons = ref([
+                {name: "Tambah Produk", myFunction: () => this.$router.push("/insertProduk")},
                 {name: "Edit Profile", myFunction: handleTesting},
                 {name: "Keranjang Belanja", myFunction: handleTesting},
                 {name: "Hsitory Belanja", myFunction: handleTesting},
