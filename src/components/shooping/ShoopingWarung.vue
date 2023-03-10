@@ -81,15 +81,13 @@
             CardShooping,
             DarkMode
         },
+        async created() {
+          const resultData = await instance().get("/produk")
+          this.products = resultData.data.data
+          console.log("Products", this.products)
+        },
         beforeMount() {
             
-            async function getData() {
-                const resultData = await instance().get("/produk")
-                this.products = resultData.data.data
-                console.log("Products", this.products)
-            }
-            getData()
-
             this.produk = this.products.slice()
             console.log("produk", this.produk)
             const {kategori} = this.$route.query
