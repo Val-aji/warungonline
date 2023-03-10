@@ -71,8 +71,7 @@
             filterKategori(resNew) {
                 const newProduk = []
                 resNew.map(item => {
-                    this.products.slice().filter(itemProducts => {
-                        
+                    this.products.slice().filter(itemProducts => {      
                         if(itemProducts.kategoriProduk.match(item)) {
                             newProduk.push(itemProducts)
                         }
@@ -124,7 +123,7 @@
             },
             setInputSearch(res) {
                 console.log({res})
-                this.inputSearch = res
+                this.inputSearch = res  
             }
         }
 }

@@ -62,11 +62,11 @@
         methods: {  
             selectedKategori(index) {
                 this.setKategori(index)
-                this.checkedUser.kategori = this.harga.slice().filter(item => item.status)
+                
             },  
             selectedHarga(index) {
                 this.setHarga(index)
-                this.checkedUser.harga = this.harga.slice().filter(item => item.status)
+                
             },
             userChecked(type, result) {
             
