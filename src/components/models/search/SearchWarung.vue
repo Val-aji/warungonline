@@ -8,12 +8,15 @@
         
         <div id="search">
             <input type="text"
-             v-model="inputSearch" :placeholder= placeHolder 
+             v-model.trim="inputSearch" :placeholder= placeHolder
              class="inputSearch">
             <button 
                 v-if="!tombolClose"
                 v-html="SEARCH" 
-                class="logoSearch">
+                class="logoSearch"
+                @click="handleTombol"
+            >
+                
             </button>
         </div>
         <button  
@@ -67,6 +70,18 @@
         },
         onTombolClose() {
             console.log("Hello Tombol Close")
+        },
+        handleTombol() {
+            const {$route, $router} = this
+            const {path} = $route
+            if(path !== "/Shooping") {
+                $router.push({
+                    path: "/Shooping",
+                    query: {inputUser: this.inputSearch}
+                })
+            } else {
+                this.$emit("setInputSearch", this.inputSearch)
+            }
         }
     }
 }

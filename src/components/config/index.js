@@ -1,6 +1,6 @@
 export const urlAPI = "https://backend-warungonline-production.up.railway.app"
 
-//export const urlAPI = "http://localhost:3000"
+// export const urlAPI = "http://localhost:3000"
 
 export const KATEGORIS = {
     type: "kategori",

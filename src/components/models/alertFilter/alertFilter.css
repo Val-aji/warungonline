@@ -16,6 +16,10 @@
 }
 
 
+.activeFilter {
+    background-color: var(--colorJUDUL) !important;
+    color: black !important;
+}
 
 .alertFilter {
     padding: 7px 7px 15px 7px;
@@ -28,6 +32,17 @@
     border-radius: 4px;
     box-shadow: 1px 1px 6px black;
     animation: showFilter .7s;
+    margin-bottom: 10vh;
+}
+
+.alertFilter > .submit {
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid var(--colorJUDUL);
+    margin: 2vh 0 1vh;
+    background-color: black;
+    color: white;
+    padding: 1vh 0;
 }
 
 .alertFilter > .containerHeaderAlert {
@@ -67,7 +82,8 @@
     background-color: #adadad;
     margin: 1%;
     width: 23%;
-    padding: 6px 3px;
+    padding: 3px 3px;
+    line-height: 1.5em;
     font-size: .8em;
     display: flex;
     align-items: center;

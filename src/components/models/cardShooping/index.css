@@ -8,12 +8,21 @@ html[data-theme="darkt"] {
     
 }
 
+.notData {
+    color: var(--color);
+    height: 90vh;
+    text-align: center;
+    margin-top: 10vh;
+    width: 100%;
+    font-size: 1.1em;
+}
+
 #CardsShooping {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-   
-    
+    height: 80vh;
+    overflow-y: auto;
 }
 
 @keyframes scaleCard {

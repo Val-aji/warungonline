@@ -39,11 +39,13 @@
                 const {path} = this.$route
                 if(path === "/Shooping") {
                     this.$emit("setFilterKategori", res)
-                }
-                this.$router.push({
+                } else {
+                    this.$router.push({
                     path: "/Shooping",
                     query: {kategori: res}
                 })
+                }
+                
             }
         },
         components: {
