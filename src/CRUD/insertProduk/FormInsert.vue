@@ -267,7 +267,7 @@ export default {
             
             if(length < 10) {
                 setLocal()
-                setLocal("Maksimal 10 karakter!", "pesanError")
+                setLocal("Minimal 10 karakter!", "pesanError")
             } else if(length > 300) {
                 setLocal()
                 setLocal("Maksimal 3000 Karakter!", "pesanError")
