@@ -53,20 +53,9 @@
             return {
                 tombolFilter: true,
                 filterKategori: [],
-                produk: []
+                produk: [],
+                products: []
             }
-        },
-        setup() {
-            const products = ref([])
-            instance().get("/produk")
-               .then(res => {
-                  console.log({res})
-                  products.value = res.data.data
-                  console.log("value", products.value)
-               }).catch(err => {
-                  console.log(err)
-               })
-            return {products}
         },
         watch: {
             filterKategori(resNew) {
@@ -94,9 +83,12 @@
         },
         beforeMount() {
             
-            console.log("Products .value", this.products.value)
-            console.log("value Products", this.products)
-
+            async function getData() {
+                const resultData = await instance().get("/produk")
+                this.products = resultData.data.data
+                console.log("Products", this.products)
+            }
+            getData()
 
             this.produk = this.products.slice()
             console.log("produk", this.produk)
