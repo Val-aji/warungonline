@@ -64,7 +64,7 @@
             //     console.log("tess")
             // }
             const buttons = ref([
-                {name: "Tambah Produk", myFunction: () => this.$router.push("/insertProduk")},
+                {name: "Tambah Produk", myFunction: () => redirectInsert()},
                 {name: "Edit Profile", myFunction: handleTesting},
                 {name: "Keranjang Belanja", myFunction: handleTesting},
                 {name: "Hsitory Belanja", myFunction: handleTesting},
@@ -79,6 +79,11 @@
         beforeMount() {
             cekLogin(this.$router, this.$route.path)
             
+        },
+        methods: {
+            redirectInsert() {
+               this.$router.push("/insertProduk")
+            }
         }
     }
 
