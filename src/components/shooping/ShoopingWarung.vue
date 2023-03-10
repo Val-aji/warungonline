@@ -45,20 +45,33 @@
     import KategoriHome from "../home/kategori/KategoriHome.vue"
     import IklanWarung from "../home/iklan/IklanHome.vue"
     import {instance} from "../../../config/logic.js";
+    import {ref} from "vue";
+
     export default {
-        name: "ShoopipngWarung", 
+        name: "ShoopingWarung", 
         data() {
             return {
                 tombolFilter: true,
                 filterKategori: [],
-                products: []
             }
+        },
+        setup() {
+            const products = ref([])
+            instance().get("/produk")
+               .then(res => {
+                  console.log({res})
+                  products.value = res.data.data
+                  console.log("value", products.value)
+               }).catch(err => {
+                  console.log(err)
+               })
+            return {products}
         },
         watch: {
             filterKategori(resNew) {
                 const newProduk = []
                 resNew.map(item => {
-                    this.products.slice().filter(itemProducts => {
+                    this.products.value.slice().filter(itemProducts => {
                         
                         if(itemProducts.kategoriProduk.match(item)) {
                             newProduk.push(itemProducts)
@@ -79,15 +92,9 @@
             DarkMode
         },
         beforeMount() {
-            instance().get("/produk")
-               .then(res => {
-                  console.log({res})
-                  this.products = res.data.data
-               }).catch(err => {
-                  console.log(err)
-               })
+            
              
-            this.produk = this.products.slice()
+            this.produk = this.products.value.slice()
             const {kategori} = this.$route.query
             if(!kategori) {
                 return false
