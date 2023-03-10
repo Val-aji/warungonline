@@ -82,9 +82,15 @@
             DarkMode
         },
         async created() {
-          const resultData = await instance().get("/produk")
+          try {
+            const resultData = await instance().get("/produk")
+             console.log("result", resultData)
           this.products = resultData.data.data
           console.log("Products", this.products)
+          } catch (error) {
+            console.log({error})
+          }
+          
         },
         beforeMount() {
             
