@@ -1,18 +1,19 @@
 <template>
-    <div class="cardTransaksi">
+    <div v-for="(data, index) in listPesanan"  class="cardTransaksi" :key="index">
         <div class="card">
            
-            <HeaderCard :data="data"/>            
+            <HeaderCard :data="data" />            
            
             <div class="produk">
                 <img 
-                    :src="sampelProduk.gambarProduk.thumbnail" 
+                    v-for="item in data.listProduk" :key="item.id"
+                    :src="item.gambarProduk.thumbnail" 
                     class="gambarProduk" 
-                    alt="gambar Produk"
+                    :alt="item.namaProduk"
                 >
-                <div class="detail">
+                <!-- <div class="detail">
                     <p class="namaProduk"> 
-                            {{ sampelProduk.namaProduk   }}
+                            {{ d.namaProduk   }}
                     </p>
                     <div class="harga">
                         <p 
@@ -31,10 +32,10 @@
                     </div>
                     
                 </div>
-                
+                 -->
             </div>
             
-            <div class="footer">
+            <!-- <div class="footer">
                     <p class="POPPINS">
                             @Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
                     </p>
@@ -45,7 +46,7 @@
                     </div>
                     
             </div>
-        
+         -->
         </div>
                 
     </div>
@@ -56,12 +57,25 @@
     import "./index.css"
     import { sampelProduk } from "../../../data"
     import HeaderCard from "./header/HeaderCard.vue"
-   
+    import { instance } from "../../../../config/logic.js"
     export default {   
         name: "CardTransaksi",
         data() {
             return {
-                sampelProduk
+                sampelProduk,
+                listPesanan: null
+            }
+        },
+        async created() {
+            try {
+                const email = localStorage.getItem("emailWarungonline")
+                const formData = new FormData()
+                formData.append("email", email)
+                const result = await instance().post("/kodePesanan/getTransaksi", formData)
+                this.listPesanan = result.data.data
+                console.log(this.listPesanan)
+            } catch (error) {
+                console.log({error})
             }
         },
         setup() {

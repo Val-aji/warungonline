@@ -84,8 +84,8 @@
             products(resNew) {
                 this.produk = resNew.slice().map(item => {
                     const obj = {...item}
-                    obj.gambarProduk = JSON.parse(item.
-                    gambarProduk)
+                    obj.gambarProduk = item.
+                    gambarProduk
                     return obj
                 })
 

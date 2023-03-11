@@ -3,3 +3,9 @@
         padding-bottom: 23vh !important;
     }   
 }
+
+.CART-DESKTOP {
+    height: 100vh;
+    overflow-y: auto;
+
+}

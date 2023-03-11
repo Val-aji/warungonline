@@ -85,7 +85,8 @@ export default {
     setup() {
         const datetime = new Date().toLocaleString("ID-id", {timezone: "asia/jakarta"})
         const waktuLocal = datetime.replace(" ", "")
-        const kode = "FFBJA" + waktuLocal
+        const angkaAcak = Math.floor(Math.random() * 100)
+        const kode = "FFBA" + waktuLocal + angkaAcak.toString()
         const kodePesanan = ref(kode)
         
         return {kodePesanan}
@@ -95,7 +96,7 @@ export default {
         cekLogin(this.$router, this.$router.path)
         try {
             const {data, subtotal, jumlahProduk} = JSON.parse(this.$route.query.state)
-            console.log("checkout", JSON.parse(this.$route.query.state))
+            
             if(!data || !subtotal) {
                 this.$router.push("/Cart")
                 return false

@@ -96,28 +96,31 @@
             return {
                 products,
                 data: [],
-                produk: []
+                produk: null
             }
         },
         watch: {
             data(newData)  {    
                 this.produk = newData
-            }
+            },
         },  
         async created() {
             try {
+                
                 const email = localStorage.getItem("emailWarungonline")
                 const formData = new FormData()
                 formData.append("email", email)
-
+                
                 const result = await instance().post("/clientProduk/keranjang", formData)
+                
                 const cek = typeof result.data.data.keranjang == "string"
                 const keranjang = cek ? JSON.parse(result.data.data.keranjang) : result.data.data.keranjang
                 
 
                 // get all data
+                
                 const allData = await instance().get("/produk")
-
+                
                 const newData = []
                 keranjang.map(itemKeranjang => {
                     allData.data.data.slice().map(itemData => {
@@ -189,7 +192,7 @@
                 }
             },
             handlePilihan(index) {
-                console.log("tes")
+                
                 const {status} = this.produk[index]
                 this.produk[index].status = !status
 

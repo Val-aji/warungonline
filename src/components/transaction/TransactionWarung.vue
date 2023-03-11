@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="COMPONENT-BODY pt-8">
+        <div class="COMPONENT-BODY pt-8 ">
             <CardTransaksi />
             <TotalKeselurahan />
 

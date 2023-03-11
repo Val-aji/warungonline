@@ -5,80 +5,29 @@
 }
 
 .cardTransaksi > .card > .header {
-    display: flex;
-    justify-content: space-around;
     width: 100%;
     padding: 2vh 0;
 }
 
 
-.cardTransaksi > .card > .header > div > p {
-    letter-spacing: .5px;
-}
-
-.cardTransaksi > .card > .header > div > p:first-child {
-    /* color: black(0, 0, 0, 1.2); */
-    font-weight: 600;
-    font-size: 1.04em;
-    overflow-x: auto;
-}
-
-.cardTransaksi > .card > .header > div {
-    width: 47%;
+.header > .containerTransaksi {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 100%;
 }
 
-.kiri {
-    text-align: start !important;
+.header > .containerTransaksi > div {
+    display: flex;
+    width: 100%;
 }
 
-.kanan {
-    text-align: end !important;
-}
-
-.cardTransaksi > .card > .header > div > .nama {
-    height: 5vh;
-    margin-top: 1vh;
-    font-size: 1.03em;
-    overflow: auto;
-}
-
-.cardTransaksi > .card > .header > div >  .alamat {
-    height: 7vh;
-    overflow: auto;
-    margin: 1vh 0;
+.header > .containerTransaksi > div > p{
+    width: 50%;
     font-size: .9em;
-    font-weight: 500;
-    /* background-color: red; */
+    text-align: start;
+    padding: 1vh 0;
 }
 
-.cardTransaksi > .card > .header > div > .nomorHandphone {
-    letter-spacing: .6px;
+.header > .containerTransaksi > .alamat {
+    font-size: .9em;
 }
-
-@media screen and (max-width: 775px) and (min-width: 577px) {
-    .cardTransaksi > .card > .header > div > p:first-child {
-        font-size: .7em;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .cardTransaksi > .card > .header {
-        flex-direction: column;
-    }
-    
-    .cardTransaksi > .card > .header > div {
-        width: 100%;
-        margin-bottom: 2vh;
-        font-size: 1em;
-    }
-    .cardTransaksi > .card > .header > div > .nama {
-        height: max-content;
-    }
-    .cardTransaksi > .card > .header > div > .alamat {
-        height: max-content;
-    }
-}
-

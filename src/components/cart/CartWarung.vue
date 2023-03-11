@@ -26,7 +26,7 @@
             <CardList @setData="setData" @setSubtotal="setSubtotal"  />            
         </div>
 
-        <div class="COMPONENT-BODY-DESKTOP">
+        <div class="COMPONENT-BODY-DESKTOP CART-DESKTOP">
             <CardList @setData="setData" @setSubtotal="setSubtotal"  />            
         </div>
     </div>
