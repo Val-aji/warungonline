@@ -88,7 +88,7 @@
     import "./index.css"
     import {products} from "../../../data.js"
     import {ref} from "vue";
-    import { instance } from "../../../../config/logic.js"
+    //import { instance } from "../../../../config/logic.js"
     // import {useRouter} from "vue-router";
 
     export default {
@@ -100,9 +100,9 @@
         },
         setup() {
             
-            const email = localStorage.getItem("emailWarungonline")
-            const formData = new FormData()
-            formData.append("email", email)
+            //const email = localStorage.getItem("emailWarungonline")
+            //const formData = new FormData()
+            //formData.append("email", email)
 
             
 
