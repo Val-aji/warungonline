@@ -59,7 +59,7 @@
 
         },
         setup() {
-            // const email = localStorage.getItem("emailWarungonline")
+            
             const buttons = ref([])
             
             const setButtons = (res) => {
@@ -69,8 +69,9 @@
         },
         beforeMount() {
             cekLogin(this.$router, this.$route.path)
+            const email = localStorage.getItem("emailWarungonline")
             const newButton = [
-                {name: "Tambah Produk", myFunction: () => redirectInsert()},
+                {name: "Tambah Produk", myFunction: this.redirectInsert},
                 {name: "Edit Profile", myFunction: handleTesting},
                 {name: "Keranjang Belanja", myFunction: handleTesting},
                 {name: "Hsitory Belanja", myFunction: handleTesting},
@@ -82,6 +83,7 @@
             this.setButtons(newButton)
         },
         methods: {
+            
             redirectInsert() {
                this.$router.push("/insertProduk")
             }

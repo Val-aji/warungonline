@@ -4,7 +4,7 @@
         <div class="containerSearch">
             <h3 class="JUDUL">Shooping</h3>
             <div class="secondContainer">
-                <SearchWarung :tombolFilter="tombolFilter" />
+                <SearchWarung :tombolFilter="tombolFilter" @setFilterKategori="setFilterKategori" />
                 <DarkMode />    
             </div>
             <div class="headerDesktop">
@@ -119,11 +119,19 @@
         },
         methods: {
             setFilterKategori(res) {
-                this.filterKategori = [res]   
+                console.log("from shooping")
+                if(typeof res == "string") {
+                
+                    this.filterKategori = [res]
+                } else {
+                    this.filterKategori = [res]
+                }
+                
             },
             setInputSearch(res) {
                 console.log({res})
                 this.inputSearch = res  
+                
             }
         }
 }

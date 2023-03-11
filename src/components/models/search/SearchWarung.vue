@@ -30,7 +30,7 @@
 
         
     </div>
-    <AlertFilter v-if="alertFilter" @offAlert="onAlertFilter"/>
+    <AlertFilter v-if="alertFilter" @offAlert="onAlertFilter" @setFilterKategori="setFilterKategori"/>
 </template>
 
 <script>
@@ -44,12 +44,18 @@
         return {
             inputSearch: "",
             placeHolder: "",
+            userChecked: null,
             SEARCH,
             FILTER,
             alertFilter: false,
             destroyFilter: true,
             
         };
+    },
+    watch: {
+        userChecked(newValue) {
+            this.$emit("setFilterKategori", newValue.kategori)   
+        }
     },
     props: {
         tombolFilter: Boolean,
@@ -64,12 +70,18 @@
         }
     },  
     components: { AlertFilter },
+    emits: ["setFilterKategori"],
     methods: {
         onAlertFilter() {
             this.alertFilter = !this.alertFilter
         },
         onTombolClose() {
             console.log("Hello Tombol Close")
+        },
+        setFilterKategori(res) {
+            console.log("from search")
+            this.userChecked = res
+            this.alertFilter = false
         },
         handleTombol() {
             const {$route, $router} = this
@@ -82,6 +94,7 @@
             } else {
                 this.$emit("setInputSearch", this.inputSearch)
             }
+
         }
     }
 }

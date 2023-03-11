@@ -31,7 +31,6 @@
         props: {
             datas: Object,
             judul: String,
-            methodsUser: Function
         }
     }
 </script>

@@ -5,10 +5,10 @@
             <button class="tombolCloseAlert" v-html="CLOSE" @click="$emit('offAlert')"></button>
         </div>
         
-        <ComponentAlert :datas="kategori" judul="Kategori" :methodsUser="userChecked" @selected="selectedKategori" />
-        <ComponentAlert :datas="harga" judul="Harga" :methodsUser="userChecked" @selected="selectedHarga" />
+        <ComponentAlert :datas="kategori" judul="Kategori" @selected="selectedKategori" />
+        <ComponentAlert :datas="harga" judul="Harga" @selected="selectedHarga" />
 
-        <button class="submit ROBOTO">Pilih</button>
+        <button @click="handlePilihan" class="submit ROBOTO">Pilih</button>
     </div>
 </template>
 
@@ -68,11 +68,29 @@
                 this.setHarga(index)
                 
             },
-            userChecked(type, result) {
-            
-                this.checkedUser[type] = [...this.checkedUser[type], result]
-                console.log(result)
-                console.log(this.checkedUser)
+            handlePilihan() {
+                
+                const obj = {
+                    harga: [],
+                    kategori: []
+                }
+                this.kategori.map(item => {
+                    if(item.status) {
+                        obj.kategori.push(item.nama)
+                    } else {
+                        return
+                    }
+                }),
+                this.harga.map(item => {
+                    if(item.status) {
+                        obj.harga.push(item.nama)
+                    } else {
+                        return
+                    }
+                    }),
+                
+                    this.$emit("setFilterKategori", obj)
+                    
             }
         }
 
