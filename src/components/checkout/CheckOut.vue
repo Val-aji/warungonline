@@ -26,7 +26,7 @@
             <AlamatCheckout :dataAlamat="alamat"  @setDataAlamat="setDataAlamat" @setIsValid="setIsValid"/>
             <ComponentPengiriman />
             <ListProduk :products="data" />
-            <TotalKeseluruhan :subtotal="subtotal" :jumlahProduk="jumlahProduk"/>
+            <TotalKeseluruhan :subtotal="subtotal" :jumlahProduk="jumlahProduk" :kodePesanan="kodePesanan"/>
         </div>
         <div class="COMPONENT-BODY-DESKTOP">    
             <AlamatCheckout :dataAlamat="alamat" @setDataAlamat="setDataAlamat" @setIsValid="setIsValid" />
@@ -83,7 +83,10 @@ export default {
         NavigasiBar
     },
     setup() {
-        const kodePesanan = ref("anfqfbqkfbswjkbwkbdjkwbfw")
+        const datetime = new Date().toLocaleString("ID-id", {timezone: "asia/jakarta"})
+        const waktuLocal = datetime.replace(" ", "")
+        const kode = "FFBJA" + waktuLocal
+        const kodePesanan = ref(kode)
         
         return {kodePesanan}
     },

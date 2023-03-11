@@ -82,13 +82,21 @@
                 
             },
             products(resNew) {
-                this.produk = resNew.slice()
+                this.produk = resNew.slice().map(item => {
+                    const obj = {...item}
+                    obj.gambarProduk = JSON.parse(item.
+                    gambarProduk)
+                    return obj
+                })
+
+                // this.produk = resNew.slice()
             }
         },
         async created(){
             try {
                 const resultData = await  instance().get("/produk")
                 this.products = resultData.data.data
+                
             } catch (error) {
                 console.log(error)
             }

@@ -2,7 +2,7 @@
     <div class="cardList">
         <div class="cards">
             <div 
-                v-for="(product, index) in newProduk" 
+                v-for="(product, index) in produk" 
                 class="card" 
                 :key="index" 
                 @click="clickProduk" 
@@ -87,79 +87,116 @@
 <script>
     import "./index.css"
     import {products} from "../../../data.js"
-    import {ref} from "vue";
-    //import { instance } from "../../../../config/logic.js"
+    import { instance } from "../../../../config/logic.js"
     // import {useRouter} from "vue-router";
 
     export default {
         name: "CardList",
         data() {
             return {
-                products
+                products,
+                data: [],
+                produk: []
             }
         },
-        setup() {
-            
-            //const email = localStorage.getItem("emailWarungonline")
-            //const formData = new FormData()
-            //formData.append("email", email)
-
-            
-
-            const listHargaProduk = []
-            const cekProduk = products.map(item => {
-                const status = false;
-                const objHarga = {
-                    namaProduk: item.namaProduk,
-                    hargaProduk: item.hargaProduk,
-                    subtotalProduk: item.subtotalProduk
-                }
-                listHargaProduk.push(objHarga)
-                return {...item, status, jumlah: 1, subtotalAwal: item.subtotalProduk}
-            })
-            const newProduk = ref(cekProduk)
-
-            const setStatus = (index) => {
-                // newProduk.value[index].status = !newProduk[index].status
-                newProduk.value[index].status = !newProduk.value[index].status
+        watch: {
+            data(newData)  {    
+                this.produk = newData
             }
+        },  
+        async created() {
+            try {
+                const email = localStorage.getItem("emailWarungonline")
+                const formData = new FormData()
+                formData.append("email", email)
 
-            const setJumlah = (index, value) => {
-                newProduk.value[index].jumlah += value
-
-                const {jumlah} = newProduk.value[index]
+                const result = await instance().post("/clientProduk/keranjang", formData)
+                const cek = typeof result.data.data.keranjang == "string"
+                const keranjang = cek ? JSON.parse(result.data.data.keranjang) : result.data.data.keranjang
                 
-                if(jumlah <= 0) {
-                    newProduk.value[index].jumlah = 1
-                } else if(jumlah > 100) {
-                    alert("maksimal jumlah pembelian 100")
-                    newProduk.value[index].jumlah = 100    
-                } else {
-                    const {namaProduk} = newProduk.value[index]
-                    const currentData = listHargaProduk.filter(i => i.namaProduk === namaProduk)
 
-                    newProduk.value[index].hargaProduk = currentData[0].hargaProduk * jumlah
+                // get all data
+                const allData = await instance().get("/produk")
 
-                    newProduk.value[index].subtotalProduk = currentData[0].subtotalProduk * jumlah
-                }
+                const newData = []
+                keranjang.map(itemKeranjang => {
+                    allData.data.data.slice().map(itemData => {
+                        if(itemData.kodeProduk === itemKeranjang.kodeProduk) {
+                           const obj = {
+                            ...itemData,
+                            jumlah: itemKeranjang.jumlah,
+                            tanggal: itemKeranjang.tanggal,
+                            subtotalAwal: itemData.subtotalProduk,
+                            hargaAwal: itemData.hargaProduk,
+                            status: false
+                           } 
+                           const {jumlah, gambarProduk} = obj
+                           if(jumlah > 1) {
+                                obj.hargaProduk *= obj.jumlah
+                                obj.subtotalProduk *= obj.jumlah
+                           }
+                           
+                           const newGambar = typeof gambarProduk == "string" ? JSON.parse(gambarProduk) : gambarProduk
+                           
+                           obj.gambarProduk = newGambar
+
+                           newData.push(obj)
+                        } else {
+                            return
+                        }
+                    })    
+                })
+                this.data = newData
+            } catch (error) {
+                console.log({error})
             }
-            return {newProduk, setStatus, setJumlah}
         },
         methods: {
-            handlePilihan(index) {
-                this.setStatus(index)
-                const products = this.newProduk.filter(i => i.status)
-                this.$emit("setData", products)
-                this.$emit("setSubtotal")
+            setHarga(index) {
+                const {hargaAwal, subtotalAwal, jumlah} = this.produk[0]
+                
+                const setLocal = (properti, value) => {
+                    this.produk[index][properti] = value
+                }
+
+                const valueHarga = hargaAwal * jumlah
+                setLocal("hargaProduk", valueHarga)
+
+                const valueSubtotal = subtotalAwal * jumlah
+                setLocal("subtotalProduk", valueSubtotal)
 
             },
             handleTambah(index) {
-                this.setJumlah(index, 1)
-                this.$emit("setSubtotal")
+                const {jumlah} = this.produk[index]
+                if(jumlah >= 99) {
+                    alert("maksimal pembelian 1 produk yaitu 100")
+                    this.produk[index].jumlah = 99    
+                } else {
+                    this.produk[index].jumlah += 1
+                    this.setHarga(index)
+                    this.$emit("setSubtotal")
+                }
             },
             handleKurang(index) {
-                this.setJumlah(index, -1)
+                const {jumlah} = this.produk[index]
+                if(jumlah <= 1) {
+                    alert("minimal pembelian 1 produk yaitu 100")
+                    this.produk[index].jumlah = 1    
+                } else {
+                    this.produk[index].jumlah -= 1
+                    this.setHarga(index)
+                    this.$emit("setSubtotal")
+                }
+            },
+            handlePilihan(index) {
+                console.log("tes")
+                const {status} = this.produk[index]
+                this.produk[index].status = !status
+
+                const result = this.produk.slice().filter(item => item.status)
+                this.$emit("setData", result)
                 this.$emit("setSubtotal")
+                
             }
             
         },

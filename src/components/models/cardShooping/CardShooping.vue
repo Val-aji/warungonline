@@ -15,7 +15,7 @@
             <img 
                 :src="product.gambarProduk.thumbnail" 
                 class="gambar" 
-                alt="Rinso Cair" 
+                :alt="product.namaProduk"
             />
 
             <div 
@@ -70,6 +70,9 @@
         },
         components: {
             TombolTambah
+        },
+        beforeMount() {
+            console.log(this.data)
         },
         methods: {
             cardShooping(e, result) {
