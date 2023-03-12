@@ -133,10 +133,10 @@
                             hargaAwal: itemData.hargaProduk,
                             status: false
                            } 
-                           const {jumlah, gambarProduk} = obj
+                           const {jumlah, gambarProduk, hargaAwal, subtotalAwal} = obj
                            if(jumlah > 1) {
-                                obj.hargaProduk *= obj.jumlah
-                                obj.subtotalProduk *= obj.jumlah
+                                obj.hargaProduk = hargaAwal * jumlah
+                                obj.subtotalProduk = subtotalAwal * jumlah
                            }
                            
                            const newGambar = typeof gambarProduk == "string" ? JSON.parse(gambarProduk) : gambarProduk
