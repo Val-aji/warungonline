@@ -55,7 +55,7 @@
     watch: {
         inputSearch(newValue) {
             console.log("search", newValue)
-        }
+        },
         userChecked(newValue) {
             this.$emit("setFilterKategori", newValue.kategori)   
         }
