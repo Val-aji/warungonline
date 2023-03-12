@@ -156,7 +156,7 @@
         },
         methods: {
             setHarga(index) {
-                const {hargaAwal, subtotalAwal, jumlah} = this.produk[0]
+                const {hargaAwal, subtotalAwal, jumlah} = this.produk[index]
                 
                 const setLocal = (properti, value) => {
                     this.produk[index][properti] = value
