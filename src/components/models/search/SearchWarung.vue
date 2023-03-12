@@ -53,6 +53,9 @@
         };
     },
     watch: {
+        inputSearch(newValue) {
+            console.log("search", newValue)
+        }
         userChecked(newValue) {
             this.$emit("setFilterKategori", newValue.kategori)   
         }
@@ -86,6 +89,7 @@
         handleTombol() {
             
             const {path} = this.$route
+            console.log("tombol", this.inputSearch)
             if(path !== "/Shooping") {
                 this.$router.push({
                     path: "/Shooping",
