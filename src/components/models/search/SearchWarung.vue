@@ -84,10 +84,10 @@
             this.alertFilter = false
         },
         handleTombol() {
-            const {$route, $router} = this
-            const {path} = $route
+            
+            const {path} = this.$route
             if(path !== "/Shooping") {
-                $router.push({
+                this.$router.push({
                     path: "/Shooping",
                     query: {inputUser: this.inputSearch}
                 })
