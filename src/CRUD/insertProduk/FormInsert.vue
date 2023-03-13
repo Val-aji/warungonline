@@ -145,7 +145,7 @@ export default {
                 myFunction: this[namaFunction],
             }
             if (item === "Kategori-Produk") {
-                const listKategori = ["--- KATEGORI PRODUK ---","Susu Cair", "Snack", "Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
+                const listKategori = ["--- KATEGORI PRODUK ---","Susu Cair", "Minuman", "Biskuit", "Pelengkap Makanan", "Makanan Instant", "Pencuci Piring", "Perawatan Diri", "Snack"]
                 obj["data"] = listKategori
                 obj["error"] = true
             }
