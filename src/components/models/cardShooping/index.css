@@ -62,19 +62,19 @@ html[data-theme="darkt"] {
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    height: 50vh;
+    height: 60vh;
     /* background-color: #ebd3d36b; */
     background-color: var(--bgCard);
     
 }
 
 #CardsShooping > .card > .gambar {
-    height: 20vh;
+    height: 35vh;
     border-radius: 15px 5px 0 0;
 }
 
 #CardsShooping > .card > .centerCard {
-    height: 35%;
+    height: 10vh;
     font-size: .7em;
     color: var(--color);
 }
