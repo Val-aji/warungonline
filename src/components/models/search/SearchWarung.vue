@@ -53,9 +53,6 @@
         };
     },
     watch: {
-        inputSearch(newValue) {
-            console.log("search", newValue)
-        },
         userChecked(newValue) {
             this.$emit("setFilterKategori", newValue.kategori)   
         }
@@ -73,23 +70,18 @@
         }
     },  
     components: { AlertFilter },
-    emits: ["setFilterKategori"],
+    emits: ["setFilterKategori", "setInputSearch"],
     methods: {
         onAlertFilter() {
             this.alertFilter = !this.alertFilter
-        },
-        onTombolClose() {
-            console.log("Hello Tombol Close")
-        },
+        },  
         setFilterKategori(res) {
             console.log("from search")
             this.userChecked = res
             this.alertFilter = false
         },
         handleTombol() {
-            
             const {path} = this.$route
-            console.log("tombol", this.inputSearch)
             if(path !== "/Shooping") {
                 this.$router.push({
                     path: "/Shooping",

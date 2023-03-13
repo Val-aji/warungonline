@@ -1,7 +1,7 @@
 <template>
     <div id="sampleCard">
         <p class="judulSampleCard ROBOTO">{{judulSample}}</p>
-        <div class="samplesCard ">
+        <div class="samplesCard " v-if="products.length > 0">
             <div class="containerCard" 
                 v-for="product in products" :key="product.id"
             >
@@ -58,22 +58,22 @@
 
 <script>
     import "./sampleCard.css"
-    import {products} from "../../../data.js"
-
+    import { instance } from "../../../../config/logic.js"
     export default {
         name: "SampleCard",
         data() {
             return {
-                products
+                products: []
             }
+        },
+        async created() {
+            const result = await instance().get("/produk")
+            this.products = result.data.data.slice(5)
         },
         methods: {
             directKategori() {
                 console.log("redirect")
             }
-        },
-        beforeMount() {
-            this.products = products.slice(0, 10)
         },
         props: {
             judulSample: String

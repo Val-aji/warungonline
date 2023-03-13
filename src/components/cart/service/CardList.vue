@@ -116,9 +116,7 @@
                 const cek = typeof result.data.data.keranjang == "string"
                 const keranjang = cek ? JSON.parse(result.data.data.keranjang) : result.data.data.keranjang
                 
-
                 // get all data
-                
                 const allData = await instance().get("/produk")
                 
                 const newData = []

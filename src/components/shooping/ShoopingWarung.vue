@@ -4,7 +4,8 @@
         <div class="containerSearch">
             <h3 class="JUDUL">Shooping</h3>
             <div class="secondContainer">
-                <SearchWarung :tombolFilter="tombolFilter" @setFilterKategori="setFilterKategori" />
+                <SearchWarung :tombolFilter="tombolFilter" @setFilterKategori="setFilterKategori"
+                @setInputSearch="setInputSearch" />
                 <DarkMode />    
             </div>
             <div class="headerDesktop">
@@ -13,7 +14,7 @@
                     <div class="footerHeader">
                         <KategoriHome @setFilterKategori="setFilterKategori" />
                         <div class="bottomFooter">
-                            <SearchWarung />
+                            <SearchWarung @setInputSearch="setInputSearch" />
                             <DarkMode />
                         </div>  
                     </div>
@@ -33,8 +34,6 @@
     </div>
     
 </template>
-
-
 
 <script>
     import NavigasiBar from '../models/navigasi/NavigasiBar.vue';
@@ -58,14 +57,15 @@
         },
         watch: {
             inputSearch(resNew) {
-               
+                
                 const newProduk = this.products.slice().filter(item => {
-                    const res = item.namaProduk.match(resNew)
-                    console.log({res})
+                    const res = item.namaProduk.toLowerCase().match(resNew.toLowerCase())
+                    
                     return res
                 })
                 
                 this.produk = newProduk
+                
                 this.$router.replace("/Shooping")
             },
             filterKategori(resNew) {
@@ -77,25 +77,36 @@
                         }
                     })
                 })
+                
                 this.produk = newProduk 
                 this.$router.replace("/Shooping")
-                
             },
-            products(resNew) {
-                this.produk = resNew.slice().map(item => {
+        },
+        async created(){
+            try {
+                const resultData = await  instance().get("/produk")
+                const {kategori, inputUser} = this.$route.query
+
+                this.products = resultData.data.data.slice().map(item => {
                     const obj = {...item}
                     obj.gambarProduk = item.
                     gambarProduk
                     return obj
                 })
-
-                // this.produk = resNew.slice()
-            }
-        },
-        async created(){
-            try {
-                const resultData = await  instance().get("/produk")
-                this.products = resultData.data.data
+                if(kategori) {
+                    this.filterKategori = [kategori]
+                    this.produk = resultData.data.data.slice().filter(item => item.kategoriProduk === kategori)
+                }
+                if(inputUser) {
+                    
+                    const newResilt  = resultData.data.data.slice().filter(item => item.namaProduk.toLowerCase().match(inputUser.toLowerCase()))
+                    this.produk = newResilt
+                    
+                }
+                if(!kategori && !inputUser) {
+                    this.produk = resultData.data.data.slice()
+                }
+                
                 
             } catch (error) {
                 console.log(error)
@@ -110,24 +121,9 @@
             CardShooping,
             DarkMode
         },
-        beforeMount() {
-            const {kategori, inputUser} = this.$route.query
-
-            if(kategori) {
-                console.log({kategori})
-                this.filterKategori = [kategori]
-            }
-            if(inputUser) {
-               
-                this.inputSearch = inputUser
-                
-            }
-            
-
-        },
         methods: {
             setFilterKategori(res) {
-                console.log("from shooping")
+                
                 if(typeof res == "string") {
                 
                     this.filterKategori = [res]
@@ -137,9 +133,8 @@
                 
             },
             setInputSearch(res) {
-                console.log({res})
                 this.inputSearch = res  
-                
+                                
             }
         }
 }

@@ -26,7 +26,7 @@
                     formData.append("email", email)
                     
                     await instance().put("/clientProduk/keranjang", formData)
-                    console.log("tambah keranjang sukses")
+                    
                 } catch (error) {
                     console.log({error})
                     console.log("error")

@@ -1,4 +1,15 @@
 <template>
+    <div class="navsTransaksi " >
+        <button 
+            class="navTransaksi HEEBO"
+            :class="nav.status ? 'activeBorder' : '' " 
+            v-for="(nav, index) in navs" :key="nav.id"
+            @click="() => setNavs(index)"
+            >
+                {{nav.name}}
+            </button>
+    </div>
+    
     <div v-for="(data, index) in listPesanan"  class="cardTransaksi" :key="index">
         <div class="card">
            
@@ -10,61 +21,89 @@
                     :src="item.gambarProduk.thumbnail" 
                     class="gambarProduk" 
                     :alt="item.namaProduk"
-                >
-                <!-- <div class="detail">
-                    <p class="namaProduk"> 
-                            {{ d.namaProduk   }}
-                    </p>
-                    <div class="harga">
-                        <p 
-                            class="hargaProduk POPPINS" 
-                            :class="{'lineThrough': sampelProduk.diskonProduk > 0}" 
-                        >
-                                Rp{{ sampelProduk.hargaProduk.toLocaleString("ID-id") }} 
-                        </p>
-                        
-                        <p 
-                            class="subtotalProduk POPPINS" 
-                            v-if="sampelProduk.diskonProduk > 0"
-                        >
-                                Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
-                        </p>
-                    </div>
-                    
-                </div>
-                 -->
+                >                
             </div>
             
-            <!-- <div class="footer">
-                    <p class="POPPINS">
-                            @Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
+            <div class="footerTransaksi">
+                <div class="POPPINS hargaFooter">
+                    <p class="judul HIND">
+                        Harga 
+                    </p>{{ data.subtotal.toLocaleString("ID-id") }}
+                </div>
+                <div class="HIND estimasi">
+                    <p class="judul HEEBO">
+                        Estimasi
                     </p>
-                    <div class="kanan">
-                        <p class="jumlah">2x</p>
-                        <p class="POPPINS subtotal">Rp{{ sampelProduk.subtotalProduk.toLocaleString("ID-id") }}
-                        </p>    
-                    </div>
-                    
+                    {{ data.estimasi}}
+                </div>
+                <button 
+                    @click="() => handleSukses(data.kodePesanan)"
+                    class="pesananSelesai ROBOTO" 
+                    v-if="data.status === 'antrian'"
+                >
+                    Pesanan Selesai
+                </button>
+                <div class="HIND estimasi" v-if="data.status !== 'antrian'">
+                    <p class="judul HEEBO">
+                        Tanggal Selesai
+                    </p>
+                    {{ data.tanggalBerakhir }}
+                </div>
             </div>
-         -->
         </div>
                 
     </div>
 </template>
 
 <script>
-    import { ref } from "vue"
+    
     import "./index.css"
+    import "./nav.css"
+    import {ref} from "vue"
     import { sampelProduk } from "../../../data"
     import HeaderCard from "./header/HeaderCard.vue"
     import { instance } from "../../../../config/logic.js"
+
     export default {   
         name: "CardTransaksi",
         data() {
             return {
                 sampelProduk,
-                listPesanan: null
+                listPesanan: null,
+                produk: null
             }
+        },
+        watch: {
+            navs(newV) {
+                const name = newV.slice().filter(i => i.status)[0].name
+                console.log(name)
+                this.listPesanan = this.produk.slice().filter(item => {
+                    return item.status === name
+                })
+            }
+        },
+        setup() {
+            const navs = ref([
+                {id: 1, name: "antrian", status: true},
+                {id: 2, name: "selesai", status: false},
+            ])
+            
+            
+            const setNavs = index => {
+                const newNavs = navs.value.slice().map((item, i) => {
+                    const newObj = {...item}
+                    if(i === index) {
+                        newObj.status = true
+                        
+                    } else {
+                        newObj.status = false
+                    }
+                    return newObj
+                })
+                navs.value = newNavs
+            }
+
+            return {navs, setNavs }
         },
         async created() {
             try {
@@ -72,28 +111,36 @@
                 const formData = new FormData()
                 formData.append("email", email)
                 const result = await instance().post("/kodePesanan/getTransaksi", formData)
-                this.listPesanan = result.data.data
-                console.log(this.listPesanan)
+                
+                this.produk = this.listPesanan = result.data.data.slice()
+                
+                this.listPesanan = result.data.data.slice().filter(item => item.status === "antrian")
+                
             } catch (error) {
                 console.log({error})
             }
         },
-        setup() {
-            const data = ref({
-                tanggal_pesanan: "12 Januari 2023",
-                nama_penerima: "Ahmad Syarifuddin Ala Bele",
-                alamat_penerima: "Jl Jogjakarta, Kuningan, Jawa Tengah.",
-                nomorHandphone_penerima: "08123456789",
-                kode_pesanan: "1BSJBWJFV1231VSD",
-                alamat_penjual: "Jl Malioboro kuningan, Jakarta Utara, DKI Jakarta Indonesia",
-                nama_penjual: "Andi",
-                nomorHandphone_penjual: "08123456789"
-            }) 
-            return {data}
-        },
         components: {
-            HeaderCard,
+            HeaderCard,  
+        },
+        methods: {
             
+            async handleSukses(value) {
+                try {
+                    const email = localStorage.getItem("emailWarungonline")
+                    const formData = new FormData()
+                    formData.append("email", email)
+                    formData.append("kodePesanan", value)
+                    const result = await instance().put("/clientProduk/transaksi/selesai", formData)
+                    console.log(result)    
+                    alert("pesanan " + value + " Selesai ")
+                    location.reload()
+                } catch (error) {
+                    console.log({error})
+                }
+                
+            }
         }
+        
     }
 </script>

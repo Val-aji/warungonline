@@ -6,192 +6,55 @@ html[data-theme="dark"] {
     --colorStyleLocal: rgba(255, 255, 255, .8);
 }
 
-/*
-@media screen and (min-width: 577px) {
-    .cardTransaksi {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .cardTransaksi > .card {
-        width: 47%;
-    }
-    .cardTransaksi > .card > .produk > .detail > .harga {
-        display: flex;
-        flex-direction: column;
-    }
 
-    .cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
-        text-align: end;
-    }
-
-    .cardTransaksi > .card > .footer {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cardTransaksi > .card > .footer > .kanan > .jumlah {
-        color: var(--colorNormal) !important;
-        
-    }
-    .cardTransaksi > .card > .footer > .kanan > .subtotal {
-        width: max-content !important;
-        
-    }
-    .cardTransaksi > .card > .footer > .kanan {
-        width: 100%;
-            
-        display: flex;
-        justify-content: end;
-    }   
+.kosong {
+    color: red;
 }
-
-.cardTransaksi > .card  {
-    padding: 4vh 1vh;
-}
-
-
-
-.cardTransaksi > .card > .produk {
-    padding: 1vh;
-    border: 1px solid var(--colorStyleLocal);
-    display: flex;
-    justify-content: space-between;
-}
-
-.cardTransaksi > .card > .produk > img {
-    width: 25%;
-    height: 10vh;
-}
-
-.cardTransaksi > .card > .produk > .detail {
-    width: 70%;
-        
-}
-
-.cardTransaksi > .card > .produk > .detail > .namaProduk {
-    height: 6vh;
-    overflow: auto;
-    margin:0 0 1vh 0;
-}
-
-.cardTransaksi > .card > .produk > .detail > .harga {
-    display: flex;
-    overflow: auto;
-}
-
-
-.cardTransaksi > .card > .produk > .detail > .harga > .hargaProduk{
-    color: var(--hargaSebelumDiskon);
-    margin-right: 1.5vh;
-    font-weight: bold;
-    font-size: .9em;
-}
-
-.lineThrough {
-    text-decoration: line-through;
-    text-decoration-color: var(--colorStyle)
-}
-
-.cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
-    color: var(--hargaSetelahDiskon);
-    font-weight: bold;
-    letter-spacing: .8px;
-    font-size: .9em;
-}
-
-
-
-/* FOOTER  */
-
-/* .cardTransaksi > .card > .footer {
-    display: flex;
-    padding: .7vh;
-    border: 2px dashed rgba(0, 0, 0, .4);
-    background-color: #eeeeee;
-    justify-content: space-between;
-    margin-bottom: 3vh;
-}
-
-.cardTransaksi > .card > .footer > p {
-    font-weight: bold;
-    color: rgba(0, 0, 0, .7);
-    letter-spacing: .4px;
-    width: 45%;
-} 
-    
-.cardTransaksi > .card > .footer > .kanan {
-    display: flex;
-    align-items: center;
-}
-
-.cardTransaksi > .card > .footer > .kanan > .subtotal {
-    width: 85%;
-    font-size: 1.1em;
-    letter-spacing: 1px;
-    margin-left: 1vh;
-    font-weight: 600;
-    color: var(--hargaSetelahDiskon);
-}
-
-
-@media screen and (max-width: 320px) {
-    .cardTransaksi > .card > .produk {
-        flex-direction: column;
-    }
-    .cardTransaksi > .card > .produk > img {
-        height: 15vh;
-    }
-    .cardTransaksi > .card > .produk > * {
-        width: 100% !important;
-    }
-    
-    .cardTransaksi > .card > .produk > .detail > .harga {
-        flex-direction: column;
-    }
-    
-    .cardTransaksi > .card > .produk > .detail > .harga > .subtotalProduk {
-        text-align: end;
-    }
-    
-    .cardTransaksi > .card > .footer {
-        flex-direction: column;
-        overflow: auto;
-        font-size: .96em;
-    }
-    
-    .cardTransaksi > .card > .footer > .kanan {
-        width: 100%;
-        display: flex;
-        justify-content: end;
-    }
-    
-    .cardTransaksi > .card > .footer > .kanan > .subtotal {
-        width: max-content;
-    }
-    
-    .cardTransaksi > .card > .footer > .kanan > .jumlah {
-        width: max-content;
-    }
-    
-}
- */ 
 
 .cardTransaksi {
-    padding: 1vh 0 2vh;
+    padding: 1vh 1vw 2vh;
+    position: relative;
+    z-index: 0;
+    margin-top: 10vh;
 }
 
- .produk {
+.produk {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
- }
+}
 
- .produk > img {
+.produk > img {
     width: 18%;
     height: 70px;
     margin: 0 1%;
- }
+}
 
+
+.footerTransaksi {
+    display: flex;
+    padding: 1vh 2vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerTransaksi > .hargaFooter {
+    color: var(--hargaSetelahDiskon);
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.footerTransaksi > div > .judul {
+    color: #838383;
+}
+.footerTransaksi > .pesananSelesai {
+    border-radius: 5em;
+    padding: 1.5vh 2vw;
+    font-size: .8em;
+    letter-spacing: .1vw;
+    font-weight: bold;
+    background-color: var(--color);
+    color: var(--colorNormal);
+    border: 1px solid var(--colorJudul);
+} 
 
  @media screen and (min-width: 825px) {
     .produk > img {
@@ -201,6 +64,20 @@ html[data-theme="dark"] {
  @media screen and (max-width: 400px) {
     .produk > img {
         height: 50px;
+    }
+    .footerTransaksi  {
+        flex-direction: column;
+    }
+    .footerTransaksi > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .footerTransaksi > button {
+        font-size: 1.1em !important;
+        width: 90%;
+        margin: 1vh 0;
+        padding: .5vh 1vw !important;
     }
  }
 

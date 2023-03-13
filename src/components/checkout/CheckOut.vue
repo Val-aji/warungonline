@@ -35,7 +35,7 @@
             <TotalKeseluruhan :subtotal="subtotal" :jumlahProduk="jumlahProduk" :kodePesanan="kodePesanan" />
             
         </div>
-        <ComponentFooter :cartWarung="true"  :data="sampelProduk" :subtotal="subtotal" @handlePesan="checkout" />
+        <ComponentFooter v-if="isComponent" :cartWarung="true"  :data="sampelProduk" :subtotal="subtotal" @handlePesan="checkout" />
     </div>
 </template>
 
@@ -68,6 +68,7 @@ export default {
             subtotal: 0,
             jumlahProduk: 0,
             isValid: false,
+            isComponent: true,
         }
     },
     components: {
@@ -136,11 +137,12 @@ export default {
             
         },
         async checkout() {
+            
             if(!this.isValid || !this.alamat) {
                 alert("Masukkan alamat dengan benar")
                 return false
             } 
-
+            this.isComponent = false
             const email = localStorage.getItem("emailWarungonline")
             const datetime = new Date().toLocaleString("ID-id", {timezone: "asia/jakarta"})
             const dataPesanan = {
@@ -164,11 +166,12 @@ export default {
             
             
             try {
-                const result = await instance().put("/clientProduk/transaksi", formData)    
-                console.log(result)
+                
+                await instance().put("/clientProduk/transaksi", formData)    
                 alert("Pesanan berhasil di proses")
                 this.$router.push("/Account")
             } catch (error) {
+                location.reload()
                 console.log({error})
             }
             

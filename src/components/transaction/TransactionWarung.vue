@@ -17,12 +17,12 @@
                 </div>
             </div>
         </div>
-        <div class="COMPONENT-BODY pt-8 ">
+        <div class="COMPONENT-BODY pt-8 TRANSAKSI">
             <CardTransaksi />
             <TotalKeselurahan />
 
         </div>
-        <div class="COMPONENT-BODY-DESKTOP">
+        <div class="COMPONENT-BODY-DESKTOP TRANSAKSI">
             <CardTransaksi />
             <TotalKeselurahan />
         </div>

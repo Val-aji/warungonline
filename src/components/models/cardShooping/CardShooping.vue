@@ -71,9 +71,6 @@
         components: {
             TombolTambah
         },
-        beforeMount() {
-            console.log(this.data)
-        },
         methods: {
             cardShooping(e, result) {
                 if(e.target.className === "tombolTambah") {

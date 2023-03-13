@@ -1,0 +1,5 @@
+.TRANSAKSI {
+    height: 100vh !important;
+    background-color: var(--colorBody);
+    overflow-y: auto;   
+}

@@ -345,14 +345,14 @@ export default {
                 } 
                 this.error = false
                 formData.append(item.name, value)
-                console.log(value)
+                
             }
 
             try {
-                const result = await instance().post("/produk", formData) 
+                await instance().post("/produk", formData) 
                 alert("insert data berhasil")
                   
-                console.log(result) 
+                
                 location.reload()
             } catch (error) {
                 console.log("error insert", error)
