@@ -16,7 +16,7 @@ html[data-theme="dark"] {
 
 .containerFirst > div >  .componentGambar {
     width: 100% !important;
-    height: 150px;
+    
     display: flex;
     overflow-x: auto;
 }
@@ -30,8 +30,9 @@ html[data-theme="dark"] {
 
 .containerFirst > div > .componentGambar > .containerGambarDetail  > .gambarDetail {
     width: 80%;
-    height: 25vh;
+    height: 30vh;
     border-radius: 10px;
+    margin: 2vh 0;
 }
 
 @media screen and (min-width: 500px) {
