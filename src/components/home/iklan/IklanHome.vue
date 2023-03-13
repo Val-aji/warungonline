@@ -5,6 +5,7 @@
 </template>
 
 <script>
+    import {ref} from "vue"
     import "./index.css"
     export default {
         name: "IklanShooping",
@@ -13,9 +14,12 @@
                 count: 0,
                 posisiAwalX: null,
                 persentaseCenter: 0.633,
-                gambarIklan: ["https://static.tvmaze.com/uploads/images/medium_portrait/410/1026956.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/81/202627.jpg", "https://static.tvmaze.com/uploads/images/medium_portrait/230/575652.jpg" ],
                 posisiIklan: null
             }   
+        },
+        setup() {
+            const gambarIklan = ["https://backend-warungonline-production.up.railway.app/image/20230313_163407_0000.png", "https://backend-warungonline-production.up.railway.app/image/20230313_163522_0000.png", "https://backend-warungonline-production.up.railway.app/image/png_20230313_163242_0000.png"]
+            return {gambarIklan}
         },
         methods: {
             posisiAwal(e) {
