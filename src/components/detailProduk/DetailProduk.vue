@@ -81,6 +81,19 @@
             IklanWarung,
             NavigasiBar
         },
+         async created(){
+            try {
+                const resultData = await  instance().get("/produk")
+                const {kategori, inputUser} = this.$route.query
+                this.products = resultData.data.data.slice()
+                
+     
+                
+            } catch (error) {
+                console.log(error)
+            }
+            
+        },
         beforeMount() {
             try {
                 const {state} = this.$route.query
