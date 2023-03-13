@@ -76,7 +76,6 @@
             this.alertFilter = !this.alertFilter
         },  
         setFilterKategori(res) {
-            console.log("from search")
             this.userChecked = res
             this.alertFilter = false
         },

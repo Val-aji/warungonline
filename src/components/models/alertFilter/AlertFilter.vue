@@ -54,19 +54,38 @@
             const setKategori = (index) => {
                 kategori.value[index].status = !kategori.value[index].status
             }
-            return {harga, setHarga, kategori, setKategori}
+            const setKategoriTrue = (index, value) => {
+                kategori.value[index].status = value
+            }
+            
+            return {harga, setHarga, kategori, setKategori, setKategoriTrue}
         },
         components: {
             ComponentAlert
         },
         methods: {  
             selectedKategori(index) {
-                this.setKategori(index)
+                
+                if(index === this.kategori.length - 1) {
+                    if(this.kategori[7].status === true) {
+                        
+                        this.setKategoriTrue(7, false)
+                    } else {
+                        this.kategori.slice().map((item, index) => {
+                            
+                          this.setKategoriTrue(index, true)  
+                          return
+                        })
+                    }
+                    
+                } else {
+                    this.setKategori(index)
+                }
                 
             },  
             selectedHarga(index) {
                 this.setHarga(index)
-                
+                                
             },
             handlePilihan() {
                 
@@ -87,9 +106,10 @@
                     } else {
                         return
                     }
-                    }),
+                })
                 
-                    this.$emit("setFilterKategori", obj)
+            
+                this.$emit("setFilterKategori", obj)
                     
             }
         }

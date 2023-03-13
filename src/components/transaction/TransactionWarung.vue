@@ -52,8 +52,8 @@
             IklanWarung,
             SearchWarung
         },
-        beforeMount() {
-            cekLogin(this.$router, this.$router.path)
+        created() {
+            cekLogin(this.$router, this.$route.path)
         }
     }
 

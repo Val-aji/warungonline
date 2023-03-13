@@ -70,13 +70,19 @@
             },
             filterKategori(resNew) {
                 const newProduk = []
-                resNew.map(item => {
+                
+                let i = 0
+                while(i < resNew.length) {
+                    const item = resNew[i]
+                    
                     this.products.slice().filter(itemProducts => {      
                         if(itemProducts.kategoriProduk.match(item)) {
+                            
                             newProduk.push(itemProducts)
                         }
                     })
-                })
+                    i += 1
+                }
                 
                 this.produk = newProduk 
                 this.$router.replace("/Shooping")
@@ -125,10 +131,9 @@
             setFilterKategori(res) {
                 
                 if(typeof res == "string") {
-                
-                    this.filterKategori = [res]
+                    this.filterKategori = [...res]
                 } else {
-                    this.filterKategori = [res]
+                    this.filterKategori = [...res]
                 }
                 
             },
