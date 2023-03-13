@@ -56,7 +56,7 @@
     import DarkMode from "../models/darkMode/DarkMode.vue";
     import SearchWarung from "../models/search/SearchWarung.vue";
     import "./index.css"
-
+    import {instance} from "../../../config/logic.js"
     import "./index.css";
     import IklanWarung from "../home/iklan/IklanHome.vue";
     import KategoriWarung from "../home/kategori/KategoriHome.vue"
