@@ -18,7 +18,7 @@
             }   
         },
         setup() {
-            const gambarIklan = ["https://backend-warungonline-production.up.railway.app/image/20230313_163407_0000.png", "https://backend-warungonline-production.up.railway.app/image/20230313_163522_0000.png", "https://backend-warungonline-production.up.railway.app/image/png_20230313_163242_0000.png"]
+            const gambarIklan = ref(["https://backend-warungonline-production.up.railway.app/image/20230313_163407_0000.png", "https://backend-warungonline-production.up.railway.app/image/20230313_163522_0000.png", "https://backend-warungonline-production.up.railway.app/image/png_20230313_163242_0000.png"])
             return {gambarIklan}
         },
         methods: {
