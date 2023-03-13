@@ -2,7 +2,7 @@
     <div v-if="jumlahProduk || subtotal" class="totalKeseluruhan">
         <div class="container kodePesanan">
             <p class="judul HIND">Kode Pesanan</p>
-            <span class="ROBOTO"> {{ kodePesanan }}</span>
+            <span class="ROBOTO kodePesanan"> {{ kodePesanan }}</span>
         </div>
         <div class="container subtotalJumlah">
             <p class="judul HIND">Subtotal Jumlah</p>

@@ -7,8 +7,37 @@ html[data-theme="dark"] {
 }
 
 
-.kosong {
-    color: red;
+@media screen and (max-width: 577px) {
+    .kosongTer {
+        font-size: .9em;
+    }
+    .kosongTer > p {
+        width: 90%;
+    }
+    .kosongTer > button {
+        width: 90% !important;
+        padding: 1vh 3vw !important;
+    }       
+}
+
+.kosongTer {
+    margin-top: 30vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    color: var(--color);
+
+}
+
+.kosongTer > button {
+    background-color: var(--color);
+    padding: 1vh 10vw;
+    margin: 3vh 0;
+    width: max-content;
+    border-radius: 10px;
+    color: var(--colorNormal);
 }
 
 .cardTransaksi {
@@ -30,7 +59,12 @@ html[data-theme="dark"] {
     margin: 0 1%;
 }
 
-
+@media screen and (max-width: 280px) {
+    .footerTransaksi > div > .judul {
+        display: none;
+    }
+    
+}
 .footerTransaksi {
     display: flex;
     padding: 1vh 2vw;

@@ -3,7 +3,8 @@
         <p class="judulSampleCard ROBOTO">{{judulSample}}</p>
         <div class="samplesCard " v-if="products.length > 0">
             <div class="containerCard" 
-                v-for="product in products" :key="product.id"
+                v-for="product in products" :key="product.id" 
+                @click="(e) => handleCard(e, product)"
             >
                 <div class="card" >
                     <img 
@@ -38,9 +39,7 @@
                             </p>
                             
                         </div>
-                        <button class="tombolPesan">
-                            +
-                        </button>
+                        <TombolTambah :data="product"/>
                     </div>
                 </div>
             </div>
@@ -59,6 +58,8 @@
 <script>
     import "./sampleCard.css"
     import { instance } from "../../../../config/logic.js"
+    import TombolTambah from "../tombolTambah/TombolTambah.vue"
+
     export default {
         name: "SampleCard",
         data() {
@@ -68,12 +69,30 @@
         },
         async created() {
             const result = await instance().get("/produk")
-            this.products = result.data.data.slice(5)
+            this.products = result.data.data.length > 10 ? result.data.data.filter((item, index) => index < 10) : result.data.data.slice()
+            
+        },
+        components: {
+            TombolTambah
         },
         methods: {
             directKategori() {
                 console.log("redirect")
-            }
+            },
+            handleCard(e, result) {
+                if(e.target.className === "tombolTambah") {
+                    return false
+                }
+                if(this.$route.path === "/detailProduk") {
+                    this.$router.push("/Shooping")        
+                }
+                setTimeout(() => {
+                    this.$router.push({
+                    path: "/detailProduk",
+                    query: {state: JSON.stringify(result)}
+                })
+                }, 100);
+            },
         },
         props: {
             judulSample: String

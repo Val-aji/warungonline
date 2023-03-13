@@ -16,6 +16,10 @@
     align-items: center;
 }
 
+.totalKeseluruhan > .container > .kodePesanan {
+    overflow-x: auto;
+}
+
 
 
 

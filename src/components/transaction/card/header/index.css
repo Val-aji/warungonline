@@ -6,6 +6,7 @@
 .cardTransaksi > .card > .header {
     width: 100%;
     padding: 2vh 0;
+
 }
 
 
@@ -29,4 +30,13 @@
 
 .header > .containerTransaksi > .alamat {
     font-size: .9em;
+}
+
+
+.header > .containerTransaksi > .headerTr >.kodePesanan {
+    overflow-x: auto;
+}
+
+.header > .containerTransaksi > .headerTr >.nomorWhatsapp {
+    overflow-x: auto;
 }

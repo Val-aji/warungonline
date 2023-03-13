@@ -2,6 +2,7 @@
     <div class="containerKosong" v-if="data.length <= 0">
         <p class="notData POPPINS" v-if="!data || data.length <= 0"> Produk tidak ditemukan! </p>
     </div>
+    
     <p v-if="data.length > 0" class="judulCard ROBOTO"> Produk Lainnya </p>
     
     <div v-if="data || data.length > 0" id="CardsShooping">

@@ -1,6 +1,11 @@
 <template>
     <div class="cardList">
-        <div class="cards">
+        <div class="kosong" v-if="data.length <= 0">
+            <p class="" >Keranjang Belanjamu masih kosong nih...</p>
+            <button class="POPPINS tombolPilih" @click="redirect">pilih kebutuhanmu sebelum kehabisan!</button>
+        </div>
+        
+        <div class="cards" v-if="data.length > 0">
             <div 
                 v-for="(product, index) in produk" 
                 class="card" 
@@ -198,6 +203,9 @@
                 this.$emit("setData", result)
                 this.$emit("setSubtotal")
                 
+            },
+            redirect() {
+                this.$router.push("/Shooping")
             }
             
         },

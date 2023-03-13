@@ -5,8 +5,39 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
     --colorLocal: rgba(255, 255, 255, .2);
 }
+.kosong {
+    color: var(--color);
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10vh 0;
+}
 
+@media screen and (max-width: 577px) {
+    .kosong {
+        font-size: .9em;
+    }
+    .kosong > p {
+        width: 90%;
+    }
+    .kosong > .tombolPilih {
+        width: 90%;
+        padding: 1vh 5vw !important;
+    }       
+}
 
+.kosong > .tombolPilih {
+    margin: 3vh 0;
+    padding: 1vh 10vw;
+    letter-spacing: .2vw;
+    border-radius: 10px;
+    background-color: var(--color);
+    color: var(--colorNormal);
+    border: none;
+}
 .cardList > .cards  {
     display: flex;
     flex-direction: column;

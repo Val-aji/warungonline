@@ -10,6 +10,10 @@
             </button>
     </div>
     
+    <div class="kosongTer" v-if="listPesanan.length <= 0">
+        <p class="HIND">Transaksimu masih kosong nih!</p>
+        <button @click="redirect" class="POPPINS">yuk isi transaksimu biar gak kosong!</button>
+    </div>
     <div v-for="(data, index) in listPesanan"  class="cardTransaksi" :key="index">
         <div class="card">
            
@@ -69,14 +73,13 @@
         data() {
             return {
                 sampelProduk,
-                listPesanan: null,
-                produk: null
+                listPesanan: [],
+                produk: []
             }
         },
         watch: {
             navs(newV) {
                 const name = newV.slice().filter(i => i.status)[0].name
-                console.log(name)
                 this.listPesanan = this.produk.slice().filter(item => {
                     return item.status === name
                 })
@@ -124,15 +127,16 @@
             HeaderCard,  
         },
         methods: {
-            
+            redirect() {
+                this.$router.push("/Cart")
+            },
             async handleSukses(value) {
                 try {
                     const email = localStorage.getItem("emailWarungonline")
                     const formData = new FormData()
                     formData.append("email", email)
                     formData.append("kodePesanan", value)
-                    const result = await instance().put("/clientProduk/transaksi/selesai", formData)
-                    console.log(result)    
+                    await instance().put("/clientProduk/transaksi/selesai", formData)
                     alert("pesanan " + value + " Selesai ")
                     location.reload()
                 } catch (error) {

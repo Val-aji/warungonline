@@ -117,7 +117,7 @@ html[data-theme="dark"] {
     font-size: .98em;
 }
 
-.samplesCard > .containerCard > .card > .footerCard > .tombolPesan {
+.samplesCard > .containerCard > .card > .footerCard > .tombolTambah {
     border-radius: 5px 5px 10px 5px;
     /* color: var(--colorBorderSample); */
     color: white;
@@ -128,11 +128,10 @@ html[data-theme="dark"] {
     background-color: #5a5a5ada;
 } 
 
-.samplesCard > .containerCard > .card > .footerCard > .tombolPesan:hover {
+.samplesCard > .containerCard > .card > .footerCard > .tombolTambah:hover {
     color: black;
     background-color: #686868;
 } 
-
 
 .samplesCard > .lihatSemua > p {
     padding: 0 25px;
