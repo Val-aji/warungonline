@@ -52,7 +52,7 @@
     import ComponentDetail from "./detail/ComponentDetail.vue";
     import ComponentFooter from "../models/footer/ComponentFooter.vue";
     import CardShooping from "../models/cardShooping/CardShooping.vue";
-    import {products} from "../../data.js"
+    //import {products} from "../../data.js"
     import DarkMode from "../models/darkMode/DarkMode.vue";
     import SearchWarung from "../models/search/SearchWarung.vue";
     import "./index.css"
@@ -68,7 +68,7 @@
             return {
                 data: null,
                 CLOSE,
-                products
+                products: []
             }
         },
         components: {
