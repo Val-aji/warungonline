@@ -30,9 +30,9 @@ html[data-theme="dark"] {
 
 .containerFirst > div > .componentGambar > .containerGambarDetail  > .gambarDetail {
     width: 80%;
-    height: 30vh;
+    height: 36vh;
     border-radius: 10px;
-    margin: 2vh 0;
+    margin: 1vh 0;
 }
 
 @media screen and (min-width: 500px) {
@@ -85,7 +85,7 @@ html[data-theme="dark"] {
 .containerFirst > .describeDetail >.headerDescribe > .namaProduk {
     width: 65%;
     font-size: 1em;
-    height: 10vh;
+    height: 5vh;
     overflow-y: auto;
     letter-spacing: .8px;
     border-bottom: 1px solid rgba(0, 0, 0, .4) !important;
