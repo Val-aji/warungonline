@@ -32,7 +32,7 @@
                 <div class="POPPINS hargaFooter">
                     <p class="judul HIND">
                         Harga 
-                    </p>{{ data.subtotal.toLocaleString("ID-id") }}
+                    </p>Rp{{ data.subtotal.toLocaleString("ID-id") }}
                 </div>
                 <div class="HIND estimasi">
                     <p class="judul HEEBO">

@@ -21,8 +21,8 @@ html[data-theme="darkt"] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 100vh;
-    overflow-y: auto;
+    height: max-content;
+    overflow-y: auto;   
 }
 
 @keyframes scaleCard {
