@@ -73,8 +73,8 @@
             const newButton = [
                 {name: "Tambah Produk", myFunction: this.redirectInsert},
                 {name: "Edit Profile", myFunction: handleTesting},
-                {name: "Keranjang Belanja", myFunction: handleTesting},
-                {name: "Hsitory Belanja", myFunction: handleTesting},
+                {name: "Keranjang Belanja", myFunction: this.redirectCart},
+                {name: "History Belanja", myFunction: this.redirectHistory},
                 {name: "Kelola Produk", myFunction: handleTesting},
                 {name: "Pertanyaan sering muncul", myFunction: handleTesting},
                 {name: "Ketentuan & Persyaratan", myFunction: handleTesting},
@@ -83,7 +83,12 @@
             this.setButtons(newButton)
         },
         methods: {
-            
+            redirectCart() {
+                this.$router.push("/Cart")
+            },
+            redirectHistory() {
+                this.$router.push("/Transaksi")
+            },
             redirectInsert() {
                this.$router.push("/insertProduk")
             }

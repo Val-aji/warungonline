@@ -38,7 +38,7 @@ html[data-theme="darkt"] {
 }
 
 .judulCard {
-    margin: 15px 8px 0 8px;
+    margin: 1vh 8px 0 8px;
     font-size: 1em;
     color: var(--color);
 }
@@ -257,11 +257,21 @@ html[data-theme="darkt"] {
     }   
 }
 
+@media screen and (min-width: 440px){
+    #CardsShooping  > .card{
+        height: 60vh;
+    }
+    #CardsShooping > .card > .gambar {
+        
+        height: 35vh;
+    }
+}
+
 @media screen and (min-width: 577px) {
     #CardsShooping {
         width: 80vw !important;
     }
-    #CardsShooping > .card {
+    #CardsShooping > .card {    
         width: 35%;
         
     }

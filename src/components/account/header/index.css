@@ -15,8 +15,8 @@
     margin-top: 70px;
     border-radius: 100%;
     margin-bottom: 20px;
-    width: 30%;
-    height: 20vh;
+    width: 40%;
+    height: 35vh;
 }
 
 .componentHeader > .container > .namaLengkap {
@@ -27,7 +27,7 @@
 @media screen and (max-width: 250px) {
     .componentHeader > .container > img {
         width: 40% !important;
-        height: 15vh;
+        height: 20vh;
     }
     .componentHeader > .container > .namaLengkap {
         font-size: .87em;
@@ -41,7 +41,7 @@
 
 @media screen and (min-width: 420px) {
     .componentHeader > .container > img {
-        height: 25vh !important;
+        height: 30vh !important;
         width: 30%;
 
     }
