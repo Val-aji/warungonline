@@ -1,7 +1,7 @@
 <template>
     <div class="componentHeader">
         <div class="container">
-            <img class="gambarAccount" src="https://backend-warungonline-production.up.railway.app/image/Screenshot_20230205-224818_1.png" alt="gambar Profile" />
+            <img class="gambarAccount" src="https://backend-warungonline.vercel.app/image/Screenshot_20230205-224818_1.png" alt="gambar Profile" />
             <h3 class="namaLengkap HEEBO">Admin warungonline</h3>
         </div>
     </div>
