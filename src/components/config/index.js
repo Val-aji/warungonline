@@ -1,4 +1,4 @@
-export const urlAPI = "https://backend-warungonline-production.up.railway.app"
+export const urlAPI = "https://backend-warungonline.vercel.app"
 
 //export const urlAPI = "http://localhost:3000"
 
